@@ -7,5 +7,6 @@ namespace UnityLeaf.PluginState
     {
         IDictionary<string, Any> GetRawData();
         void Replace(IDictionary<string, Any> dictionary);
+        void Notify(string key);
     }
 }

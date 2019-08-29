@@ -28,5 +28,10 @@ namespace UnityLeaf.PluginState
         {
             this.state.Replace(dictionary);
         }
+
+        public void Notify(string key)
+        {
+            this.state.Notify(key, this.state.Get(key));
+        }
     }
 }

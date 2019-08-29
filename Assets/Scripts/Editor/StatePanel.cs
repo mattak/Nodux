@@ -44,19 +44,25 @@ namespace UnityLeaf.PluginEditor
         {
             this.scrollPosition = EditorGUILayout.BeginScrollView(this.scrollPosition);
 
-            var dirty = this.Render(accessor.GetRawData());
+            this.Render(accessor, accessor.GetRawData());
 
             EditorGUILayout.EndScrollView();
         }
 
-        private bool Render(IDictionary<string, Any> map)
+        private bool Render(IStoreAccessor accessor, IDictionary<string, Any> map)
         {
+            var dirty = false;
+
             foreach (var key in map.Keys.ToArray())
             {
-                PropertyRenderer.RenderAny(key, map[key]);
+                if (PropertyRenderer.RenderAny(key, map[key], newValue => map[key] = newValue))
+                {
+                    dirty = true;
+                    accessor.Notify(key);
+                }
             }
 
-            return false;
+            return dirty;
         }
 
         private void CheckInitialize()
