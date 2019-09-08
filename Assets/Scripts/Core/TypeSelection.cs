@@ -64,11 +64,12 @@ namespace UnityLeaf.Core
 
             if (string.IsNullOrEmpty(this.ContentJson))
             {
-                UnityEngine.Debug.LogWarning("ContentJson is null or empty");
-                return false;
+                this._value = JsonUtility.FromJson("{}", this._type);
             }
-
-            this._value = JsonUtility.FromJson(this.ContentJson, this._type);
+            else
+            {
+                this._value = JsonUtility.FromJson(this.ContentJson, this._type);
+            }
 
             return this._type != null && this._value != null;
         }

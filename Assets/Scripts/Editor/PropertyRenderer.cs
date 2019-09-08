@@ -4,7 +4,6 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityLeaf.Core;
-using Object = System.Object;
 
 namespace UnityLeaf.PluginEditor
 {

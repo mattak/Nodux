@@ -55,7 +55,9 @@ namespace UnityLeaf.PluginEditor
 
             foreach (var key in map.Keys.ToArray())
             {
-                if (PropertyRenderer.RenderAny(key, map[key], newValue => map[key] = newValue))
+                if (EditorGUILayoutRenderer.RenderSystemObject(
+                    key, map[key].Type, map[key].Object, newValue => map[key] = new Any(newValue),
+                    type => null))
                 {
                     dirty = true;
                     accessor.Notify(key);

@@ -20,6 +20,7 @@ namespace UnityLeaf.PluginNode
         {
             this.StateKey = stateKey;
             this.Reducer = reducer;
+            this.ReducerSelection = null;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -33,7 +34,6 @@ namespace UnityLeaf.PluginNode
                 }
 
                 this.Reducer = this.ReducerSelection.Get<IReducer>();
-                UnityEngine.Debug.Log($"Reducer: {Reducer}");
             }
 
             return this.Parent
