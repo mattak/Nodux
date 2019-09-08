@@ -1,16 +1,18 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityLeaf.Core;
 using UnityLeaf.PluginState;
 
 namespace UnityLeaf.PluginScene
 {
+    [Serializable]
+    [TypeSelectionEnable("Reducer")]
     public class SceneSyncReducer : IReducer
     {
-        private readonly string ActionKey = typeof(SceneSyncReducer).FullName;
-
         public State Reduce(State state, StateAction action)
         {
-            if (action.ActionKey != ActionKey) return state;
+            if (!(action.Reducer is SceneSyncReducer)) return state;
 
             // init
             var value = state.Get(action.StateKey).Value<IDictionary<string, bool>>();

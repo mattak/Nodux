@@ -17,9 +17,38 @@ namespace UnityLeaf.PluginEditor
         private static IDictionary<string, List<string>> TypeAssemblyQualifiedNameListMap =
             new Dictionary<string, List<string>>();
 
+        private static IDictionary<string, TypeSelectionRenderer> RendererMap =
+            new Dictionary<string, TypeSelectionRenderer>();
+
         private string FilterCategory = null;
         private IList<string> TypeNameList => TypeNameListMap[FilterCategory];
         private IList<string> TypeAssemblyQualifiedNameList => TypeAssemblyQualifiedNameListMap[FilterCategory];
+
+        public static bool RenderFromSystemObject(
+            ref Rect rect,
+            string fieldName,
+            TypeSelection selection,
+            Func<Type, Attribute> attributeAccessor,
+            Action<object> setter
+        )
+        {
+            var attribute = (TypeSelectionFilter) attributeAccessor(typeof(TypeSelectionFilter));
+
+            if (attribute != null)
+            {
+                if (!RendererMap.ContainsKey(attribute.Category))
+                {
+                    RendererMap[attribute.Category] = new TypeSelectionRenderer();
+                    RendererMap[attribute.Category].CheckInitialize(attribute.Category);
+                }
+
+                var dirty = RendererMap[attribute.Category].RenderTypeAndValue(ref rect, fieldName, ref selection);
+                if (dirty) setter(selection);
+                return dirty;
+            }
+
+            return false;
+        }
 
         public void CheckInitialize(string filterCategory)
         {
@@ -54,6 +83,32 @@ namespace UnityLeaf.PluginEditor
             }
         }
 
+        public bool RenderTypeAndValue(ref Rect position, string fieldName, ref TypeSelection selection)
+        {
+            var rect = new Rect(position.x, position.y, position.width, 0);
+            var dirty = false;
+
+            selection?.Restore();
+
+            // type
+            {
+                dirty |= this.RenderType(ref rect, fieldName, ref selection);
+                position.height = rect.height;
+                rect.y += rect.height;
+                rect.height = 0;
+            }
+
+            // value
+            {
+                dirty |= this.RenderValue(ref rect, ref selection);
+                rect.y += rect.height;
+                position.height += rect.height;
+                rect.height = 0;
+            }
+
+            return dirty;
+        }
+
         public bool RenderTypeAndValue(ref Rect position, SerializedProperty property)
         {
             var rect = new Rect(position.x, position.y, position.width, 0);
@@ -78,6 +133,41 @@ namespace UnityLeaf.PluginEditor
             return dirty;
         }
 
+
+        public bool RenderType(ref Rect position, string fieldName, ref TypeSelection selection)
+        {
+            var selectIndex = -1;
+            if (selection != null)
+            {
+                if (selection.Type != null)
+                {
+                    selectIndex = TypeAssemblyQualifiedNameList.IndexOf(selection.Type.AssemblyQualifiedName);
+                }
+            }
+            else
+            {
+                selection = new TypeSelection();
+            }
+
+            var rect = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
+            var newSelectIndex = EditorGUI.Popup(
+                rect,
+                fieldName,
+                selectIndex,
+                TypeNameList.ToArray()
+            );
+            position.height += rect.height;
+            rect.y += rect.height;
+            rect.height = 0;
+
+            if (newSelectIndex != selectIndex)
+            {
+                selection.Type = TypeListMap[this.FilterCategory][newSelectIndex];
+            }
+
+            return true;
+        }
+
         public bool RenderType(ref Rect position, SerializedProperty property)
         {
             var fullName = property.FindPropertyRelative("FullName");
@@ -97,6 +187,37 @@ namespace UnityLeaf.PluginEditor
                 fullName.stringValue = TypeAssemblyQualifiedNameList[newSelectIndex];
                 property.serializedObject.ApplyModifiedProperties();
                 return true;
+            }
+
+            return false;
+        }
+
+        public bool RenderValue(ref Rect position, ref TypeSelection selection)
+        {
+            if (selection.Type != null)
+            {
+                object obj = selection.Object;
+                if (obj == null) obj = JsonUtility.FromJson("{}", selection.Type);
+                if (obj != null)
+                {
+                    var rect = new Rect(position.x, position.y, position.width, 0);
+                    var dirty = EditorGUIPropertyRenderer.RenderClass(ref rect, null, obj);
+                    position.height += rect.height;
+
+                    if (dirty)
+                    {
+                        UnityEngine.Debug.Log($"dirty RenderValue {obj}");
+                        selection.SetValue(obj);
+                    }
+
+                    return true;
+                }
+            }
+            else
+            {
+                var rect = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
+                EditorGUI.HelpBox(rect, $"Not found serialized type on selection: {selection}", MessageType.Warning);
+                position.height += rect.height;
             }
 
             return false;

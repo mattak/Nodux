@@ -8,7 +8,7 @@ namespace UnityLeaf.PluginEditor
     public class ChainNodeDrawer : PropertyDrawer
     {
         private float TotalHeight = 0;
-        private TypeSelectionRenderer renderer = new TypeSelectionRenderer();
+        private TypeSelectionRenderer _renderer = new TypeSelectionRenderer();
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -74,6 +74,7 @@ namespace UnityLeaf.PluginEditor
         private bool RenderClass(ref Rect position, SerializedProperty property, int index)
         {
             var nodeList = property.FindPropertyRelative("NodeList");
+            if (index >= nodeList.arraySize) return false;
             var elementProperty = nodeList.GetArrayElementAtIndex(index);
             var rect = new Rect(position.x, position.y, position.width, position.height);
 
@@ -82,10 +83,10 @@ namespace UnityLeaf.PluginEditor
             rect.y += rect.height;
             rect.height = 0;
 
-            if (index == 0) renderer.CheckInitialize("Node");
+            if (index == 0) _renderer.CheckInitialize("Node");
             rect.x += EditorGUIUtility.singleLineHeight;
             rect.width -= EditorGUIUtility.singleLineHeight;
-            var dirty = renderer.RenderTypeAndValue(ref rect, elementProperty);
+            var dirty = _renderer.RenderTypeAndValue(ref rect, elementProperty);
             position.height += rect.height;
 
             return dirty;

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Examples/Scenes/ClickSample.unity
+    path: Assets/Examples/Scenes/01_Click.unity
     guid: ebb8fe32560254f7e8941a34c4ab2992
   - enabled: 1
     path: Assets/Examples/Scenes/Main.unity

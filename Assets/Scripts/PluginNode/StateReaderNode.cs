@@ -9,18 +9,18 @@ namespace UnityLeaf.PluginNode
     [TypeSelectionEnable("Node")]
     public class StateReaderNode : RootNode
     {
-        [SerializeField] private StoreHolder storeHolder;
-        [SerializeField] private string stateKey;
+        [SerializeField] private StoreHolder StoreHolder;
+        [SerializeField] private string StateKey;
 
         public StateReaderNode(StoreHolder storeHolder, string stateKey)
         {
-            this.storeHolder = storeHolder;
-            this.stateKey = stateKey;
+            this.StoreHolder = storeHolder;
+            this.StateKey = stateKey;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.storeHolder.GetStore().Read(this.stateKey)
+            return this.StoreHolder.GetStore().Read(this.StateKey)
                 .Subscribe(observer);
         }
     }

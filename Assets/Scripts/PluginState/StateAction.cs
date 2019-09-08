@@ -8,8 +8,6 @@ namespace UnityLeaf.PluginState
         public string StateKey;
         public Any Value;
 
-        public string ActionKey => this.Reducer.GetType().FullName;
-
         public StateAction(IReducer reducer, string stateKey, Any value)
         {
             this.Reducer = reducer;

@@ -23,7 +23,7 @@ namespace UnityLeaf.PluginLeaf.Counter
                 stateKey,
                 new IncrementReducer()
             );
-            var stateWriterNode = new StateWriter(stateActionNode, this.storeHolder);
+            var stateWriterNode = new StateWriterNode(stateActionNode, this.storeHolder);
             return stateWriterNode.Subscribe(observer);
         }
     }

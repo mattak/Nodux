@@ -7,7 +7,7 @@ namespace UnityLeaf.PluginEditor
     [CustomPropertyDrawer(typeof(TypeSelectionFilter))]
     public class TypeSelectionDrawer : PropertyDrawer
     {
-        private TypeSelectionRenderer renderer = new TypeSelectionRenderer();
+        private TypeSelectionRenderer _renderer = new TypeSelectionRenderer();
         private float TotalHeight = 0;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -18,12 +18,12 @@ namespace UnityLeaf.PluginEditor
                 return;
             }
 
-            renderer.CheckInitialize(((TypeSelectionFilter) this.attribute).Category);
+            _renderer.CheckInitialize(((TypeSelectionFilter) this.attribute).Category);
 
             EditorGUI.BeginProperty(position, label, property);
             this.TotalHeight = 0;
 
-            renderer.RenderTypeAndValue(ref position, property);
+            _renderer.RenderTypeAndValue(ref position, property);
 
             this.TotalHeight = position.height;
             EditorGUI.EndProperty();

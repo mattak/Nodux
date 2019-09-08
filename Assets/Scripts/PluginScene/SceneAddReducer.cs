@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityLeaf.Core;
 using UnityLeaf.PluginState;
 
 namespace UnityLeaf.PluginScene
 {
+    [Serializable]
+    [TypeSelectionEnable("Reducer")]
     public class SceneAddReducer : IReducer
     {
-        private readonly string ActionKey = typeof(SceneAddReducer).FullName;
-
         public State Reduce(State state, StateAction action)
         {
-            if (action.ActionKey != ActionKey) return state;
+            if (!(action.Reducer is SceneAddReducer)) return state;
 
             var value = state.Get(action.StateKey).Value<IDictionary<string, bool>>();
             if (value == default(IDictionary<string, bool>)) value = new Dictionary<string, bool>();

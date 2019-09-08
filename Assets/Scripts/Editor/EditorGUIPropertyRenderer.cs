@@ -3,75 +3,50 @@ using System.Collections;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using UnityLeaf.Core;
 
 namespace UnityLeaf.PluginEditor
 {
     public static class EditorGUIPropertyRenderer
     {
-        public static bool RenderClass(ref Rect position, string key, object objectValue)
-        {
-            var dirty = false;
-            var rect = new Rect(position.x, position.y, position.width, 0);
-
-            // label
-            if (!string.IsNullOrEmpty(key))
-            {
-                rect.height = EditorGUIUtility.singleLineHeight;
-                EditorGUI.LabelField(rect, key);
-                rect.y += rect.height;
-                position.height += rect.height;
-                rect.height = 0;
-            }
-
-            // values
-            var fields = objectValue.GetType()
-                .GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-            foreach (var field in fields)
-            {
-                if (field.IsPublic || field.GetCustomAttribute(typeof(SerializeField)) != null)
-                {
-                    var fieldValue = field.GetValue(objectValue);
-
-                    dirty |= RenderSystemObject(
-                        ref rect,
-                        field.Name,
-                        field.FieldType,
-                        fieldValue,
-                        newValue => field.SetValue(objectValue, newValue)
-                    );
-
-                    rect.y += rect.height;
-                    position.height += rect.height;
-                    rect.height = 0;
-                }
-            }
-
-            return dirty;
-        }
-
-        public static bool RenderSystemObject(ref Rect position, string key, Type type, object value,
-            Action<object> setter)
+        public static bool RenderSystemObject(
+            ref Rect position, string key, Type type, object value,
+            Action<object> setter,
+            Func<Type, Attribute> attributeAccessor)
         {
             var rect = new Rect(position.x, position.y, position.width, 0);
             var dirty = false;
 
             if (type == typeof(int)) dirty = RenderInt(ref rect, key, (int) value, setter);
-            else if (type == typeof(string)) dirty = RenderString(ref rect, key, (string) value, setter);
-            else if (type == typeof(bool)) dirty = RenderBool(ref rect, key, (bool) value, setter);
-            else if (type == typeof(float)) dirty = RenderFloat(ref rect, key, (float) value, setter);
-            else if (type == typeof(double)) dirty = RenderDouble(ref rect, key, (double) value, setter);
-            else if (type == typeof(Enum)) dirty = RenderEnum(ref rect, key, (Enum) value, setter);
-            else if (type == typeof(Vector2)) dirty = RenderVector2(ref rect, key, (Vector2) value, setter);
-            else if (type == typeof(Vector3)) dirty = RenderVector3(ref rect, key, (Vector3) value, setter);
-            else if (type == typeof(Vector4)) dirty = RenderVector4(ref rect, key, (Vector4) value, setter);
-            else if (type == typeof(Color)) dirty = RenderColor(ref rect, key, (Color) value, setter);
+            else if (type == typeof(string))
+                dirty = RenderString(ref rect, key, (string) value, setter);
+            else if (type == typeof(bool))
+                dirty = RenderBool(ref rect, key, (bool) value, setter);
+            else if (type == typeof(float))
+                dirty = RenderFloat(ref rect, key, (float) value, setter);
+            else if (type == typeof(double))
+                dirty = RenderDouble(ref rect, key, (double) value, setter);
+            else if (type == typeof(Enum))
+                dirty = RenderEnum(ref rect, key, (Enum) value, setter);
+            else if (type == typeof(Vector2))
+                dirty = RenderVector2(ref rect, key, (Vector2) value, setter);
+            else if (type == typeof(Vector3))
+                dirty = RenderVector3(ref rect, key, (Vector3) value, setter);
+            else if (type == typeof(Vector4))
+                dirty = RenderVector4(ref rect, key, (Vector4) value, setter);
+            else if (type == typeof(Color))
+                dirty = RenderColor(ref rect, key, (Color) value, setter);
             else if (typeof(IDictionary).IsAssignableFrom(type))
                 dirty = RenderIDictionary(ref rect, key, (IDictionary) value, setter);
-            else if (typeof(IList).IsAssignableFrom(type)) dirty = RenderIList(ref rect, key, (IList) value, setter);
+            else if (typeof(IList).IsAssignableFrom(type))
+                dirty = RenderIList(ref rect, key, (IList) value, setter);
             else if (typeof(ICollection).IsAssignableFrom(type))
                 dirty = RenderICollection(ref rect, key, (ICollection) value, setter);
             else if (typeof(UnityEngine.Object).IsAssignableFrom(type))
                 dirty = RenderUnityObject(ref rect, key, type, (UnityEngine.Object) value, setter);
+            else if (typeof(TypeSelection).IsAssignableFrom(type))
+                dirty = TypeSelectionRenderer.RenderFromSystemObject(ref rect, key, (TypeSelection) value,
+                    attributeAccessor, setter);
 
             position.height += rect.height;
             return dirty;
@@ -236,7 +211,8 @@ namespace UnityLeaf.PluginEditor
                     $"{key}[{index}]",
                     element?.GetType(),
                     element,
-                    newValue => value[index] = newValue);
+                    newValue => value[index] = newValue,
+                    type => value?.GetType().GetCustomAttribute(type));
                 rect.y += rect.height;
                 position.height += rect.height;
                 rect.height = 0;
@@ -261,7 +237,8 @@ namespace UnityLeaf.PluginEditor
                     $"[{index}]",
                     element?.GetType(),
                     element,
-                    newValue => { });
+                    newValue => { },
+                    type => value?.GetType().GetCustomAttribute(type));
                 index++;
                 rect.y += rect.height;
                 position.height += rect.height;
@@ -284,10 +261,53 @@ namespace UnityLeaf.PluginEditor
                     dictionaryKey.ToString(),
                     dictionary[dictionaryKey]?.GetType(),
                     dictionary[dictionaryKey],
-                    newValue => dictionary[dictionaryKey] = newValue);
+                    newValue => dictionary[dictionaryKey] = newValue,
+                    type => value?.GetType().GetCustomAttribute(type));
                 rect.y += rect.height;
                 position.height += rect.height;
                 rect.height = 0;
+            }
+
+            return dirty;
+        }
+
+        public static bool RenderClass(ref Rect position, string key, object objectValue)
+        {
+            var dirty = false;
+            var rect = new Rect(position.x, position.y, position.width, 0);
+
+            // label
+            if (!string.IsNullOrEmpty(key))
+            {
+                rect.height = EditorGUIUtility.singleLineHeight;
+                EditorGUI.LabelField(rect, key);
+                rect.y += rect.height;
+                position.height += rect.height;
+                rect.height = 0;
+            }
+
+            // values
+            var fields = objectValue.GetType()
+                .GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            foreach (var field in fields)
+            {
+                if (field.IsPublic || field.GetCustomAttribute(typeof(SerializeField)) != null)
+                {
+                    var fieldValue = field.GetValue(objectValue);
+
+                    dirty |= RenderSystemObject(
+                        ref rect,
+                        field.Name,
+                        field.FieldType,
+                        fieldValue,
+                        newValue => field.SetValue(objectValue, newValue),
+                        type => field.GetCustomAttribute(type)
+                    );
+
+                    rect.y += rect.height;
+                    position.height += rect.height;
+                    rect.height = 0;
+                }
             }
 
             return dirty;

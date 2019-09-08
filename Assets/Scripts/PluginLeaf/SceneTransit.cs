@@ -39,7 +39,7 @@ namespace UnityLeaf.PluginLeaf
                 var buttonNode = new ButtonNode(button);
                 var stringNode = new StringNode(buttonNode, sceneName);
                 var stateActionNode = new StateActionNode(stringNode, "scene", new SceneAddReducer());
-                var stateWriterNode = new StateWriter(stateActionNode, storeHolder);
+                var stateWriterNode = new StateWriterNode(stateActionNode, storeHolder);
                 return stateWriterNode.Subscribe(observer);
             }
         }
@@ -56,7 +56,7 @@ namespace UnityLeaf.PluginLeaf
                 var onStartNode = new OnStartNode(component);
                 var stringNode = new ActiveSceneNode(onStartNode);
                 var stateActionNode = new StateActionNode(stringNode, "scene", new SceneSyncReducer());
-                var stateWriterNode = new StateWriter(stateActionNode, storeHolder);
+                var stateWriterNode = new StateWriterNode(stateActionNode, storeHolder);
                 return stateWriterNode.Subscribe(observer);
             }
         }

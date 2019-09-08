@@ -16,7 +16,7 @@ namespace UnityLeaf.PluginLeaf.Counter
         public IDisposable Subscribe(IObserver<Any> observer)
         {
             var stateReaderNode = new StateReaderNode(storeHolder, stateKey);
-            var textWriterNode = new TextWriter(stateReaderNode, text, "{0}");
+            var textWriterNode = new TextRenderNode(stateReaderNode, text, "{0}");
             return textWriterNode.Subscribe(observer);
         }
     }
