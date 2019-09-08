@@ -8,28 +8,28 @@ namespace UnityLeaf.PluginNode
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class TextWriter : Node
+    public class TextRenderNode : Node
     {
-        [SerializeField] private Text text;
-        [SerializeField] private string format;
+        [SerializeField] private Text Text;
+        [SerializeField] private string Format;
 
-        public TextWriter(INode parent, Text text, string format) : base(parent)
+        public TextRenderNode(INode parent, Text text, string format) : base(parent)
         {
-            this.text = text;
-            this.format = format;
+            this.Text = text;
+            this.Format = format;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
             return this.Parent.Subscribe(it =>
                 {
-                    if (string.IsNullOrEmpty(this.format))
+                    if (string.IsNullOrEmpty(this.Format))
                     {
-                        this.text.text = it.Object.ToString();
+                        this.Text.text = it.Object.ToString();
                     }
                     else
                     {
-                        this.text.text = string.Format(this.format, it.Object?.ToString());
+                        this.Text.text = string.Format(this.Format, it.Object?.ToString());
                     }
 
                     observer.OnNext(it);

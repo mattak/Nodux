@@ -6,13 +6,15 @@ using UnityLeaf.Core;
 
 namespace UnityLeaf.PluginNode
 {
-    public class StateWriter : Node
+    [Serializable]
+    [TypeSelectionEnable("Node")]
+    public class StateWriterNode : Node
     {
-       [SerializeField] private StoreHolder storeHolder;
+       [SerializeField] private StoreHolder StoreHolder;
 
-        public StateWriter(INode parent, StoreHolder storeHolder) : base(parent)
+        public StateWriterNode(INode parent, StoreHolder storeHolder) : base(parent)
         {
-            this.storeHolder = storeHolder;
+            this.StoreHolder = storeHolder;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -21,7 +23,7 @@ namespace UnityLeaf.PluginNode
                 it =>
                 {
                     var action = it.Value<StateAction>();
-                    storeHolder.GetStore().Write(action);
+                    StoreHolder.GetStore().Write(action);
                     observer.OnNext(it);
                 },
                 err => observer.OnError(err),
