@@ -1,13 +1,17 @@
 using System;
 using UnityEngine.UI;
 using UniRx;
+using UnityEngine;
+using UnityLeaf.Core;
 
 namespace UnityLeaf.PluginNode
 {
-    public class TextWriter : LeafNode
+    [Serializable]
+    [TypeSelectionEnable("Node")]
+    public class TextWriter : Node
     {
-        private Text text;
-        private string format;
+        [SerializeField] private Text text;
+        [SerializeField] private string format;
 
         public TextWriter(INode parent, Text text, string format) : base(parent)
         {
@@ -15,9 +19,9 @@ namespace UnityLeaf.PluginNode
             this.format = format;
         }
 
-        public override IDisposable Subscribe()
+        public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.GetParent().GetObservable().Subscribe(it =>
+            return this.Parent.Subscribe(it =>
                 {
                     if (string.IsNullOrEmpty(this.format))
                     {
@@ -27,7 +31,11 @@ namespace UnityLeaf.PluginNode
                     {
                         this.text.text = string.Format(this.format, it.Object?.ToString());
                     }
-                }
+
+                    observer.OnNext(it);
+                },
+                err => observer.OnError(err),
+                () => observer.OnCompleted()
             );
         }
     }

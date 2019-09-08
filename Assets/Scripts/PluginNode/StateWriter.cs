@@ -1,26 +1,31 @@
 using System;
 using UnityLeaf.PluginState;
 using UniRx;
+using UnityEngine;
+using UnityLeaf.Core;
 
 namespace UnityLeaf.PluginNode
 {
-    public class StateWriter : LeafNode
+    public class StateWriter : Node
     {
-        private StoreHolder storeHolder;
+       [SerializeField] private StoreHolder storeHolder;
 
         public StateWriter(INode parent, StoreHolder storeHolder) : base(parent)
         {
             this.storeHolder = storeHolder;
         }
 
-        public override IDisposable Subscribe()
+        public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.GetParent().GetObservable().Subscribe(it =>
-            {
-                var action = it.Value<StateAction>();
-                storeHolder.GetStore().Write(action);
-            });
+            return this.Parent.Subscribe(
+                it =>
+                {
+                    var action = it.Value<StateAction>();
+                    storeHolder.GetStore().Write(action);
+                    observer.OnNext(it);
+                },
+                err => observer.OnError(err),
+                () => observer.OnCompleted());
         }
     }
-
 }

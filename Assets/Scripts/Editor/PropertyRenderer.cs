@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityLeaf.Core;
+using Object = System.Object;
 
 namespace UnityLeaf.PluginEditor
 {
@@ -108,9 +110,26 @@ namespace UnityLeaf.PluginEditor
             return true;
         }
 
+        public static bool RenderClass(string key, object objectValue)
+        {
+            var dirty = false;
+
+            foreach (var field in objectValue.GetType().GetFields())
+            {
+                if (field.IsPublic || field.GetCustomAttribute(typeof(SerializeField)) != null)
+                {
+                    var fieldValue = field.GetValue(objectValue);
+                    dirty |= RenderAny(field.Name, new Any(fieldValue, field.FieldType),
+                        newValue => field.SetValue(objectValue, newValue.Object));
+                }
+            }
+            
+            return dirty;
+        }
+
         public static bool RenderObject(string key, Any value, Action<Any> setter)
         {
-            var newValue = EditorGUILayout.ObjectField(key, value.Value<UnityEngine.Object>(), value.Type, false, null);
+            var newValue = EditorGUILayout.ObjectField(key, value.Value<UnityEngine.Object>(), value.Type, true, null);
             if (newValue == value.Value<UnityEngine.Object>()) return false;
             setter(new Any(newValue));
             return true;
@@ -124,7 +143,7 @@ namespace UnityLeaf.PluginEditor
 
             foreach (var element in list)
             {
-                dirty |= RenderAny($"[{index}]", new Any(element), newValue => list[index] = newValue);
+                dirty |= RenderAny($"{key}[{index}]", new Any(element), newValue => list[index] = newValue);
                 index++;
             }
 

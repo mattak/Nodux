@@ -1,13 +1,16 @@
 using System;
+using UnityEngine;
 using UnityLeaf.Core;
 using UnityLeaf.PluginState;
 
 namespace UnityLeaf.PluginNode
 {
+    [Serializable]
+    [TypeSelectionEnable("Node")]
     public class StateReaderNode : RootNode
     {
-        private StoreHolder storeHolder;
-        private string stateKey;
+        [SerializeField] private StoreHolder storeHolder;
+        [SerializeField] private string stateKey;
 
         public StateReaderNode(StoreHolder storeHolder, string stateKey)
         {
@@ -15,9 +18,10 @@ namespace UnityLeaf.PluginNode
             this.stateKey = stateKey;
         }
 
-        public override IObservable<Any> GetObservable()
+        public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.storeHolder.GetStore().Read(this.stateKey);
+            return this.storeHolder.GetStore().Read(this.stateKey)
+                .Subscribe(observer);
         }
     }
 }

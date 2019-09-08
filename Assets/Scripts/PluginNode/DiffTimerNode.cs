@@ -7,9 +7,9 @@ namespace UnityLeaf.PluginNode
 {
     public class DiffTimerNode : RootNode
     {
-        public override IObservable<Any> GetObservable()
+        public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return Observable.EveryUpdate().Select(it => new Any(Time.deltaTime));
+            return Observable.EveryUpdate().Select(it => new Any(Time.deltaTime)).Subscribe(observer);
         }
     }
 }

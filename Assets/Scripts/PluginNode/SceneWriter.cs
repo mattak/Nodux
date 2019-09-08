@@ -9,22 +9,28 @@ using UniRx;
 
 namespace UnityLeaf.PluginNode
 {
-    public class SceneWriter : LeafNode
+    [Serializable]
+    [TypeSelectionEnable("Node")]
+    public class SceneWriter : Node
     {
-        private MonoBehaviour component;
+        [SerializeField] private MonoBehaviour component;
 
         public SceneWriter(INode parent, MonoBehaviour component) : base(parent)
         {
             this.component = component;
         }
 
-
-        public override IDisposable Subscribe()
+        public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.GetParent().GetObservable().Subscribe(it =>
-            {
-                this.component.StartCoroutine(this.Render(it));
-            });
+            return this.Parent.Subscribe(
+                it =>
+                {
+                    this.component.StartCoroutine(this.Render(it));
+                    observer.OnNext(it);
+                },
+                it => observer.OnError(it),
+                () => observer.OnCompleted()
+            );
         }
 
         public IEnumerator Render(Any value)

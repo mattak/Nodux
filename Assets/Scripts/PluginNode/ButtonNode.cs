@@ -1,22 +1,25 @@
 using System;
 using UniRx;
+using UnityEngine;
 using UnityLeaf.Core;
 using UnityEngine.UI;
 
 namespace UnityLeaf.PluginNode
 {
+    [Serializable]
+    [TypeSelectionEnable("Node")]
     public class ButtonNode : RootNode
     {
-        public Button Button;
+        [SerializeField] private Button Button;
 
         public ButtonNode(Button button)
         {
             this.Button = button;
         }
 
-        public override IObservable<Any> GetObservable()
+        public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.Button.OnClickAsObservable().Select(it => new Any(it));
+            return this.Button.OnClickAsObservable().Select(it => new Any(it)).Subscribe(observer);
         }
     }
 }

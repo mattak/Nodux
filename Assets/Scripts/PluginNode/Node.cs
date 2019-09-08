@@ -1,25 +1,29 @@
 using System;
+using UniRx;
+using UnityEngine;
 using UnityLeaf.Core;
 
 namespace UnityLeaf.PluginNode
 {
+    [Serializable]
     public class Node : INode
     {
-        private INode parent;
+        [SerializeField] private INode parent = null;
+
+        public INode Parent
+        {
+            get { return parent; }
+            set { parent = value; }
+        }
 
         public Node(INode parent)
         {
-            this.parent = parent;
+            this.Parent = parent;
         }
 
-        public INode GetParent()
+        public virtual IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.parent;
-        }
-
-        public virtual IObservable<Any> GetObservable()
-        {
-            return this.parent.GetObservable();
+            return this.Parent?.Subscribe() ?? Disposable.Empty;
         }
     }
 }

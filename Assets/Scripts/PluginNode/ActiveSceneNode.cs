@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 
 namespace UnityLeaf.PluginNode
 {
+    [Serializable]
+    [TypeSelectionEnable("Node")]
     public class ActiveSceneNode : Node
     {
         public ActiveSceneNode(INode parent) : base(parent)
         {
         }
 
-        public override IObservable<Any> GetObservable()
+        public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.GetParent().GetObservable().SelectMany(it => Observable.Return(new Any(ListUp())));
+            return this.Parent.Select(it => new Any(ListUp()))
+                .Subscribe(observer);
         }
 
         private IDictionary<string, bool> ListUp()

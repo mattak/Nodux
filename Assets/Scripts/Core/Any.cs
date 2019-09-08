@@ -13,11 +13,17 @@ namespace UnityLeaf.Core
             this.Object = obj;
         }
 
+        public Any(object obj, Type type)
+        {
+            this.Type = type;
+            this.Object = obj;
+        }
+
         public TValue Value<TValue>()
         {
             if (this.Object is TValue)
             {
-                return (TValue)this.Object;
+                return (TValue) this.Object;
             }
 
             return default(TValue);
@@ -25,7 +31,7 @@ namespace UnityLeaf.Core
 
         public bool Is<TValue>()
         {
-            return this.Object is TValue;
+            return typeof(TValue).IsAssignableFrom(this.Type);
         }
 
         public override string ToString()

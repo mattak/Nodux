@@ -3,10 +3,8 @@ using UnityLeaf.Core;
 
 namespace UnityLeaf.PluginNode
 {
-    public interface INode
+    public interface INode : IObservable<Any>
     {
-        INode GetParent();
-
-        IObservable<Any> GetObservable();
+        INode Parent { get; set; }
     }
 }

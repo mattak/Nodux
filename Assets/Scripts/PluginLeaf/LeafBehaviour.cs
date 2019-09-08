@@ -1,12 +1,18 @@
 using System;
 using UnityEngine;
+using UnityLeaf.Core;
 using UnityLeaf.PluginNode;
 
 namespace UnityLeaf.PluginLeaf
 {
-    public abstract class LeafBehaviour : MonoBehaviour, ILeaf
+    public abstract class LeafBehaviour : MonoBehaviour, INode
     {
+        public INode Parent { get; set; }
         private IDisposable disposable;
+        public IDisposable Subscribe(IObserver<Any> observer)
+        {
+            throw new NotImplementedException();
+        }
         
         public void Start()
         {

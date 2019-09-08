@@ -3,13 +3,12 @@ using UnityLeaf.Core;
 
 namespace UnityLeaf.PluginNode
 {
+    [Serializable]
+    [TypeSelectionEnable("Node")]
     public abstract class RootNode : INode
     {
-        public INode GetParent()
-        {
-            return null;
-        }
+        public INode Parent { get; set; } = null;
 
-        public abstract IObservable<Any> GetObservable();
+        public abstract IDisposable Subscribe(IObserver<Any> observer);
     }
 }
