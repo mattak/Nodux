@@ -11,6 +11,7 @@ namespace UnityLeaf.Core
 
         [HideInInspector] [SerializeField] private string FullName;
         [HideInInspector] [SerializeField] private string ContentJson = "{}";
+        [HideInInspector] [SerializeField] private UnityEngine.Object[] UnityObjects;
 
         public Type Type
         {
