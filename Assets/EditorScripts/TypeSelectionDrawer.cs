@@ -1,8 +1,8 @@
+using Nodux.Core;
 using UnityEditor;
 using UnityEngine;
-using UnityLeaf.Core;
 
-namespace UnityLeaf.PluginEditor
+namespace Nodux.PluginEditor
 {
     [CustomPropertyDrawer(typeof(TypeSelectionFilter))]
     public class TypeSelectionDrawer : PropertyDrawer

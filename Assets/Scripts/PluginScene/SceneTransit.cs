@@ -1,13 +1,11 @@
 using System;
+using Nodux.Core;
+using Nodux.PluginNode;
+using Nodux.PluginState;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityLeaf.Core;
-using UnityLeaf.PluginNode;
-using UnityLeaf.PluginState;
-using UnityLeaf.PluginLeaf;
-using UnityLeaf.PluginScene;
 
-namespace UnityLeaf.PluginLeaf
+namespace Nodux.PluginScene
 {
     public static class SceneTransit
     {

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UniRx;
 using UnityEngine;
-using UnityLeaf.Core;
-using UnityLeaf.PluginNode;
+using Nodux.Core;
 
-namespace UnityLeaf.PluginLeaf
+namespace Nodux.PluginNode
 {
     [Serializable]
     public class ChainNode : Node

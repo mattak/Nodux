@@ -1,6 +1,6 @@
-using UnityLeaf.Core;
+using Nodux.Core;
 
-namespace UnityLeaf.PluginState
+namespace Nodux.PluginState
 {
     public struct StateAction
     {

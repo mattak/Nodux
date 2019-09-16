@@ -3,9 +3,9 @@ using System.Collections;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using UnityLeaf.Core;
+using Nodux.Core;
 
-namespace UnityLeaf.PluginEditor
+namespace Nodux.PluginEditor
 {
     public static class EditorGUIPropertyRenderer
     {

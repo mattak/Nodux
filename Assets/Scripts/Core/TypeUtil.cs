@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-//using UnityEditor;
 using UnityEngine;
 
-namespace UnityLeaf.PluginEditor
+namespace Nodux.Core
 {
     public static class TypeUtil
     {

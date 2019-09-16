@@ -1,10 +1,10 @@
 using System;
+using Nodux.Core;
+using Nodux.PluginNode;
+using Nodux.PluginState;
 using UnityEngine.UI;
-using UnityLeaf.Core;
-using UnityLeaf.PluginNode;
-using UnityLeaf.PluginState;
 
-namespace UnityLeaf.PluginLeaf.Counter
+namespace Nodux.PluginCounter
 {
     public class CounterRenderer : INode
     {

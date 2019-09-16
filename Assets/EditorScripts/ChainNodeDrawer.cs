@@ -1,8 +1,8 @@
+using Nodux.PluginNode;
 using UnityEditor;
 using UnityEngine;
-using UnityLeaf.PluginLeaf;
 
-namespace UnityLeaf.PluginEditor
+namespace Nodux.PluginEditor
 {
     [CustomPropertyDrawer(typeof(ChainNode))]
     public class ChainNodeDrawer : PropertyDrawer

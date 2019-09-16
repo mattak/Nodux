@@ -1,7 +1,7 @@
 using System;
-using UnityLeaf.Core;
+using Nodux.Core;
 
-namespace UnityLeaf.PluginNode
+namespace Nodux.PluginNode
 {
     public interface INode : IObservable<Any>
     {

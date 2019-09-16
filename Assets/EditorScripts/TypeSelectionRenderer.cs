@@ -4,9 +4,10 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using UnityLeaf.Core;
+using Nodux.Core;
+using Nodux.PluginEditor;
 
-namespace UnityLeaf.PluginEditor
+namespace Nodux.PluginEditor
 {
     public class TypeSelectionRenderer
     {

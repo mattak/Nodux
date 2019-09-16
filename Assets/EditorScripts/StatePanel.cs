@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using UnityLeaf.Core;
-using UnityLeaf.PluginState;
+using Nodux.Core;
+using Nodux.PluginState;
 
-namespace UnityLeaf.PluginEditor
+namespace Nodux.PluginEditor
 {
     public class StatePanel : EditorWindow
     {

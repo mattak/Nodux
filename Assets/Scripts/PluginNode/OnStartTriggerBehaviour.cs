@@ -2,7 +2,7 @@ using System;
 using UniRx;
 using UnityEngine;
 
-namespace UnityLeaf.PluginLeaf
+namespace Nodux.PluginNode
 {
     public class OnStartTriggerBehaviour : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using System;
-using UnityLeaf.Core;
+using Nodux.Core;
 
-namespace UnityLeaf.PluginState
+namespace Nodux.PluginState
 {
     public interface IStore
     {

@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using UniRx;
 using UnityEditor;
-using UnityEditor.SceneManagement;
-using UnityLeaf.Core;
+using Nodux.Core;
+using Nodux.PluginNode;
 using UnityEngine.SceneManagement;
 
-namespace UnityLeaf.PluginNode
+namespace Nodux.PluginScene
 {
     [Serializable]
     [TypeSelectionEnable("Node")]

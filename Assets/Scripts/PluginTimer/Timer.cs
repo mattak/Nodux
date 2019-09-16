@@ -1,10 +1,10 @@
 using System;
+using Nodux.Core;
+using Nodux.PluginNode;
+using Nodux.PluginState;
 using UniRx;
-using UnityLeaf.Core;
-using UnityLeaf.PluginState;
-using UnityLeaf.PluginNode;
 
-namespace UnityLeaf.PluginLeaf
+namespace Nodux.PluginTimer
 {
     public static class Timer
     {
@@ -20,7 +20,6 @@ namespace UnityLeaf.PluginLeaf
             {
                 var timer = new DiffTimerNode();
                 return timer.Aggregate((a, b) => new Any(a.Value<float>() + b.Value<float>())).Subscribe(observer);
-//                throw new Exception("Not Implemented");
             }
         }
     }

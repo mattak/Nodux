@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UnityLeaf.PluginState
+namespace Nodux.PluginState
 {
     public class StoreHolder : MonoBehaviour
     {

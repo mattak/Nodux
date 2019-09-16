@@ -1,10 +1,9 @@
 using System;
-using UniRx;
 using UnityEngine;
-using UnityLeaf.Core;
-using UnityLeaf.PluginLeaf;
+using Nodux.Core;
+using UniRx;
 
-namespace UnityLeaf.PluginNode
+namespace Nodux.PluginNode
 {
     [Serializable]
     [TypeSelectionEnable("Node")]

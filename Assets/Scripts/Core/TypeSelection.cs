@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
-using UnityLeaf.PluginEditor;
 
-namespace UnityLeaf.Core
+namespace Nodux.Core
 {
     [Serializable]
     public class TypeSelection : ISerializationCallbackReceiver

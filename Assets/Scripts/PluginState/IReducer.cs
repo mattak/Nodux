@@ -1,4 +1,4 @@
-namespace UnityLeaf.PluginState
+namespace Nodux.PluginState
 {
     public interface IReducer
     {

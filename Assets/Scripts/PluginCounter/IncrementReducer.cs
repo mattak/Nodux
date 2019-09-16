@@ -1,7 +1,8 @@
 using System;
-using UnityLeaf.Core;
+using Nodux.Core;
+using Nodux.PluginState;
 
-namespace UnityLeaf.PluginState
+namespace Nodux.PluginCounter
 {
     [Serializable]
     [TypeSelectionEnable("Reducer")]

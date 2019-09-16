@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using System.Reflection;
+using Nodux.Core;
 using UnityEditor;
 using UnityEngine;
-using UnityLeaf.Core;
 
-namespace UnityLeaf.PluginEditor
+namespace Nodux.PluginEditor
 {
     public static class PropertyRenderer
     {

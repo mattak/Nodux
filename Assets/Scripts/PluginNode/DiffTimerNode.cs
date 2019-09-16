@@ -1,9 +1,9 @@
 using System;
 using UniRx;
-using UnityLeaf.Core;
+using Nodux.Core;
 using UnityEngine;
 
-namespace UnityLeaf.PluginNode
+namespace Nodux.PluginNode
 {
     public class DiffTimerNode : RootNode
     {

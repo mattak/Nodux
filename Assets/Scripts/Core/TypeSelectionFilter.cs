@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UnityLeaf.Core
+namespace Nodux.Core
 {
     public class TypeSelectionFilter : PropertyAttribute
     {

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UniRx;
 
-namespace UnityLeaf.PluginLeaf
+namespace Nodux.PluginNode
 {
     public class ChainNodeBehaviour : MonoBehaviour
     {

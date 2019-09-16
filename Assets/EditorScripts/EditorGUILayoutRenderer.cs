@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Nodux.Core;
 using UnityEditor;
 using UnityEngine;
-using UnityLeaf.Core;
 
-namespace UnityLeaf.PluginEditor
+namespace Nodux.PluginEditor
 {
     public static class EditorGUILayoutRenderer
     {

@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityLeaf.Core;
-using UnityLeaf.PluginState;
+using Nodux.Core;
+using Nodux.PluginState;
 
-namespace UnityLeaf.PluginScene
+namespace Nodux.PluginScene
 {
     [Serializable]
     [TypeSelectionEnable("Reducer")]
