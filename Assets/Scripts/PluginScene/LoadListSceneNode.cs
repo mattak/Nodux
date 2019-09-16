@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
-using UniRx;
-using UnityEditor;
 using Nodux.Core;
 using Nodux.PluginNode;
+using UniRx;
 using UnityEngine.SceneManagement;
 
 namespace Nodux.PluginScene
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class ActiveSceneNode : Node
+    public class LoadListSceneNode : Node
     {
-        public ActiveSceneNode(INode parent) : base(parent)
+        public LoadListSceneNode(INode parent) : base(parent)
         {
         }
 
@@ -22,23 +21,17 @@ namespace Nodux.PluginScene
                 .Subscribe(observer);
         }
 
-        private IDictionary<string, bool> ListUp()
+        private IList<string> ListUp()
         {
-            var dictionary = new Dictionary<string, bool>();
-
-            foreach (var editorScene in EditorBuildSettings.scenes)
-            {
-                var name = System.IO.Path.GetFileNameWithoutExtension(editorScene.path);
-                dictionary[name] = false;
-            }
+            var list = new List<string>();
 
             for (var i = 0; i < SceneManager.sceneCount; i++)
             {
                 var scene = SceneManager.GetSceneAt(i);
-                dictionary[scene.name] = scene.isLoaded;
+                list.Add(scene.name);
             }
 
-            return dictionary;
+            return list;
         }
     }
 }

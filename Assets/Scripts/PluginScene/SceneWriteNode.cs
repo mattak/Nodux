@@ -12,11 +12,11 @@ namespace Nodux.PluginScene
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class SceneWriter : Node
+    public class SceneWriteNode : Node
     {
         [SerializeField] private MonoBehaviour component;
 
-        public SceneWriter(INode parent, MonoBehaviour component) : base(parent)
+        public SceneWriteNode(INode parent, MonoBehaviour component) : base(parent)
         {
             this.component = component;
         }
