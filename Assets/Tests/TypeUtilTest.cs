@@ -1,9 +1,9 @@
+using Nodux.Core;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityLeaf.PluginEditor;
 
-namespace UnityLeaf.Tests.Util
+namespace Nodux.Tests.Util
 {
     public class TypeUtilTest
     {
