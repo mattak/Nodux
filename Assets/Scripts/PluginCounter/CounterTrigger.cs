@@ -17,7 +17,7 @@ namespace Nodux.PluginCounter
         public IDisposable Subscribe(IObserver<Any> observer)
         {
             var buttonNode = new ButtonNode(button);
-            var intNode = new IntNode(buttonNode, 1);
+            var intNode = new ConstIntNode(buttonNode, 1);
             var stateActionNode = new StateActionNode(
                 intNode,
                 stateKey,

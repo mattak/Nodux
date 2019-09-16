@@ -1,29 +1,24 @@
 using System;
+using Nodux.Core;
 using UniRx;
 using UnityEngine;
-using Nodux.Core;
 
 namespace Nodux.PluginNode
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class IntNode : Node
+    public class ConstFloatNode : Node
     {
-        [SerializeField] private int Value;
+        [SerializeField] private float Value;
 
-        public IntNode(INode parent, int value) : base(parent)
+        public ConstFloatNode(INode parent, int value) : base(parent)
         {
             this.Value = value;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            if (this.Parent == null)
-            {
-                observer.OnNext(new Any(this.Value));
-                return Disposable.Empty;
-            }
-
+            if (this.Parent == null) return Observable.Return(new Any(this.Value)).Subscribe(observer);
             return this.Parent.Select(_ => new Any(this.Value)).Subscribe(observer);
         }
     }

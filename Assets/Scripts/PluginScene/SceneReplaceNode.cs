@@ -33,7 +33,7 @@ namespace Nodux.PluginScene
 
         private INode CreateAddNode(INode parent)
         {
-            var addSceneNode = new StringNode(parent, this.AddSceneName);
+            var addSceneNode = new ConstStringNode(parent, this.AddSceneName);
             var actionNOde = new StateActionNode(addSceneNode, "scene", new SceneAddReducer());
             var writerNode = new StateWriterNode(actionNOde, this.StoreHolder);
             return writerNode;

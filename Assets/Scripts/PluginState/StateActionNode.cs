@@ -23,6 +23,15 @@ namespace Nodux.PluginState
             this.ReducerSelection = null;
         }
 
+        public StateActionNode(INode parent, string stateKey, IReducer reducer, TypeSelection reducerSelection) :
+            base(parent)
+        {
+            this.StateKey = stateKey;
+            this.Reducer = reducer;
+            this.ReducerSelection = reducerSelection;
+        }
+
+
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
             if (this.ReducerSelection != null)

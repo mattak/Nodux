@@ -7,11 +7,11 @@ namespace Nodux.PluginNode
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class StringNode : Node
+    public class ConstStringNode : Node
     {
         [SerializeField] private string Value;
 
-        public StringNode(INode parent, string value) : base(parent)
+        public ConstStringNode(INode parent, string value) : base(parent)
         {
             this.Value = value;
         }
