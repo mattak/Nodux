@@ -94,8 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 586772990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 586772990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
@@ -385,19 +385,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592432116}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ChainNode:
+    UnityObjectList: []
     NodeList:
-    - FullName: UnityLeaf.PluginNode.StateReaderNode, Assembly-CSharp, Version=0.0.0.0,
+    - FullName: UnityLeaf.PluginNode.StateReaderNode, UnityLeaf, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":15188},"StateKey":"count"}'
-    - FullName: UnityLeaf.PluginNode.TextRenderNode, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":15254},"Format":"{0}"}'
+      ContentJson: '{"StoreHolder":{"instanceID":14546},"StateKey":"count"}'
+      UnityObjects:
+      - {fileID: 458755935}
+    - FullName: UnityLeaf.PluginNode.TextRenderNode, UnityLeaf, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"Text":{"instanceID":14606},"Format":"{0}"}'
+      UnityObjects:
+      - {fileID: 2025006685}
 --- !u!114 &592432121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,26 +410,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592432116}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ChainNode:
+    UnityObjectList: []
     NodeList:
-    - FullName: UnityLeaf.PluginNode.ButtonNode, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":15236}}'
-    - FullName: UnityLeaf.PluginNode.IntNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - FullName: UnityLeaf.PluginNode.ButtonNode, UnityLeaf, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"Button":{"instanceID":14588}}'
+      UnityObjects:
+      - {fileID: 1591365636}
+    - FullName: UnityLeaf.PluginNode.IntNode, UnityLeaf, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Value":1}'
-    - FullName: UnityLeaf.PluginNode.StateActionNode, Assembly-CSharp, Version=0.0.0.0,
+      UnityObjects: []
+    - FullName: UnityLeaf.PluginNode.StateActionNode, UnityLeaf, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StateKey":"count","ReducerSelection":{"FullName":"UnityLeaf.PluginState.IncrementReducer,
-        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}"}}'
-    - FullName: UnityLeaf.PluginNode.StateWriterNode, Assembly-CSharp, Version=0.0.0.0,
+        UnityLeaf, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]}}'
+      UnityObjects: []
+    - FullName: UnityLeaf.PluginNode.StateWriterNode, UnityLeaf, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":15188}}'
+      ContentJson: '{"StoreHolder":{"instanceID":14546}}'
+      UnityObjects:
+      - {fileID: 458755935}
 --- !u!1 &818091400
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +483,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 818091400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -552,7 +564,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1591365634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -597,7 +609,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1591365634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -617,6 +629,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1591365638
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -652,7 +665,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1730860250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
@@ -671,7 +684,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1730860250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
@@ -737,7 +750,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025006683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
