@@ -271,7 +271,11 @@ namespace UnityLeaf.PluginEditor
             return dirty;
         }
 
-        public static bool RenderClass(ref Rect position, string key, object objectValue)
+        public static bool RenderClass(
+            ref Rect position,
+            string key,
+            object objectValue
+        )
         {
             var dirty = false;
             var rect = new Rect(position.x, position.y, position.width, 0);

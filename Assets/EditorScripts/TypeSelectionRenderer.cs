@@ -107,7 +107,7 @@ namespace UnityLeaf.PluginEditor
                     TypeListMap[FilterCategory].Select(it => it.FullName).ToList();
             }
         }
-        
+
         public bool RenderTypeAndValue(string fieldName, ref TypeSelection selection)
         {
             var dirty = false;
@@ -264,7 +264,7 @@ namespace UnityLeaf.PluginEditor
 
             return false;
         }
-        
+
         public bool RenderValue(ref TypeSelection selection)
         {
             if (selection.Type != null)
@@ -277,7 +277,6 @@ namespace UnityLeaf.PluginEditor
 
                     if (dirty)
                     {
-                        UnityEngine.Debug.Log($"dirty RenderValue {obj}");
                         selection.SetValue(obj);
                     }
 
@@ -306,8 +305,8 @@ namespace UnityLeaf.PluginEditor
 
                     if (dirty)
                     {
-                        UnityEngine.Debug.Log($"dirty RenderValue {obj}");
                         selection.SetValue(obj);
+                        selection.PrepareSerialize();
                     }
 
                     return true;
@@ -327,6 +326,7 @@ namespace UnityLeaf.PluginEditor
         {
             var fullName = property.FindPropertyRelative("FullName").stringValue;
             var contentJson = property.FindPropertyRelative("ContentJson");
+            var unityObjects = property.FindPropertyRelative("UnityObjects");
 
             var type = Type.GetType(fullName);
             if (type != null)
@@ -345,6 +345,11 @@ namespace UnityLeaf.PluginEditor
 
                 if (obj != null)
                 {
+                    if (unityObjects.arraySize > 0)
+                    {
+                        TypeUtil.RestoreUnityObjects(type, obj, GetSerializedUnityObjects(unityObjects));
+                    }
+
                     var rect = new Rect(position.x, position.y, position.width, 0);
                     var dirty = EditorGUIPropertyRenderer.RenderClass(ref rect, null, obj);
                     position.height += rect.height;
@@ -352,6 +357,15 @@ namespace UnityLeaf.PluginEditor
                     if (dirty)
                     {
                         contentJson.stringValue = JsonUtility.ToJson(obj);
+                        var array = TypeUtil.ListUpUnityObjects(type, obj);
+                        unityObjects.arraySize = array.Length;
+                        property.serializedObject.ApplyModifiedProperties();
+
+                        for (var i = 0; i < array.Length; i++)
+                        {
+                            unityObjects.GetArrayElementAtIndex(i).objectReferenceValue = array[i];
+                        }
+
                         property.serializedObject.ApplyModifiedProperties();
                     }
 
@@ -366,6 +380,17 @@ namespace UnityLeaf.PluginEditor
             }
 
             return false;
+        }
+
+        public static UnityEngine.Object[] GetSerializedUnityObjects(SerializedProperty property)
+        {
+            var list = new List<UnityEngine.Object>();
+            for (var i = 0; i < property.arraySize; i++)
+            {
+                list.Add(property.GetArrayElementAtIndex(i).objectReferenceValue);
+            }
+
+            return list.ToArray();
         }
     }
 }

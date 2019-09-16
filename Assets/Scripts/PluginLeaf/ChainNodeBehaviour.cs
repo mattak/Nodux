@@ -4,14 +4,14 @@ using UniRx;
 
 namespace UnityLeaf.PluginLeaf
 {
-    public class NodeBehaviour : MonoBehaviour
+    public class ChainNodeBehaviour : MonoBehaviour
     {
         public ChainNode ChainNode;
         private IDisposable disposable;
 
         public void Start()
         {
-            ReSubscribe();
+            Subscribe();
         }
 
         private void OnDestroy()
@@ -19,8 +19,8 @@ namespace UnityLeaf.PluginLeaf
             disposable?.Dispose();
         }
 
-        [ContextMenu("ReSubscribe")]
-        public void ReSubscribe()
+        [ContextMenu("Subscribe")]
+        public void Subscribe()
         {
             disposable?.Dispose();
             disposable = this.ChainNode?.Subscribe(_ => { }, err => { }, () => { });

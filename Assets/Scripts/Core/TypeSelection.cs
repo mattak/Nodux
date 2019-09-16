@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
+using UnityLeaf.PluginEditor;
 
 namespace UnityLeaf.Core
 {
     [Serializable]
-    public class TypeSelection
+    public class TypeSelection : ISerializationCallbackReceiver
     {
         private Type _type;
         private object _value;
@@ -72,12 +73,32 @@ namespace UnityLeaf.Core
                 this._value = JsonUtility.FromJson(this.ContentJson, this._type);
             }
 
+            if (this.UnityObjects != null && this.UnityObjects.Length > 0)
+            {
+                TypeUtil.RestoreUnityObjects(this._type, this._value, this.UnityObjects);
+            }
+
             return this._type != null && this._value != null;
+        }
+
+        public void PrepareSerialize()
+        {
+            if (this._type != null && this._value != null)
+                this.UnityObjects = TypeUtil.ListUpUnityObjects(this._type, this._value);
         }
 
         public T Get<T>()
         {
             return (T) this._value;
+        }
+
+        public void OnBeforeSerialize()
+        {
+            this.PrepareSerialize();
+        }
+
+        public void OnAfterDeserialize()
+        {
         }
     }
 }
