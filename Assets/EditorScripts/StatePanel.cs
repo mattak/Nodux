@@ -55,6 +55,8 @@ namespace Nodux.PluginEditor
 
             foreach (var key in map.Keys.ToArray())
             {
+                EditorGUILayout.LabelField(key);
+                EditorGUI.indentLevel++;
                 if (EditorGUILayoutRenderer.RenderSystemObject(
                     key, map[key].Type, map[key].Object, newValue => map[key] = new Any(newValue),
                     type => null))
@@ -62,6 +64,7 @@ namespace Nodux.PluginEditor
                     dirty = true;
                     accessor.Notify(key);
                 }
+                EditorGUI.indentLevel--;
             }
 
             return dirty;
