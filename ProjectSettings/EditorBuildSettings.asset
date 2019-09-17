@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Examples/Scenes/01_Click.unity
+    path: Assets/Examples/Scenes/001_Click.unity
     guid: ebb8fe32560254f7e8941a34c4ab2992
   - enabled: 1
-    path: Assets/Examples/Scenes/02_Counter.unity
+    path: Assets/Examples/Scenes/002_Counter.unity
     guid: f94d9f28c65c74f42a26a26b6f65e568
   - enabled: 1
-    path: Assets/Examples/Scenes/03_Scene2.unity
+    path: Assets/Examples/Scenes/003_Scene2.unity
     guid: f44c2f81dc0ac47cd8987817354e0e5f
   - enabled: 1
-    path: Assets/Examples/Scenes/03_Scene1.unity
+    path: Assets/Examples/Scenes/003_Scene1.unity
     guid: 3a14f5d40022e4d69b3ea7a1b5653530
   m_configObjects: {}
