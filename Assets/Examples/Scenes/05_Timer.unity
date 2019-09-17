@@ -297,14 +297,10 @@ MonoBehaviour:
         PublicKeyToken=null
       ContentJson: '{"Value":false}'
       UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionNode, Nodux, Version=0.0.0.0, Culture=neutral,
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginTimer.StopwatchIsPlayingReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]}}'
-      UnityObjects: []
-    - FullName: Nodux.PluginState.StateWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":16056}}'
+      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20712}}'
       UnityObjects:
       - {fileID: 458755935}
 --- !u!1 &323124793
@@ -902,7 +898,7 @@ MonoBehaviour:
   ChainNode:
     UnityObjectList: []
     NodeList:
-    - FullName: Nodux.PluginTimer.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
+    - FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StoreHolder":{"instanceID":13928},"StateKey":"Time"}'
       UnityObjects:
@@ -1284,7 +1280,7 @@ MonoBehaviour:
       - {fileID: 1291124544}
     - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginTimer.StopwatchResetReducer,
+      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchResetReducer,
         Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20712}}'
       UnityObjects:
       - {fileID: 458755935}
@@ -1413,7 +1409,7 @@ MonoBehaviour:
   ChainNode:
     UnityObjectList: []
     NodeList:
-    - FullName: Nodux.PluginTimer.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
+    - FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StoreHolder":{"instanceID":13928},"StateKey":"Time"}'
       UnityObjects:
@@ -1557,14 +1553,10 @@ MonoBehaviour:
         PublicKeyToken=null
       ContentJson: '{"Value":true}'
       UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionNode, Nodux, Version=0.0.0.0, Culture=neutral,
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginTimer.StopwatchIsPlayingReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]}}'
-      UnityObjects: []
-    - FullName: Nodux.PluginState.StateWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":16056}}'
+      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20712}}'
       UnityObjects:
       - {fileID: 458755935}
 --- !u!1 &1730860250
@@ -1679,13 +1671,14 @@ MonoBehaviour:
   ChainNode:
     UnityObjectList: []
     NodeList:
-    - FullName: Nodux.PluginTimer.DeltaTimeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+    - FullName: Nodux.PluginStopwatch.DeltaTimeNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: 
-      UnityObjects: []
+      ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":20712}}'
+      UnityObjects:
+      - {fileID: 458755935}
     - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginTimer.StopwatchAggregateReducer,
+      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchAggregateReducer,
         Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20712}}'
       UnityObjects:
       - {fileID: 458755935}

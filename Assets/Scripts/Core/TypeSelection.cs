@@ -63,6 +63,12 @@ namespace Nodux.Core
 
             this._type = Type.GetType(this.FullName);
 
+            if (this._type == null)
+            {
+                UnityEngine.Debug.LogWarning($"Cannot parse type: {this.FullName}");
+                return false;
+            }
+
             if (string.IsNullOrEmpty(this.ContentJson))
             {
                 this._value = JsonUtility.FromJson("{}", this._type);

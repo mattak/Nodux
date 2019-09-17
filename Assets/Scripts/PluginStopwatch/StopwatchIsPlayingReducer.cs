@@ -2,7 +2,7 @@ using System;
 using Nodux.Core;
 using Nodux.PluginState;
 
-namespace Nodux.PluginTimer
+namespace Nodux.PluginStopwatch
 {
     [Serializable]
     [TypeSelectionEnable("Reducer")]

@@ -1,6 +1,6 @@
 using System;
 
-namespace Nodux.PluginTimer
+namespace Nodux.PluginStopwatch
 {
     [Serializable]
     public struct StopwatchValue

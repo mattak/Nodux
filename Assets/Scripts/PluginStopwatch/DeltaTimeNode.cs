@@ -4,7 +4,7 @@ using Nodux.Core;
 using Nodux.PluginNode;
 using UnityEngine;
 
-namespace Nodux.PluginTimer
+namespace Nodux.PluginStopwatch
 {
     [Serializable]
     [TypeSelectionEnable("Node")]

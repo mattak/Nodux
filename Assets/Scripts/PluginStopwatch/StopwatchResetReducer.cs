@@ -1,7 +1,7 @@
 using Nodux.Core;
 using Nodux.PluginState;
 
-namespace Nodux.PluginTimer
+namespace Nodux.PluginStopwatch
 {
     [TypeSelectionEnable("Reducer")]
     public class StopwatchResetReducer : IReducer
