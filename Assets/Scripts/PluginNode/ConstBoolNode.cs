@@ -7,11 +7,11 @@ namespace Nodux.PluginNode
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class ConstFloatNode : Node
+    public class ConstBoolNode : Node
     {
-        [SerializeField] private float Value;
+        [SerializeField] private bool Value;
 
-        public ConstFloatNode(INode parent, float value) : base(parent)
+        public ConstBoolNode(INode parent, bool value) : base(parent)
         {
             this.Value = value;
         }
