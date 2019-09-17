@@ -50,6 +50,8 @@ namespace Nodux.PluginEditor
             else if (typeof(TypeSelection).IsAssignableFrom(type))
                 dirty = TypeSelectionRenderer.RenderFromSystemObject(key, (TypeSelection) value,
                     attributeAccessor, setter);
+            else if (type.GetCustomAttribute(typeof(SerializableAttribute)) != null)
+                dirty = RenderClass(key, value);
             else
             {
                 EditorGUILayout.HelpBox($"cannot render object: key:{key} type:{type}", MessageType.Warning);
