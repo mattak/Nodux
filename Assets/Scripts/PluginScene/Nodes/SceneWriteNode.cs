@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UniRx;
 
-namespace Nodux.PluginScene
+namespace Nodux.PluginScene.Nodes
 {
     [Serializable]
     [TypeSelectionEnable("Node")]

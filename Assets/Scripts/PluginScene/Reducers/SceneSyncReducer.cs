@@ -4,7 +4,7 @@ using System.Linq;
 using Nodux.Core;
 using Nodux.PluginState;
 
-namespace Nodux.PluginScene
+namespace Nodux.PluginScene.Reducers
 {
     [Serializable]
     [TypeSelectionEnable("Reducer")]

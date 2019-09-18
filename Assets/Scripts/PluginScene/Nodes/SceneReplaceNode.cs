@@ -1,9 +1,10 @@
 using System;
 using Nodux.Core;
 using Nodux.PluginNode;
+using Nodux.PluginScene.Reducers;
 using Nodux.PluginState;
 
-namespace Nodux.PluginScene
+namespace Nodux.PluginScene.Nodes
 {
     [Serializable]
     [TypeSelectionEnable("Node")]

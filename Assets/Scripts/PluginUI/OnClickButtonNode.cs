@@ -2,17 +2,18 @@ using System;
 using UniRx;
 using UnityEngine;
 using Nodux.Core;
+using Nodux.PluginNode;
 using UnityEngine.UI;
 
-namespace Nodux.PluginNode
+namespace Nodux.PluginUI
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class ButtonNode : RootNode
+    public class OnClickButtonNode : RootNode
     {
         [SerializeField] private Button Button;
 
-        public ButtonNode(Button button)
+        public OnClickButtonNode(Button button)
         {
             this.Button = button;
         }

@@ -4,7 +4,7 @@ using Nodux.PluginNode;
 using Nodux.PluginState;
 using UnityEngine;
 
-namespace Nodux.PluginScene
+namespace Nodux.PluginScene.Nodes
 {
     [Serializable]
     [TypeSelectionEnable("Node")]

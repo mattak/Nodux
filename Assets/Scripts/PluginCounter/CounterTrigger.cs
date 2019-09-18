@@ -2,6 +2,7 @@ using System;
 using Nodux.Core;
 using Nodux.PluginNode;
 using Nodux.PluginState;
+using Nodux.PluginUI;
 using UnityEngine.UI;
 
 namespace Nodux.PluginCounter
@@ -16,7 +17,7 @@ namespace Nodux.PluginCounter
 
         public IDisposable Subscribe(IObserver<Any> observer)
         {
-            var buttonNode = new ButtonNode(button);
+            var buttonNode = new OnClickButtonNode(button);
             var intNode = new ConstIntNode(buttonNode, 1);
             var stateActionNode = new StateActionNode(
                 intNode,
