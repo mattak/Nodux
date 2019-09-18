@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Examples/Scenes/003_Scene1.unity
     guid: 3a14f5d40022e4d69b3ea7a1b5653530
+  - enabled: 1
+    path: Assets/Examples/WhackAMole/Scenes/100_WhackAMole_Top.unity
+    guid: d80d53f23852b48059a749cb3c02ba7c
+  - enabled: 1
+    path: Assets/Examples/WhackAMole/Scenes/100_WhackAMole_Main.unity
+    guid: 796c7dd3e623a4bd4a6516ba3aa695df
   m_configObjects: {}
