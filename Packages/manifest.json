@@ -14,6 +14,7 @@
     "com.unity.textmeshpro": "2.0.1",
     "com.unity.timeline": "1.1.0",
     "com.unity.ugui": "1.0.0",
+    "unirx": "https://github.com/k0dep/UniRx.git#6.2.2",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -45,5 +46,11 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "unirx": {
+      "hash": "c4e71212bd1d19bc26c012de8315fc10af173de6",
+      "revision": "6.2.2"
+    }
   }
 }
