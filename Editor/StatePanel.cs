@@ -18,18 +18,11 @@ namespace Nodux.PluginEditor
         }
 
         private Vector2 scrollPosition = Vector2.zero;
-        private StoreHolder holder;
         private IStoreAccessor accessor;
 
         public void OnGUI()
         {
             this.CheckInitialize();
-
-            if (holder == null)
-            {
-                EditorGUILayout.HelpBox("Not found StateHolder", MessageType.Warning);
-                return;
-            }
 
             if (accessor == null)
             {
@@ -72,9 +65,14 @@ namespace Nodux.PluginEditor
 
         private void CheckInitialize()
         {
+            if (!Application.isPlaying)
+            {
+                accessor = null;
+                return;
+            }
+
             if (accessor != null) return;
-            this.holder = FindObjectOfType<StoreHolder>();
-            this.accessor = holder?.GetStoreAccessor();
+            this.accessor = SingleStore.Instance?.GetStoreAccessor();
         }
     }
 }
