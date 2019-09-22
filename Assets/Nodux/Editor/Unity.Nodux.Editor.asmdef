@@ -1,5 +1,5 @@
 {
-    "name": "Nodux-Editor",
+    "name": "Unity.Nodux.Editor",
     "references": [
         "GUID:fde89dd5203fa4c7abbcbcda21bc3280"
     ],

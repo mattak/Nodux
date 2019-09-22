@@ -1,10 +1,10 @@
 {
-    "name": "Nodux-Tests",
+    "name": "Unity.Nodux.Editor.Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Nodux",
-        "Nodux-Editor"
+        "Unity.Nodux.Editor"
     ],
     "includePlatforms": [
         "Editor"

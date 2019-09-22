@@ -1,0 +1,21 @@
+{
+    "name": "me.mattak.nodux",
+    "displayName": "Nodux",
+    "description": "Node base redux inspired framework",
+    "version": "0.0.1-preview.1",
+    "unity": "2019.2",
+    "author": {
+        "name": "Takuma Maruyama",
+        "url": "https://github.com/mattak",
+        "email": "mattak.me@gmail.com"
+    },
+    "license": "MIT",
+    "keywords": [],
+    "category": "",
+    "dependencies": {
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mattak/Nodux"
+    }
+}
