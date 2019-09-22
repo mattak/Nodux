@@ -1414,7 +1414,7 @@ MonoBehaviour:
     NodeList:
     - FullName: Nodux.PluginScene.Nodes.SceneRendererNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"storeHolder":{"instanceID":17120},"behaviour":{"instanceID":17174}}'
+      ContentJson: '{"storeHolder":{"instanceID":13690},"behaviour":{"instanceID":13792}}'
       UnityObjects:
       - {fileID: 458755935}
       - {fileID: 2091163997}

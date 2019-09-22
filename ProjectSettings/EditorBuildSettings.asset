@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Examples/Scenes/001_Click.unity
+    path: Assets/Examples/000_Basics/Scenes/001_Click.unity
     guid: ebb8fe32560254f7e8941a34c4ab2992
   - enabled: 1
-    path: Assets/Examples/Scenes/002_Counter.unity
+    path: Assets/Examples/000_Basics/Scenes/002_Counter.unity
     guid: f94d9f28c65c74f42a26a26b6f65e568
   - enabled: 1
-    path: Assets/Examples/Scenes/003_Scene2.unity
+    path: Assets/Examples/000_Basics/Scenes/003_Scene2.unity
     guid: f44c2f81dc0ac47cd8987817354e0e5f
   - enabled: 1
-    path: Assets/Examples/Scenes/003_Scene1.unity
+    path: Assets/Examples/000_Basics/Scenes/003_Scene1.unity
     guid: 3a14f5d40022e4d69b3ea7a1b5653530
   - enabled: 1
-    path: Assets/Examples/WhackAMole/Scenes/100_WhackAMole_Top.unity
+    path: Assets/Examples/100_WhackAMole/Scenes/100_WhackAMole_Top.unity
     guid: d80d53f23852b48059a749cb3c02ba7c
   - enabled: 1
-    path: Assets/Examples/WhackAMole/Scenes/100_WhackAMole_Main.unity
+    path: Assets/Examples/100_WhackAMole/Scenes/100_WhackAMole_Main.unity
     guid: 796c7dd3e623a4bd4a6516ba3aa695df
   m_configObjects: {}
