@@ -11,7 +11,7 @@ namespace Nodux.PluginSpawner
     [TypeSelectionEnable("Node")]
     public class RandomRectPositionNode : Node
     {
-        [SerializeField] private RectTransform RandomArea;
+        [SerializeField] private RectTransform RandomArea = null;
 
         public RandomRectPositionNode(INode parent) : base(parent)
         {
