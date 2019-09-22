@@ -120,49 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &458755934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 458755936}
-  - component: {fileID: 458755935}
-  m_Layer: 0
-  m_Name: Store
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &458755935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458755934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98eb8ad586014e83bb6f6235474ac528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &458755936
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458755934}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,21 +350,21 @@ MonoBehaviour:
   ChainNode:
     UnityObjectList: []
     NodeList:
-    - FullName: UnityLeaf.PluginNode.ButtonNode, UnityLeaf, Version=0.0.0.0, Culture=neutral,
+    - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Button":{"instanceID":14154}}'
       UnityObjects:
       - {fileID: 1591365636}
-    - FullName: UnityLeaf.PluginNode.IntNode, UnityLeaf, Version=0.0.0.0, Culture=neutral,
+    - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Value":1}'
       UnityObjects: []
-    - FullName: UnityLeaf.PluginNode.TextRenderNode, UnityLeaf, Version=0.0.0.0, Culture=neutral,
+    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Text":{"instanceID":14172},"Format":"Click1: {0}"}'
       UnityObjects:
       - {fileID: 2025006685}
-    - FullName: UnityLeaf.PluginNode.TextRenderNode, UnityLeaf, Version=0.0.0.0, Culture=neutral,
+    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Text":{"instanceID":14138},"Format":"Click2: {0}"}'
       UnityObjects:
@@ -467,8 +424,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 32
@@ -482,7 +437,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click {0}
+  m_Text: Text2
 --- !u!222 &681454225
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -546,8 +501,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -652,8 +605,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1591365637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,8 +623,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -813,8 +762,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 32
@@ -828,7 +775,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click {0}
+  m_Text: Text1
 --- !u!222 &2025006686
 CanvasRenderer:
   m_ObjectHideFlags: 0
