@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Nodux.Core;
 using Nodux.PluginNode;
+using UniRx;
 
 namespace Nodux.PluginState
 {
@@ -20,8 +21,12 @@ namespace Nodux.PluginState
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.StoreHolder.GetStore().Read(this.StateKey)
-                .Subscribe(observer);
+            var store = this.StoreHolder.GetStore();
+            var read = store.Read(this.StateKey);
+
+            if (store.HasKey(this.StateKey)) read = read.StartWith(store.Get(this.StateKey));
+
+            return read.Subscribe(observer);
         }
     }
 }

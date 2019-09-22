@@ -19,6 +19,16 @@ namespace Nodux.PluginState
             return state.GetObservable(key);
         }
 
+        public bool HasKey(string key)
+        {
+            return state.GetRaw().ContainsKey(key);
+        }
+
+        public Any Get(string key)
+        {
+            return state.GetRaw()[key];
+        }
+
         public IDictionary<string, Any> GetRawData()
         {
             return this.state.GetRaw();

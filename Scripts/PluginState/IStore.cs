@@ -7,5 +7,7 @@ namespace Nodux.PluginState
     {
         void Write(StateAction action);
         IObservable<Any> Read(string key);
+        bool HasKey(string key);
+        Any Get(string key);
     }
 }
