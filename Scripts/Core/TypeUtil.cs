@@ -40,10 +40,14 @@ namespace Nodux.Core
                     {
                         if (i >= references.Length)
                             throw new ArgumentException("Not matched objects references size and field objects");
-                        if (references[i] != null && references[i].GetType().AssemblyQualifiedName ==
-                            field.FieldType.AssemblyQualifiedName)
+
+                        if (references[i] != null && field.FieldType.IsInstanceOfType(references[i]))
                         {
                             field.SetValue(value, references[i]);
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"Cannot restore field: {field.Name}");
                         }
 
                         i++;
