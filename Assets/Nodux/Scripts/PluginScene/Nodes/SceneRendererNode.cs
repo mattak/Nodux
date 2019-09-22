@@ -10,13 +10,12 @@ namespace Nodux.PluginScene.Nodes
     [TypeSelectionEnable("Node")]
     public class SceneRendererNode : RootNode
     {
-        public StoreHolder storeHolder;
-        public MonoBehaviour behaviour;
+        [SerializeField] private StoreHolder StoreHolder;
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            var stateNode = new StateReaderNode(this.storeHolder, "scene");
-            var sceneNode = new SceneWriteNode(stateNode, this.behaviour);
+            var stateNode = new StateReaderNode(this.StoreHolder, "scene");
+            var sceneNode = new SceneWriteNode(stateNode, this.StoreHolder);
             return sceneNode.Subscribe(observer);
         }
     }

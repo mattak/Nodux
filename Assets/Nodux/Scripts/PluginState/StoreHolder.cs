@@ -4,16 +4,14 @@ namespace Nodux.PluginState
 {
     public class StoreHolder : MonoBehaviour
     {
-        private static IStore store = default(Store);
-
         public IStore GetStore()
         {
-            return store ?? (store = new Store());
+            return SingleStore.Instance.GetStore();
         }
 
         public IStoreAccessor GetStoreAccessor()
         {
-            return store as IStoreAccessor;
+            return SingleStore.Instance?.GetStoreAccessor();
         }
     }
 }
