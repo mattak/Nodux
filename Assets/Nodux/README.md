@@ -1,6 +1,6 @@
 # Nodux
 
-Nodux is node base redux inspired framework.
+Nodux is node base redux framework for Unity3D.
 
 ## Status
 
@@ -13,7 +13,7 @@ Fill your Packages/manifest.json
 ```
 {
   "dependencies": {
-    "me.mattak.nodux": "https://github.com/mattak/Nodux.git#0.0.1",
+    "me.mattak.nodux": "https://github.com/mattak/Nodux.git#0.0.2",
     "unirx": "https://github.com/k0dep/UniRx.git#6.2.2"
   }
 }
