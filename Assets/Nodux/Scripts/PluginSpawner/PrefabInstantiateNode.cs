@@ -10,8 +10,8 @@ namespace Nodux.PluginSpawner
     [TypeSelectionEnable("Node")]
     public class PrefabInstantiateNode : Node
     {
-        [SerializeField] private GameObject Prefab;
-        [SerializeField] private Transform ParentTransform;
+        [SerializeField] private GameObject Prefab = default;
+        [SerializeField] private Transform ParentTransform = default;
 
         public PrefabInstantiateNode(INode parent) : base(parent)
         {

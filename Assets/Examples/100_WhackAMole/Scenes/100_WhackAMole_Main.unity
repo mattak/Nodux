@@ -271,8 +271,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: -80, y: -140}
+  m_AnchoredPosition: {x: 0, y: -60}
+  m_SizeDelta: {x: -80, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &416655570
 MonoBehaviour:
@@ -671,10 +671,10 @@ RectTransform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 30, y: -80}
-  m_SizeDelta: {x: -140, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 420, y: 0}
+  m_SizeDelta: {x: 400, y: 100}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &753392936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -700,7 +700,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 56
-    m_Alignment: 5
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -771,7 +771,7 @@ MonoBehaviour:
     - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"StateKey":"Timer","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchAggregateReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":34550}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":13994}}'
       UnityObjects:
       - {fileID: 458755935}
 --- !u!114 &1006790638
@@ -794,9 +794,17 @@ MonoBehaviour:
       ContentJson: '{"StateKey":"Timer","StoreHolder":{"instanceID":34550}}'
       UnityObjects:
       - {fileID: 458755935}
+    - FullName: Nodux.PluginOperator.FloatSubtractNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"from":10.0}'
+      UnityObjects: []
+    - FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"min":0.0,"max":10.0}'
+      UnityObjects: []
     - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":-29780},"Format":"Time: {0}"}'
+      ContentJson: '{"Text":{"instanceID":14030},"Format":"Time: {0:0.00}"}'
       UnityObjects:
       - {fileID: 753392936}
 --- !u!114 &1006790639
@@ -838,7 +846,7 @@ MonoBehaviour:
     - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"StateKey":"Timer","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":34550}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":13994}}'
       UnityObjects:
       - {fileID: 458755935}
 --- !u!1 &1507698039
@@ -1176,10 +1184,10 @@ RectTransform:
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 30, y: 0}
-  m_SizeDelta: {x: -140, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: 0}
+  m_SizeDelta: {x: 400, y: 100}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &2090723278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,7 +1202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1205,7 +1213,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 56
-    m_Alignment: 5
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
