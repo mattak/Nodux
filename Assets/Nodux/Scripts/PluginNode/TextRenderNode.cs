@@ -21,22 +21,13 @@ namespace Nodux.PluginNode
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.Parent.Subscribe(it =>
+            return this.Parent
+                .Do(it =>
                 {
-                    if (string.IsNullOrEmpty(this.Format))
-                    {
-                        this.Text.text = it.Object.ToString();
-                    }
-                    else
-                    {
-                        this.Text.text = string.Format(this.Format, it.Object?.ToString());
-                    }
-
-                    observer.OnNext(it);
-                },
-                err => observer.OnError(err),
-                () => observer.OnCompleted()
-            );
+                    this.Text.text = string.IsNullOrEmpty(this.Format)
+                        ? it.Object.ToString()
+                        : string.Format(this.Format, it.Object);
+                }).Subscribe(observer);
         }
     }
 }

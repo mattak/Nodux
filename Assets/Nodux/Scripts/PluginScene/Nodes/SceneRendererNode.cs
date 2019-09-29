@@ -10,7 +10,7 @@ namespace Nodux.PluginScene.Nodes
     [TypeSelectionEnable("Node")]
     public class SceneRendererNode : RootNode
     {
-        [SerializeField] private StoreHolder StoreHolder;
+        [SerializeField] private StoreHolder StoreHolder = default;
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
