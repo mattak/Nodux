@@ -1655,7 +1655,7 @@ MonoBehaviour:
     - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchAggregateReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":17902}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":15754}}'
       UnityObjects:
       - {fileID: 458755935}
 --- !u!1 &2117223595
