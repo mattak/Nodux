@@ -1,8 +1,10 @@
+using System;
 using Nodux.Core;
 using Nodux.PluginState;
 
 namespace Nodux.PluginStopwatch
 {
+    [Serializable]
     [TypeSelectionEnable("Reducer")]
     public class StopwatchResetReducer : IReducer
     {

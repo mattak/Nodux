@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -217,6 +218,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -238,6 +240,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47410466}
   m_CullTransparentMesh: 0
+--- !u!1 &350492373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 350492374}
+  - component: {fileID: 350492375}
+  m_Layer: 0
+  m_Name: TimeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &350492374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350492373}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1006790636}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350492375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350492373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chainNodes:
+  - NodeList:
+    - FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":27692}}'
+      UnityObjects:
+      - {fileID: 458755935}
+    - FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"min":0.0,"max":10.0}'
+      UnityObjects: []
+    - FullName: Nodux.PluginOperator.FloatSubtractNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"from":10.0}'
+      UnityObjects: []
+    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"Text":{"instanceID":27734},"Format":"Time: {0:#0.00}"}'
+      UnityObjects:
+      - {fileID: 753392936}
+  _graphContainer:
+    Nodes:
+    - Guid: f67b79ec-f3ef-4e3d-9269-028089f7ea18
+      Name: StopwatchTimeStateReaderNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":27692}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    - Guid: e0d807c0-5e3f-469a-989f-a34dd7d0c127
+      Name: TextRenderNode
+      Position: {x: 50, y: 380}
+      Data:
+        FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Text":{"instanceID":27734},"Format":"Time: {0:#0.00}"}'
+        UnityObjects:
+        - {fileID: 753392936}
+    - Guid: 3d906b97-a097-4799-84a3-a28be40d9f56
+      Name: FloatSubtractNode
+      Position: {x: 50, y: 283}
+      Data:
+        FullName: Nodux.PluginOperator.FloatSubtractNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"from":10.0}'
+        UnityObjects: []
+    - Guid: c3a1ae16-5748-4b7c-b17d-d2a9c1360155
+      Name: FloatRangeNode
+      Position: {x: 50, y: 167}
+      Data:
+        FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"min":0.0,"max":10.0}'
+        UnityObjects: []
+    Links:
+    - SourceNodeGuid: 3d906b97-a097-4799-84a3-a28be40d9f56
+      TargetNodeGuid: e0d807c0-5e3f-469a-989f-a34dd7d0c127
+    - SourceNodeGuid: f67b79ec-f3ef-4e3d-9269-028089f7ea18
+      TargetNodeGuid: c3a1ae16-5748-4b7c-b17d-d2a9c1360155
+    - SourceNodeGuid: c3a1ae16-5748-4b7c-b17d-d2a9c1360155
+      TargetNodeGuid: 3d906b97-a097-4799-84a3-a28be40d9f56
 --- !u!1 &416655568
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +355,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416655569}
-  - component: {fileID: 416655570}
   m_Layer: 5
   m_Name: SpawnArea
   m_TagString: Untagged
@@ -274,36 +381,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: -80, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &416655570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416655568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
-    - FullName: Nodux.PluginSpawner.IntervalTimerNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"IntervalSeconds":1.0}'
-      UnityObjects: []
-    - FullName: Nodux.PluginSpawner.PrefabInstantiateNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"Prefab":{"instanceID":32696},"ParentTransform":{"instanceID":34546}}'
-      UnityObjects:
-      - {fileID: 2166112563128779386, guid: 3c725e82fcf184ad098b27450c0fbeca, type: 3}
-      - {fileID: 416655569}
-    - FullName: Nodux.PluginSpawner.RandomRectPositionNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"RandomArea":{"instanceID":34546}}'
-      UnityObjects:
-      - {fileID: 416655569}
 --- !u!1 &458755934
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,36 +550,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StateKey":"Timer","StoreHolder":{"instanceID":34550}}'
+      ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":24090}}'
       UnityObjects:
       - {fileID: 458755935}
-    - FullName: Nodux.PluginOperator.MathFloorNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: 
-      UnityObjects: []
     - FullName: Nodux.PluginOperator.GreaterEqualNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Threshold":10.0}'
       UnityObjects: []
-    - FullName: Nodux.PluginOperator.BoolFilterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"FilterValue":true}'
-      UnityObjects: []
     - FullName: Nodux.PluginOperator.DistinctUntilChangedNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":34550},"AddSceneName":"100_WhackAMole_Result"}'
-      UnityObjects:
-      - {fileID: 458755935}
+      ContentJson: '{}'
+      UnityObjects: []
     - FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":34550},"AddSceneName":"100_WhackAMole_Result"}'
+      ContentJson: '{"StoreHolder":{"instanceID":24090},"AddSceneName":"100_WhackAMole_Result"}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: 1a99105d-348d-4d5f-9771-f505c7608e80
+      Name: StopwatchTimeStateReaderNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":24090}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    - Guid: 4faa1fce-6368-4869-abd3-059819b41433
+      Name: GreaterEqualNode
+      Position: {x: 50, y: 167}
+      Data:
+        FullName: Nodux.PluginOperator.GreaterEqualNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"Threshold":10.0}'
+        UnityObjects: []
+    - Guid: 4007f0c9-6f00-4082-98dd-bba805a006a0
+      Name: DistinctUntilChangedNode
+      Position: {x: 50, y: 264}
+      Data:
+        FullName: Nodux.PluginOperator.DistinctUntilChangedNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{}'
+        UnityObjects: []
+    - Guid: 60651975-e6fe-4857-8bcc-46bccb41daac
+      Name: SceneReplaceNode
+      Position: {x: 50, y: 341}
+      Data:
+        FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":24090},"AddSceneName":"100_WhackAMole_Result"}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: 1a99105d-348d-4d5f-9771-f505c7608e80
+      TargetNodeGuid: 4faa1fce-6368-4869-abd3-059819b41433
+    - SourceNodeGuid: 4faa1fce-6368-4869-abd3-059819b41433
+      TargetNodeGuid: 4007f0c9-6f00-4082-98dd-bba805a006a0
+    - SourceNodeGuid: 4007f0c9-6f00-4082-98dd-bba805a006a0
+      TargetNodeGuid: 60651975-e6fe-4857-8bcc-46bccb41daac
 --- !u!1 &586772990
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592432117}
   m_Layer: 0
-  m_Name: Nodes
+  m_Name: Graphs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,6 +748,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &737725251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737725252}
+  - component: {fileID: 737725253}
+  m_Layer: 0
+  m_Name: SpawnEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &737725252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737725251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1006790636}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &737725253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737725251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chainNodes:
+  - NodeList:
+    - FullName: Nodux.PluginSpawner.IntervalTimerNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"IntervalSeconds":1.0}'
+      UnityObjects: []
+    - FullName: Nodux.PluginSpawner.PrefabInstantiateNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      ContentJson: '{"Prefab":{"instanceID":15470},"ParentTransform":{"instanceID":24084}}'
+      UnityObjects:
+      - {fileID: 2166112563128779386, guid: 3c725e82fcf184ad098b27450c0fbeca, type: 3}
+      - {fileID: 416655569}
+    - FullName: Nodux.PluginSpawner.RandomRectPositionNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      ContentJson: '{"RandomArea":{"instanceID":24084}}'
+      UnityObjects:
+      - {fileID: 416655569}
+  _graphContainer:
+    Nodes:
+    - Guid: 0f095815-21c2-42cc-9552-547f4920292c
+      Name: IntervalTimerNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginSpawner.IntervalTimerNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"IntervalSeconds":1.0}'
+        UnityObjects: []
+    - Guid: da8b656f-87ec-4a1e-aa8a-6bbcadea1cdb
+      Name: PrefabInstantiateNode
+      Position: {x: 50, y: 147}
+      Data:
+        FullName: Nodux.PluginSpawner.PrefabInstantiateNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"Prefab":{"instanceID":15470},"ParentTransform":{"instanceID":24084}}'
+        UnityObjects:
+        - {fileID: 2166112563128779386, guid: 3c725e82fcf184ad098b27450c0fbeca, type: 3}
+        - {fileID: 416655569}
+    - Guid: 4f1113b2-ba01-4db0-af1b-0a9a6930a238
+      Name: RandomRectPositionNode
+      Position: {x: 50, y: 265}
+      Data:
+        FullName: Nodux.PluginSpawner.RandomRectPositionNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"RandomArea":{"instanceID":24084}}'
+        UnityObjects:
+        - {fileID: 416655569}
+    Links:
+    - SourceNodeGuid: 0f095815-21c2-42cc-9552-547f4920292c
+      TargetNodeGuid: da8b656f-87ec-4a1e-aa8a-6bbcadea1cdb
+    - SourceNodeGuid: da8b656f-87ec-4a1e-aa8a-6bbcadea1cdb
+      TargetNodeGuid: 4f1113b2-ba01-4db0-af1b-0a9a6930a238
 --- !u!1 &753392934
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +894,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -725,9 +930,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1006790636}
   - component: {fileID: 1006790639}
-  - component: {fileID: 1006790637}
-  - component: {fileID: 1006790638}
-  - component: {fileID: 1006790640}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -745,68 +947,14 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1096769542}
+  - {fileID: 350492374}
+  - {fileID: 1025384353}
+  - {fileID: 737725252}
   m_Father: {fileID: 592432117}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1006790637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006790635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
-    - FullName: Nodux.PluginStopwatch.DeltaTimeNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: 
-      UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StateKey":"Timer","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchAggregateReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":14010}}'
-      UnityObjects:
-      - {fileID: 458755935}
---- !u!114 &1006790638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006790635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
-    - FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StateKey":"Timer","StoreHolder":{"instanceID":34550}}'
-      UnityObjects:
-      - {fileID: 458755935}
-    - FullName: Nodux.PluginOperator.FloatSubtractNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"from":10.0}'
-      UnityObjects: []
-    - FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"min":0.0,"max":10.0}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":14030},"Format":"Time: {0:0.00}"}'
-      UnityObjects:
-      - {fileID: 753392936}
 --- !u!114 &1006790639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,36 +967,178 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15dd36e613284bcfa98802138eebf98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1006790640
+--- !u!1 &1025384352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1025384353}
+  - component: {fileID: 1025384354}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1025384353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025384352}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1006790636}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1025384354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006790635}
+  m_GameObject: {fileID: 1025384352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginNode.OnStartNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"component":{"instanceID":-32094}}'
+      ContentJson: '{"component":{"instanceID":27742}}'
       UnityObjects:
       - {fileID: 1006790639}
     - FullName: Nodux.PluginNode.ConstBoolNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Value":true}'
       UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StateKey":"Timer","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":14010}}'
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":27692}}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: ca8fbbb0-5daf-41ed-bf05-8efd3757114e
+      Name: OnStartNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginNode.OnStartNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"component":{"instanceID":27742}}'
+        UnityObjects:
+        - {fileID: 1006790639}
+    - Guid: 14c77f85-2cf1-4f28-9d2c-be135038aabc
+      Name: ConstBoolNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginNode.ConstBoolNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Value":true}'
+        UnityObjects: []
+    - Guid: 4e7a7056-1d15-491e-b4af-044f92c384f6
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 244}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":27692}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: ca8fbbb0-5daf-41ed-bf05-8efd3757114e
+      TargetNodeGuid: 14c77f85-2cf1-4f28-9d2c-be135038aabc
+    - SourceNodeGuid: 14c77f85-2cf1-4f28-9d2c-be135038aabc
+      TargetNodeGuid: 4e7a7056-1d15-491e-b4af-044f92c384f6
+--- !u!1 &1096769541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096769542}
+  - component: {fileID: 1096769543}
+  m_Layer: 0
+  m_Name: Tick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1096769542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096769541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1006790636}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096769543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096769541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chainNodes:
+  - NodeList:
+    - FullName: Nodux.PluginStopwatch.DeltaTimeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{}'
+      UnityObjects: []
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchAggregateReducer,
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":24090}}'
+      UnityObjects:
+      - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: ae5c5198-5746-4566-8071-6ebadd334beb
+      Name: DeltaTimeNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginStopwatch.DeltaTimeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{}'
+        UnityObjects: []
+    - Guid: 6fb55645-a689-48f3-b8a4-be6a3495a836
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 127}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchAggregateReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":24090}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: ae5c5198-5746-4566-8071-6ebadd334beb
+      TargetNodeGuid: 6fb55645-a689-48f3-b8a4-be6a3495a836
 --- !u!1 &1507698039
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +1191,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1003,19 +1294,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":17120},"StateKey":"Score"}'
+      ContentJson: '{"StoreHolder":{"instanceID":24090},"StateKey":"Score"}'
       UnityObjects:
       - {fileID: 458755935}
     - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":-9834},"Format":"Score: {0}"}'
+      ContentJson: '{"Text":{"instanceID":24180},"Format":"Score: {0}"}'
       UnityObjects:
       - {fileID: 2090723278}
+  _graphContainer:
+    Nodes:
+    - Guid: 06e3c1db-08c9-4d91-9777-e9f1bf332dd0
+      Name: TextRenderNode
+      Position: {x: 50, y: 167}
+      Data:
+        FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Text":{"instanceID":24180},"Format":"Score: {0}"}'
+        UnityObjects:
+        - {fileID: 2090723278}
+    - Guid: d30dd0fb-3484-491b-a23c-4208e1ef7a09
+      Name: StateReaderNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":24090},"StateKey":"Score"}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: d30dd0fb-3484-491b-a23c-4208e1ef7a09
+      TargetNodeGuid: 06e3c1db-08c9-4d91-9777-e9f1bf332dd0
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,19 +1439,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginNode.OnStartNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"component":{"instanceID":-4496}}'
+      ContentJson: '{"component":{"instanceID":24174}}'
       UnityObjects:
       - {fileID: 1964422084}
     - FullName: Nodux.PluginScene.Nodes.SceneSyncNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":15078}}'
+      ContentJson: '{"StoreHolder":{"instanceID":24090}}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: 7fb875ae-76ac-49eb-b38c-f0f7d248d3a1
+      Name: OnStartNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginNode.OnStartNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"component":{"instanceID":24174}}'
+        UnityObjects:
+        - {fileID: 1964422084}
+    - Guid: f78697cb-94e1-4cc1-ba01-31adeebd3510
+      Name: SceneSyncNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginScene.Nodes.SceneSyncNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":24090}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: 7fb875ae-76ac-49eb-b38c-f0f7d248d3a1
+      TargetNodeGuid: f78697cb-94e1-4cc1-ba01-31adeebd3510
 --- !u!114 &1964422084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1538,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1271,15 +1607,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginScene.Nodes.SceneRendererNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"storeHolder":{"instanceID":23606},"behaviour":{"instanceID":23708}}'
+      ContentJson: '{"StoreHolder":{"instanceID":24090}}'
       UnityObjects:
       - {fileID: 458755935}
-      - {fileID: 2091163997}
+  _graphContainer:
+    Nodes:
+    - Guid: ac1aa6d8-eea0-4ebd-984f-33a8f8707a8a
+      Name: SceneRendererNode
+      Position: {x: 107, y: 77}
+      Data:
+        FullName: Nodux.PluginScene.Nodes.SceneRendererNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":24090}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links: []
 --- !u!1 &2141286837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,16 +1669,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":15062}}'
+      ContentJson: '{"Button":{"instanceID":24076}}'
       UnityObjects:
       - {fileID: 47410468}
     - FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":17120},"AddSceneName":"100_WhackAMole_Top"}'
+      ContentJson: '{"StoreHolder":{"instanceID":24090},"AddSceneName":"100_WhackAMole_Top"}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: efad4f3e-43d3-4565-9426-65bd979c337e
+      Name: SceneReplaceNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":24090},"AddSceneName":"100_WhackAMole_Top"}'
+        UnityObjects:
+        - {fileID: 458755935}
+    - Guid: 4997385e-87cd-4966-ae60-034ba8b55c51
+      Name: OnClickButtonNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Button":{"instanceID":24076}}'
+        UnityObjects:
+        - {fileID: 47410468}
+    Links:
+    - SourceNodeGuid: 4997385e-87cd-4966-ae60-034ba8b55c51
+      TargetNodeGuid: efad4f3e-43d3-4565-9426-65bd979c337e

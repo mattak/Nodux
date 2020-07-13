@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -217,6 +218,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -474,7 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592432117}
   m_Layer: 0
-  m_Name: Nodes
+  m_Name: Graphs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,6 +674,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -736,19 +739,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":16056},"StateKey":"HP"}'
+      ContentJson: '{"StoreHolder":{"instanceID":18974},"StateKey":"Gauge"}'
       UnityObjects:
       - {fileID: 458755935}
     - FullName: Nodux.PluginSliderGauge.SliderGaugeRenderNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"Slider":{"instanceID":-7448}}'
+      ContentJson: '{"Slider":{"instanceID":19008}}'
       UnityObjects:
       - {fileID: 661672848}
+  _graphContainer:
+    Nodes:
+    - Guid: 4db5ba22-f77f-48fe-9aa0-c34216ee4c84
+      Name: SliderGaugeRenderNode
+      Position: {x: 103, y: 283}
+      Data:
+        FullName: Nodux.PluginSliderGauge.SliderGaugeRenderNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"Slider":{"instanceID":19008}}'
+        UnityObjects:
+        - {fileID: 661672848}
+    - Guid: 7c17a5ad-5853-4619-8d3d-9efb767c5827
+      Name: StateReaderNode
+      Position: {x: 105, y: 143}
+      Data:
+        FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":18974},"StateKey":"Gauge"}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: 7c17a5ad-5853-4619-8d3d-9efb767c5827
+      TargetNodeGuid: 4db5ba22-f77f-48fe-9aa0-c34216ee4c84
 --- !u!1 &1507698039
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +826,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -870,28 +896,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":-10926}}'
+      ContentJson: '{"Button":{"instanceID":18966}}'
       UnityObjects:
       - {fileID: 47410468}
     - FullName: Nodux.PluginNode.ConstFloatNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Value":0.5}'
       UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionNode, Nodux, Version=0.0.0.0, Culture=neutral,
+    - FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StateKey":"HP","ReducerSelection":{"FullName":"Nodux.PluginState.AssignmentReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]}}'
+      ContentJson: '{"min":0.0,"max":1.0}'
       UnityObjects: []
-    - FullName: Nodux.PluginState.StateWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":16056}}'
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      ContentJson: '{"StateKey":"Gauge","ReducerSelection":{"FullName":"Nodux.PluginState.AssignmentReducer,
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":18974}}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: 1c1bf466-e323-4ff2-96cc-a8ef494933d1
+      Name: ConstFloatNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginNode.ConstFloatNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Value":0.5}'
+        UnityObjects: []
+    - Guid: f4fc7143-4301-47b4-8a36-1e8e1929bbd8
+      Name: FloatRangeNode
+      Position: {x: 50, y: 245}
+      Data:
+        FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"min":0.0,"max":1.0}'
+        UnityObjects: []
+    - Guid: 0e94958d-a715-4c2f-88f2-8aac2c1c4021
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 361}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Gauge","ReducerSelection":{"FullName":"Nodux.PluginState.AssignmentReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":18974}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    - Guid: 37bffe12-6106-463c-b5f1-8e49d8c5ff50
+      Name: OnClickButtonNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Button":{"instanceID":18966}}'
+        UnityObjects:
+        - {fileID: 47410468}
+    Links:
+    - SourceNodeGuid: 37bffe12-6106-463c-b5f1-8e49d8c5ff50
+      TargetNodeGuid: 1c1bf466-e323-4ff2-96cc-a8ef494933d1
+    - SourceNodeGuid: 1c1bf466-e323-4ff2-96cc-a8ef494933d1
+      TargetNodeGuid: f4fc7143-4301-47b4-8a36-1e8e1929bbd8
+    - SourceNodeGuid: f4fc7143-4301-47b4-8a36-1e8e1929bbd8
+      TargetNodeGuid: 0e94958d-a715-4c2f-88f2-8aac2c1c4021
 --- !u!114 &1724879915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1091,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.3460555, g: 0.8301887, b: 0.3250267, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
