@@ -4,29 +4,36 @@ using System.Linq;
 using UniRx;
 using UnityEngine;
 using Nodux.Core;
+using Nodux.PluginNode;
 
-namespace Nodux.PluginNode
+namespace Nodux.PluginGraph
 {
     [Serializable]
     public class ChainNode : Node
     {
         // NOTE: this fields hold unity objects reference including file id which is used on NodeList.
-        [SerializeField] private List<UnityEngine.Object> UnityObjectList = new List<UnityEngine.Object>();
+        // [SerializeField] private List<UnityEngine.Object> UnityObjectList = new List<UnityEngine.Object>();
 
         [TypeSelectionFilter("Node")] [SerializeField]
         private List<TypeSelection> NodeList = new List<TypeSelection>();
 
-        private IList<INode> List = new List<INode>();
+        private IList<INode> ConnectionList = new List<INode>();
+        public List<TypeSelection> NodeListForEditor => NodeList;
 
         public ChainNode(INode parent) : base(parent)
         {
+        }
+
+        public ChainNode(INode parent, IEnumerable<TypeSelection> selections) : base(parent)
+        {
+            this.NodeList = selections.ToList();
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
             if (!this.ConnectNodes()) return Disposable.Empty;
 
-            if (this.List.Count < 1)
+            if (this.ConnectionList.Count < 1)
             {
                 UnityEngine.Debug.LogWarning("Node map is empty");
                 return Disposable.Empty;
@@ -38,13 +45,13 @@ namespace Nodux.PluginNode
                 return Disposable.Empty;
             }
 
-            if (this.Parent == null) return this.List.Last().Subscribe(observer);
-            return this.Parent.SelectMany(it => this.List.Last()).Subscribe(observer);
+            if (this.Parent == null) return this.ConnectionList.Last().Subscribe(observer);
+            return this.Parent.SelectMany(it => this.ConnectionList.Last()).Subscribe(observer);
         }
 
         public bool ConnectNodes()
         {
-            this.List = new List<INode>();
+            this.ConnectionList = new List<INode>();
 
             for (var i = 0; i < this.NodeList.Count; i++)
             {
@@ -54,12 +61,12 @@ namespace Nodux.PluginNode
                     return false;
                 }
 
-                this.List.Add(this.NodeList[i].Get<INode>());
+                this.ConnectionList.Add(this.NodeList[i].Get<INode>());
             }
 
-            for (var i = 0; i < this.List.Count - 1; i++)
+            for (var i = 0; i < this.ConnectionList.Count - 1; i++)
             {
-                this.List[i + 1].Parent = this.List[i];
+                this.ConnectionList[i + 1].Parent = this.ConnectionList[i];
             }
 
             return true;

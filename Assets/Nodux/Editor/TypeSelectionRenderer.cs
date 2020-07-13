@@ -1,29 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using Nodux.Core;
-using Nodux.PluginEditor;
 
 namespace Nodux.PluginEditor
 {
     public class TypeSelectionRenderer
     {
-        private static List<Type> CandidateTypeList = null;
-        private static IDictionary<string, List<Type>> TypeListMap = new Dictionary<string, List<Type>>();
-        private static IDictionary<string, List<string>> TypeNameListMap = new Dictionary<string, List<string>>();
-
-        private static IDictionary<string, List<string>> TypeAssemblyQualifiedNameListMap =
-            new Dictionary<string, List<string>>();
-
         private static IDictionary<string, TypeSelectionRenderer> RendererMap =
             new Dictionary<string, TypeSelectionRenderer>();
 
         private string FilterCategory = null;
-        private IList<string> TypeNameList => TypeNameListMap[FilterCategory];
-        private IList<string> TypeAssemblyQualifiedNameList => TypeAssemblyQualifiedNameListMap[FilterCategory];
+
+        private IDictionary<string, List<Type>> TypeListMap => TypeSelectionHolder.TypeListMap;
+        private IList<string> TypeNameList => TypeSelectionHolder.TypeNameListMap[FilterCategory];
+
+        private IList<string> TypeAssemblyQualifiedNameList =>
+            TypeSelectionHolder.TypeAssemblyQualifiedNameListMap[FilterCategory];
 
         public static bool RenderFromSystemObject(
             ref Rect rect,
@@ -78,35 +73,9 @@ namespace Nodux.PluginEditor
 
         public void CheckInitialize(string filterCategory)
         {
-            if (CandidateTypeList == null)
-            {
-                CandidateTypeList = AppDomain.CurrentDomain.GetAssemblies().SelectMany(it => it.GetTypes())
-                    .Where(it => it.GetCustomAttribute(typeof(TypeSelectionEnable)) != null)
-                    .ToList();
-            }
+            if (FilterCategory == null) FilterCategory = filterCategory;
 
-            if (FilterCategory == null)
-            {
-                FilterCategory = filterCategory;
-            }
-
-            if (FilterCategory != null && CandidateTypeList != null && !TypeListMap.ContainsKey(filterCategory))
-            {
-                TypeListMap[FilterCategory] = CandidateTypeList
-                    .Select(it => new
-                    {
-                        Type = it,
-                        Category = ((TypeSelectionEnable) it.GetCustomAttribute(typeof(TypeSelectionEnable))).Category
-                    })
-                    .Where(it => filterCategory == it.Category)
-                    .Select(it => it.Type)
-                    .ToList();
-
-                TypeAssemblyQualifiedNameListMap[FilterCategory] =
-                    TypeListMap[FilterCategory].Select(it => it.AssemblyQualifiedName).ToList();
-                TypeNameListMap[FilterCategory] =
-                    TypeListMap[FilterCategory].Select(it => it.FullName).ToList();
-            }
+            TypeSelectionHolder.CheckInitialize(filterCategory);
         }
 
         public bool RenderTypeAndValue(string fieldName, ref TypeSelection selection)
@@ -134,7 +103,7 @@ namespace Nodux.PluginEditor
             var rect = new Rect(position.x, position.y, position.width, 0);
             var dirty = false;
 
-            selection?.Restore();
+            selection?.Restore(withWarning: false);
 
             // type
             {
