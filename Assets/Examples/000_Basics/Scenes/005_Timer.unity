@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -217,6 +218,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -281,24 +283,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":-1368}}'
+      ContentJson: '{"Button":{"instanceID":20146}}'
       UnityObjects:
       - {fileID: 1201090593}
     - FullName: Nodux.PluginNode.ConstBoolNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Value":false}'
       UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":17902}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20084}}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: e9835169-e5de-43a7-aa62-86072d92ad40
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 244}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20084}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    - Guid: d35c4077-05df-4cfd-8cf2-c24e02e2c5b1
+      Name: ConstBoolNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginNode.ConstBoolNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Value":false}'
+        UnityObjects: []
+    - Guid: 1855cd98-1cdb-476e-ba79-024b68ee4c2a
+      Name: OnClickButtonNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Button":{"instanceID":20146}}'
+        UnityObjects:
+        - {fileID: 1201090593}
+    Links:
+    - SourceNodeGuid: 1855cd98-1cdb-476e-ba79-024b68ee4c2a
+      TargetNodeGuid: d35c4077-05df-4cfd-8cf2-c24e02e2c5b1
+    - SourceNodeGuid: d35c4077-05df-4cfd-8cf2-c24e02e2c5b1
+      TargetNodeGuid: e9835169-e5de-43a7-aa62-86072d92ad40
 --- !u!1 &323124793
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +386,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -471,6 +507,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -692,7 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592432117}
   m_Layer: 0
-  m_Name: Nodes
+  m_Name: Graphs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -885,19 +922,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":13928},"StateKey":"Time"}'
+      ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":20084}}'
       UnityObjects:
       - {fileID: 458755935}
     - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":-1914},"Format":"{0}s"}'
+      ContentJson: '{"Text":{"instanceID":20078},"Format":"{0}s"}'
       UnityObjects:
       - {fileID: 323124795}
+  _graphContainer:
+    Nodes:
+    - Guid: 4e02e3dd-fdbb-494c-b185-b254dcdca0de
+      Name: TextRenderNode
+      Position: {x: 50, y: 167}
+      Data:
+        FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Text":{"instanceID":20078},"Format":"{0}s"}'
+        UnityObjects:
+        - {fileID: 323124795}
+    - Guid: 3383b044-b127-4529-a3e4-47eb8cff2f05
+      Name: StopwatchTimeStateReaderNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":20084}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: 3383b044-b127-4529-a3e4-47eb8cff2f05
+      TargetNodeGuid: 4e02e3dd-fdbb-494c-b185-b254dcdca0de
 --- !u!1 &1063511160
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +1009,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1068,6 +1128,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1186,6 +1247,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1250,20 +1312,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":-9782}}'
+      ContentJson: '{"Button":{"instanceID":20156}}'
       UnityObjects:
       - {fileID: 1291124544}
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchResetReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":17902}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20084}}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: e77ec624-4b33-4b46-b3cb-4bd1f240f7a1
+      Name: OnClickButtonNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Button":{"instanceID":20156}}'
+        UnityObjects:
+        - {fileID: 1291124544}
+    - Guid: 998f0c3f-d952-486b-89cb-5a04c27f9698
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchResetReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20084}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: e77ec624-4b33-4b46-b3cb-4bd1f240f7a1
+      TargetNodeGuid: 998f0c3f-d952-486b-89cb-5a04c27f9698
 --- !u!1 &1478964713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,6 +1401,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1384,19 +1470,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":13928},"StateKey":"Time"}'
+      ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":20084}}'
       UnityObjects:
       - {fileID: 458755935}
+    - FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"min":0.0,"max":1.0}'
+      UnityObjects: []
     - FullName: Nodux.PluginSliderGauge.SliderGaugeRenderNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"Slider":{"instanceID":-7448}}'
+      ContentJson: '{"Slider":{"instanceID":20126}}'
       UnityObjects:
       - {fileID: 661672848}
+  _graphContainer:
+    Nodes:
+    - Guid: 65def76a-f616-4e01-b522-43adc3bbaeb6
+      Name: SliderGaugeRenderNode
+      Position: {x: 50, y: 283}
+      Data:
+        FullName: Nodux.PluginSliderGauge.SliderGaugeRenderNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"Slider":{"instanceID":20126}}'
+        UnityObjects:
+        - {fileID: 661672848}
+    - Guid: ab9788c7-4821-4228-af11-aac29ce4cb01
+      Name: FloatRangeNode
+      Position: {x: 50, y: 167}
+      Data:
+        FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"min":0.0,"max":1.0}'
+        UnityObjects: []
+    - Guid: 743d49af-62e9-42b8-8baf-da7d408ce69b
+      Name: StopwatchTimeStateReaderNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginStopwatch.StopwatchTimeStateReaderNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":20084}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: ab9788c7-4821-4228-af11-aac29ce4cb01
+      TargetNodeGuid: 65def76a-f616-4e01-b522-43adc3bbaeb6
+    - SourceNodeGuid: 743d49af-62e9-42b8-8baf-da7d408ce69b
+      TargetNodeGuid: ab9788c7-4821-4228-af11-aac29ce4cb01
 --- !u!1 &1507698039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,6 +1571,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1517,24 +1640,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":-10926}}'
+      ContentJson: '{"Button":{"instanceID":20062}}'
       UnityObjects:
       - {fileID: 47410468}
     - FullName: Nodux.PluginNode.ConstBoolNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Value":true}'
       UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":17902}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20084}}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: 1855cd98-1cdb-476e-ba79-024b68ee4c2a
+      Name: OnClickButtonNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Button":{"instanceID":20062}}'
+        UnityObjects:
+        - {fileID: 47410468}
+    - Guid: e9835169-e5de-43a7-aa62-86072d92ad40
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 244}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchIsPlayingReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20084}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    - Guid: d35c4077-05df-4cfd-8cf2-c24e02e2c5b1
+      Name: ConstBoolNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginNode.ConstBoolNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Value":true}'
+        UnityObjects: []
+    Links:
+    - SourceNodeGuid: 1855cd98-1cdb-476e-ba79-024b68ee4c2a
+      TargetNodeGuid: d35c4077-05df-4cfd-8cf2-c24e02e2c5b1
+    - SourceNodeGuid: d35c4077-05df-4cfd-8cf2-c24e02e2c5b1
+      TargetNodeGuid: e9835169-e5de-43a7-aa62-86072d92ad40
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,20 +1800,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginStopwatch.DeltaTimeNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StateKey":"Time","StoreHolder":{"instanceID":20712}}'
-      UnityObjects:
-      - {fileID: 458755935}
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      ContentJson: '{}'
+      UnityObjects: []
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchAggregateReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":15754}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20084}}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: ff9ca90a-5a0f-4ead-b45a-68b7499201d9
+      Name: DeltaTimeNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginStopwatch.DeltaTimeNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{}'
+        UnityObjects: []
+    - Guid: 98cad49a-7c14-4d51-b3e8-f90f0332bcc1
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 127}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Time","ReducerSelection":{"FullName":"Nodux.PluginStopwatch.StopwatchAggregateReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":20084}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: ff9ca90a-5a0f-4ead-b45a-68b7499201d9
+      TargetNodeGuid: 98cad49a-7c14-4d51-b3e8-f90f0332bcc1
 --- !u!1 &2117223595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1887,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.3460555, g: 0.8301887, b: 0.3250267, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

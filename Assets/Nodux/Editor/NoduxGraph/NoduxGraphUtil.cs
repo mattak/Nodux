@@ -109,7 +109,7 @@ namespace Nodux.PluginEditor.NoduxGraph
                 }
             }
 
-            var results = new NoduxGraphNode[roots.Count][];
+            var results = new List<NoduxGraphNode[]>();
             for (var i = 0; i < roots.Count; i++)
             {
                 var cursorGuid = roots[i];
@@ -123,10 +123,26 @@ namespace Nodux.PluginEditor.NoduxGraph
                     result.Add(nodeDictionary[cursorGuid]);
                 }
 
-                results[i] = result.ToArray();
+                results.Add(result.ToArray());
             }
 
-            return results;
+            var singleNodes = ExtractSingleGraphNodeChains(view, nodeDictionary);
+            foreach (var node in singleNodes)
+            {
+                results.Add(new NoduxGraphNode[] {node});
+            }
+
+            return results.ToArray();
+        }
+
+        private static IList<NoduxGraphNode> ExtractSingleGraphNodeChains(GraphView view,
+            IDictionary<string, NoduxGraphNode> linkedNodeMap)
+        {
+            var unlinkedNodes = view.nodes.ToList().Cast<NoduxGraphNode>()
+                .Where(x => !linkedNodeMap.ContainsKey(x.Guid))
+                .ToList();
+
+            return unlinkedNodes;
         }
     }
 }

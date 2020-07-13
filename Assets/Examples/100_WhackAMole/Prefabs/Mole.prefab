@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -88,29 +89,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginUI.OnPointerDownNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Behaviour":{"instanceID":34472}}'
+      ContentJson: '{"Behaviour":{"instanceID":26774}}'
       UnityObjects:
       - {fileID: 2166112563128779380}
     - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       ContentJson: '{"Value":1}'
       UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StateKey":"Score","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":33074}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":26772}}'
       UnityObjects:
       - {fileID: 552333960}
     - FullName: Nodux.PluginUI.GameObjectDestroyNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Target":{"instanceID":34472},"DelaySeconds":0.0}'
+      ContentJson: '{"Target":{"instanceID":27186},"DelaySeconds":0.0}'
       UnityObjects:
-      - {fileID: 2166112563128779380}
+      - {fileID: 2166112563128779387}
+  _graphContainer:
+    Nodes:
+    - Guid: bbb73ee2-ff52-4ae7-a3e9-08d4834e1d84
+      Name: ConstIntNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Value":1}'
+        UnityObjects: []
+    - Guid: 79226670-8d3b-4d98-b1a1-88501d1317bb
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 245}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Score","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":26772}}'
+        UnityObjects:
+        - {fileID: 552333960}
+    - Guid: 415bef5a-9100-4623-8ec4-b919a9c64026
+      Name: GameObjectDestroyNode
+      Position: {x: 50, y: 385}
+      Data:
+        FullName: Nodux.PluginUI.GameObjectDestroyNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Target":{"instanceID":27186},"DelaySeconds":0.0}'
+        UnityObjects:
+        - {fileID: 2166112563128779387}
+    - Guid: a92dd6bd-c1f5-497c-8bf4-130081dbed61
+      Name: OnPointerDownNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginUI.OnPointerDownNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Behaviour":{"instanceID":26774}}'
+        UnityObjects:
+        - {fileID: 2166112563128779380}
+    Links:
+    - SourceNodeGuid: bbb73ee2-ff52-4ae7-a3e9-08d4834e1d84
+      TargetNodeGuid: 79226670-8d3b-4d98-b1a1-88501d1317bb
+    - SourceNodeGuid: 79226670-8d3b-4d98-b1a1-88501d1317bb
+      TargetNodeGuid: 415bef5a-9100-4623-8ec4-b919a9c64026
+    - SourceNodeGuid: a92dd6bd-c1f5-497c-8bf4-130081dbed61
+      TargetNodeGuid: bbb73ee2-ff52-4ae7-a3e9-08d4834e1d84
 --- !u!114 &552333960
 MonoBehaviour:
   m_ObjectHideFlags: 0

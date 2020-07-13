@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -120,6 +121,100 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &343830305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 343830306}
+  - component: {fileID: 343830307}
+  m_Layer: 0
+  m_Name: ClickToStore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &343830306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343830305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 592432117}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &343830307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343830305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chainNodes:
+  - NodeList:
+    - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"Button":{"instanceID":16384}}'
+      UnityObjects:
+      - {fileID: 1591365636}
+    - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"Value":1}'
+      UnityObjects: []
+    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      ContentJson: '{"StateKey":"Clicks","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":16342}}'
+      UnityObjects:
+      - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: da4e9b79-78d2-4018-8ac4-e58ff4445492
+      Name: OnClickButtonNode
+      Position: {x: 142, y: 136}
+      Data:
+        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Button":{"instanceID":16384}}'
+        UnityObjects:
+        - {fileID: 1591365636}
+    - Guid: 3d4633c6-ae96-4291-aaae-6c6853b2e766
+      Name: ConstIntNode
+      Position: {x: 145, y: 246}
+      Data:
+        FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Value":1}'
+        UnityObjects: []
+    - Guid: e9c4bb66-3eca-41da-b348-c52dafafec37
+      Name: StateActionWriterNode
+      Position: {x: 146, y: 359}
+      Data:
+        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StateKey":"Clicks","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
+          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":16342}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: da4e9b79-78d2-4018-8ac4-e58ff4445492
+      TargetNodeGuid: 3d4633c6-ae96-4291-aaae-6c6853b2e766
+    - SourceNodeGuid: 3d4633c6-ae96-4291-aaae-6c6853b2e766
+      TargetNodeGuid: e9c4bb66-3eca-41da-b348-c52dafafec37
 --- !u!1 &458755934
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,10 +450,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 592432117}
-  - component: {fileID: 592432121}
-  - component: {fileID: 592432118}
   m_Layer: 0
-  m_Name: Nodes
+  m_Name: Graphs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -374,65 +467,12 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 343830306}
+  - {fileID: 1364146549}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &592432118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592432116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
-    - FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":14546},"StateKey":"count"}'
-      UnityObjects:
-      - {fileID: 458755935}
-    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":14606},"Format":"{0}"}'
-      UnityObjects:
-      - {fileID: 2025006685}
---- !u!114 &592432121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592432116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
-    - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":14588}}'
-      UnityObjects:
-      - {fileID: 1591365636}
-    - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":1}'
-      UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StateKey":"count","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":26448}}'
-      UnityObjects:
-      - {fileID: 458755935}
 --- !u!1 &818091400
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +525,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -510,6 +551,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818091400}
   m_CullTransparentMesh: 0
+--- !u!1 &1364146548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1364146549}
+  - component: {fileID: 1364146550}
+  m_Layer: 0
+  m_Name: StoreToText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1364146549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364146548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 592432117}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1364146550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364146548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chainNodes:
+  - NodeList:
+    - FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"StoreHolder":{"instanceID":16342},"StateKey":"Clicks"}'
+      UnityObjects:
+      - {fileID: 458755935}
+    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      ContentJson: '{"Text":{"instanceID":16402},"Format":"Click {0}"}'
+      UnityObjects:
+      - {fileID: 2025006685}
+  _graphContainer:
+    Nodes:
+    - Guid: 9335b0e5-f380-45fd-93dd-49d2f80d6e48
+      Name: StateReaderNode
+      Position: {x: 136, y: 192}
+      Data:
+        FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":16342},"StateKey":"Clicks"}'
+        UnityObjects:
+        - {fileID: 458755935}
+    - Guid: 0c77c6df-a689-4a47-86f0-262b4c4ef2e9
+      Name: TextRenderNode
+      Position: {x: 138, y: 333}
+      Data:
+        FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Text":{"instanceID":16402},"Format":"Click {0}"}'
+        UnityObjects:
+        - {fileID: 2025006685}
+    Links:
+    - SourceNodeGuid: 9335b0e5-f380-45fd-93dd-49d2f80d6e48
+      TargetNodeGuid: 0c77c6df-a689-4a47-86f0-262b4c4ef2e9
 --- !u!1 &1591365634
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +726,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -746,6 +866,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

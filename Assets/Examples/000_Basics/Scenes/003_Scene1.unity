@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -163,24 +164,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":14372}}'
+      ContentJson: '{"Button":{"instanceID":17232}}'
       UnityObjects:
       - {fileID: 1591365636}
     - FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":14070},"AddSceneName":"003_Scene2"}'
+      ContentJson: '{"StoreHolder":{"instanceID":17184},"AddSceneName":"003_Scene2"}'
       UnityObjects:
       - {fileID: 458755935}
-    - FullName: Nodux.PluginState.StateWriterNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":14070},"AddSceneName":"003_Scene2"}'
-      UnityObjects:
-      - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: c784c427-8148-4f53-b00f-81ec5c36e4b1
+      Name: OnClickButtonNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"Button":{"instanceID":17232}}'
+        UnityObjects:
+        - {fileID: 1591365636}
+    - Guid: dd71fd06-9e79-40b9-8ced-4cc1d6bc5953
+      Name: SceneReplaceNode
+      Position: {x: 50, y: 148}
+      Data:
+        FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":17184},"AddSceneName":"003_Scene2"}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: c784c427-8148-4f53-b00f-81ec5c36e4b1
+      TargetNodeGuid: dd71fd06-9e79-40b9-8ced-4cc1d6bc5953
 --- !u!1 &458755934
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,19 +469,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginNode.OnStartNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"component":{"instanceID":-3296}}'
+      ContentJson: '{"component":{"instanceID":17212}}'
       UnityObjects:
       - {fileID: 809142133}
     - FullName: Nodux.PluginScene.Nodes.SceneSyncNode, Nodux, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":14338}}'
+      ContentJson: '{"StoreHolder":{"instanceID":17184}}'
       UnityObjects:
       - {fileID: 458755935}
+  _graphContainer:
+    Nodes:
+    - Guid: a044a8b2-e82b-4df1-a45e-5dd63343d26d
+      Name: OnStartNode
+      Position: {x: 58, y: 62}
+      Data:
+        FullName: Nodux.PluginNode.OnStartNode, Nodux, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        ContentJson: '{"component":{"instanceID":17212}}'
+        UnityObjects:
+        - {fileID: 809142133}
+    - Guid: f41f2d22-623e-4da1-988c-8dc69f0cb777
+      Name: SceneSyncNode
+      Position: {x: 55, y: 185}
+      Data:
+        FullName: Nodux.PluginScene.Nodes.SceneSyncNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":17184}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links:
+    - SourceNodeGuid: a044a8b2-e82b-4df1-a45e-5dd63343d26d
+      TargetNodeGuid: f41f2d22-623e-4da1-988c-8dc69f0cb777
 --- !u!114 &809142133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +568,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -596,15 +637,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChainNode:
-    UnityObjectList: []
-    NodeList:
+  _chainNodes:
+  - NodeList:
     - FullName: Nodux.PluginScene.Nodes.SceneRendererNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"storeHolder":{"instanceID":15230},"behaviour":{"instanceID":15272}}'
+      ContentJson: '{"StoreHolder":{"instanceID":17184}}'
       UnityObjects:
       - {fileID: 458755935}
-      - {fileID: 1287325705}
+  _graphContainer:
+    Nodes:
+    - Guid: 5ce869ad-669d-4e9a-869f-92803e0e0c40
+      Name: SceneRendererNode
+      Position: {x: 50, y: 50}
+      Data:
+        FullName: Nodux.PluginScene.Nodes.SceneRendererNode, Nodux, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        ContentJson: '{"StoreHolder":{"instanceID":17184}}'
+        UnityObjects:
+        - {fileID: 458755935}
+    Links: []
 --- !u!1 &1591365634
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +753,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -799,7 +851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959370115}
   m_Layer: 0
-  m_Name: Nodes
+  m_Name: Graphs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -874,6 +926,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
