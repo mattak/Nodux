@@ -1,0 +1,17 @@
+Label {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: cornflowerblue;
+}
+
+GridBackground {
+    --grid-background-color: #282828;
+    --line-color: rgba(192, 196, 192, 0.1);
+    --thick-line-color: rgba(192, 196, 192, 0.1);
+    --spacing: 10;
+}
+
+MiniMap > Label {
+    color: cornflowerblue;
+    font-size: 12px;
+}

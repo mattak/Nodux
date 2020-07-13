@@ -1,4 +1,4 @@
-using Nodux.PluginNode;
+using Nodux.PluginGraph;
 using UnityEditor;
 using UnityEngine;
 

@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 
 namespace Nodux.Core
@@ -45,6 +46,12 @@ namespace Nodux.Core
             this.ContentJson = JsonUtility.ToJson(this._value);
         }
 
+        public void UpdateValue(FieldInfo info, object newValue)
+        {
+            info.SetValue(this.Object, newValue);
+            this.ContentJson = JsonUtility.ToJson(this._value);
+        }
+
         public void SetType(Type type)
         {
             this._type = type;
@@ -53,11 +60,11 @@ namespace Nodux.Core
             this.ContentJson = "{}";
         }
 
-        public bool Restore()
+        public bool Restore(bool withWarning = true)
         {
             if (string.IsNullOrEmpty(this.FullName))
             {
-                UnityEngine.Debug.LogWarning("FullName is null or empty");
+                if (withWarning) UnityEngine.Debug.LogWarning("FullName is null or empty");
                 return false;
             }
 
@@ -65,7 +72,7 @@ namespace Nodux.Core
 
             if (this._type == null)
             {
-                UnityEngine.Debug.LogWarning($"Cannot parse type: {this.FullName}");
+                if (withWarning) UnityEngine.Debug.LogWarning($"Cannot parse type: {this.FullName}");
                 return false;
             }
 

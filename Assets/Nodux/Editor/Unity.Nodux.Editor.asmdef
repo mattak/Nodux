@@ -1,7 +1,8 @@
 {
     "name": "Unity.Nodux.Editor",
     "references": [
-        "GUID:fde89dd5203fa4c7abbcbcda21bc3280"
+        "GUID:fde89dd5203fa4c7abbcbcda21bc3280",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
     ],
     "includePlatforms": [
         "Editor"
@@ -12,5 +13,6 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }
