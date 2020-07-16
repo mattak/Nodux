@@ -35,6 +35,19 @@ namespace Nodux.PluginState
             this.ReducerSelection = reducerSelection;
         }
 
+        public StateActionWriterNode(
+            INode parent,
+            string stateKey,
+            StoreHolder storeHolder,
+            IReducer reducer
+        ) : base(parent)
+        {
+            this.StateKey = stateKey;
+            this.StoreHolder = storeHolder;
+            this.Reducer = reducer;
+            this.ReducerSelection = null;
+        }
+
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
             var actionNode = new StateActionNode(this.Parent, this.StateKey, this.Reducer, this.ReducerSelection);

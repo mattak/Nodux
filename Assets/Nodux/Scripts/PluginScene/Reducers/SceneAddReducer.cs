@@ -13,10 +13,10 @@ namespace Nodux.PluginScene.Reducers
         {
             if (!(action.Reducer is SceneAddReducer)) return state;
 
-            var value = state.Get(action.StateKey).Value<IDictionary<string, bool>>();
+            var value = state.GetValue<IDictionary<string, bool>>(action.StateKey);
             if (value == default(IDictionary<string, bool>)) value = new Dictionary<string, bool>();
 
-            var sceneName = action.Value.Value<string>();
+            var sceneName = action.GetValue<string>();
             value[sceneName] = true;
 
             state.Set(action.StateKey, new Any(value));

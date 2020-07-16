@@ -12,10 +12,9 @@ namespace Nodux.PluginStopwatch
         {
             if (!(action.Reducer is StopwatchIsPlayingReducer)) return state;
 
-            var timeValue = state.Get(action.StateKey);
-            var time = timeValue.Value<StopwatchValue>();
+            var time = state.GetValue<StopwatchValue>(action.StateKey);
 
-            time.IsPlaying = action.Value.Value<bool>();
+            time.IsPlaying = action.GetValue<bool>();
             state.Set(action.StateKey, new Any(time));
             return state;
         }

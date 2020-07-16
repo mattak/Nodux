@@ -13,10 +13,10 @@ namespace Nodux.PluginScene.Reducers
         {
             if (!(action.Reducer is SceneRemoveReducer)) return state;
 
-            var value = state.Get(action.StateKey).Value<IDictionary<string, bool>>();
+            var value = state.GetValue<IDictionary<string, bool>>(action.StateKey);
             if (value == default(IDictionary<string, bool>)) value = new Dictionary<string, bool>();
 
-            var sceneNames = action.Value.Value<IList<string>>();
+            var sceneNames = action.GetValue<IList<string>>();
             foreach (var sceneName in sceneNames) value[sceneName] = false;
 
             state.Set(action.StateKey, new Any(value));

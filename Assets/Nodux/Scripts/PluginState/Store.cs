@@ -21,17 +21,17 @@ namespace Nodux.PluginState
 
         public bool HasKey(string key)
         {
-            return state.GetRaw().ContainsKey(key);
+            return state.GetRawMap().ContainsKey(key);
         }
 
         public Any Get(string key)
         {
-            return state.GetRaw()[key];
+            return state.GetRawMap()[key];
         }
 
         public IDictionary<string, Any> GetRawData()
         {
-            return this.state.GetRaw();
+            return this.state.GetRawMap();
         }
 
         public void Replace(IDictionary<string, Any> dictionary)

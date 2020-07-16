@@ -12,7 +12,7 @@ namespace Nodux.PluginCounter
         {
             if (!(stateAction.Reducer is IncrementReducer)) return state;
 
-            var value = state.Get(stateAction.StateKey).Value<int>() + stateAction.Value.Value<int>();
+            var value = state.GetValue<int>(stateAction.StateKey) + stateAction.GetValue<int>();
             state.Set(stateAction.StateKey, new Any(value));
 
             return state;

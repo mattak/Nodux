@@ -18,6 +18,30 @@ EditorBuildSettings:
     path: Assets/Examples/000_Basics/Scenes/003_Scene1.unity
     guid: 3a14f5d40022e4d69b3ea7a1b5653530
   - enabled: 1
+    path: Assets/Examples/000_Basics/Scenes/004_Gauge.unity
+    guid: 7865da115d8e346bb91c1a19b8e1d1f7
+  - enabled: 1
+    path: Assets/Examples/000_Basics/Scenes/005_Timer.unity
+    guid: 7730ceb313f0a4a44a64f6eaa283b1c7
+  - enabled: 1
+    path: Assets/Examples/010_MultiScene/Scenes/010_MultiScene_Base.unity
+    guid: bcf739bee2ee840098d4048d7a9db4b1
+  - enabled: 1
+    path: Assets/Examples/010_MultiScene/Scenes/010_MultiScene_Footer.unity
+    guid: d27adc965175c46b59239aefb1c62ccc
+  - enabled: 1
+    path: Assets/Examples/010_MultiScene/Scenes/010_MultiScene_Header.unity
+    guid: 60c6569bcc26548e1ac8a08efd335181
+  - enabled: 1
+    path: Assets/Examples/010_MultiScene/Scenes/010_MultiScene_Main1.unity
+    guid: ef5939b018225435b9381bcde8d16735
+  - enabled: 1
+    path: Assets/Examples/010_MultiScene/Scenes/010_MultiScene_Main2.unity
+    guid: ee5eb25b84665427182d88483b3e4ab0
+  - enabled: 1
+    path: Assets/Examples/010_MultiScene/Scenes/010_MultiScene_Start.unity
+    guid: 1f8ffde06616a40d7a196ad9b05b1864
+  - enabled: 1
     path: Assets/Examples/100_WhackAMole/Scenes/100_WhackAMole_Top.unity
     guid: d80d53f23852b48059a749cb3c02ba7c
   - enabled: 1

@@ -34,6 +34,11 @@ namespace Nodux.Core
             return typeof(TValue).IsAssignableFrom(this.Type);
         }
 
+        public bool IsNull()
+        {
+            return this.Object == null;
+        }
+
         public override string ToString()
         {
             return $"Any(Type:{Type}, Object:{Object})";

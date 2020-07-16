@@ -12,8 +12,14 @@ namespace Nodux.PluginScene.Nodes
     {
         public StoreHolder StoreHolder;
 
-        public SceneSyncNode(INode parent) : base(parent)
+        public SceneSyncNode(StoreHolder holder) : base(null)
         {
+            this.StoreHolder = holder;
+        }
+
+        public SceneSyncNode(INode parent, StoreHolder holder) : base(parent)
+        {
+            this.StoreHolder = holder;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)

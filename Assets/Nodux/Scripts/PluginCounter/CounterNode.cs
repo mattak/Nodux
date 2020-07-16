@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 namespace Nodux.PluginCounter
 {
-    public class CounterRenderer : INode
+    public class CounterNode : INode
     {
         public StoreHolder storeHolder;
         public string stateKey;
         public Text text;
         public INode Parent { get; set; }
+
 
         public IDisposable Subscribe(IObserver<Any> observer)
         {

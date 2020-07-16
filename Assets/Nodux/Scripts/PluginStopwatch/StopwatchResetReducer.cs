@@ -12,8 +12,7 @@ namespace Nodux.PluginStopwatch
         {
             if (!(action.Reducer is StopwatchResetReducer)) return state;
 
-            var stopwatch = state.Get(action.StateKey);
-            var timer = stopwatch.Value<StopwatchValue>();
+            var timer = state.GetValue<StopwatchValue>(action.StateKey);
 
             timer.ElapsedTime = 0f;
 

@@ -3,7 +3,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Nodux.Tests.Util
+namespace Nodux.Tests.Core
 {
     public class TypeUtilTest
     {

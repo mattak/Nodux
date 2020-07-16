@@ -18,8 +18,9 @@ namespace Nodux.PluginScene.Nodes
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.Parent.Select(_ => new Any(ListUp()))
-                .Subscribe(observer);
+            var value = new Any(ListUp());
+            if (this.Parent == null) return Observable.Return(value).Subscribe(observer);
+            return this.Parent.Select(_ => value).Subscribe(observer);
         }
 
         private IDictionary<string, bool> ListUp()
