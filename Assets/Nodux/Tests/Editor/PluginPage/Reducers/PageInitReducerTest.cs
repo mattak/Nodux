@@ -5,7 +5,7 @@ using Nodux.PluginPage.Reducers;
 using Nodux.PluginState;
 using NUnit.Framework;
 
-namespace Nodux.Tests.PluginPage
+namespace Nodux.Tests.PluginPage.Reducers
 {
     public class PageInitReducerTest
     {

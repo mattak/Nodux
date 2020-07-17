@@ -178,7 +178,7 @@ MonoBehaviour:
     - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       ContentJson: '{"StateKey":"Clicks","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":16342}}'
+        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":15248}}'
       UnityObjects:
       - {fileID: 458755935}
   _graphContainer:
