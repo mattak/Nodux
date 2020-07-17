@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Nodux.Core;
-using Nodux.Nodux.Scripts.PluginScene;
+using Nodux.PluginScene;
 using Nodux.PluginPage;
 using Nodux.PluginPage.Reducers;
 using Nodux.PluginState;
@@ -19,7 +19,7 @@ namespace Nodux.Tests.PluginPage.Reducers
             state.SetValue<PageStack>(PageConst.StateStackKey, new PageStack());
             state.SetValue<PageDefinition>(PageConst.StateDefinitionKey, new PageDefinition
             {
-                PageScenes = new List<PageScene>
+                PageScenes = new[]
                 {
                     new PageScene
                     {

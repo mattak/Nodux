@@ -17,7 +17,7 @@ namespace Nodux.PluginPage.Components
                 return;
             }
 
-            StartCoroutine(LoadMissingPermanentScenes(PageSetting.PermanentScenes));
+            StartCoroutine(LoadMissingPermanentScenes(PageSetting.Definition.PermanentScenes));
         }
 
         private IEnumerator LoadMissingPermanentScenes(string[] permanentScenes)

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa5d8a722a24e22a988d54cb0207fb2, type: 3}
   m_Name: 010_MultiScenePageSetting
   m_EditorClassIdentifier: 
-  PermanentScenes:
-  - 010_MultiScene_Base
   Definition:
+    PermanentScenes:
+    - 010_MultiScene_Base
     PageScenes:
     - Name: Start
       Scenes:

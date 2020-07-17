@@ -1,5 +1,6 @@
 using System;
 using Nodux.Core;
+using Nodux.PluginScene;
 using Nodux.PluginState;
 
 namespace Nodux.PluginPage.Reducers
@@ -19,6 +20,10 @@ namespace Nodux.PluginPage.Reducers
 
             state.Set(definitionKey, new Any(definition));
             state.Set(stackKey, new Any(new PageStack()));
+
+            // load permanent scenes
+            PageReducerUtility.ChangeScenes(state, definition.PermanentScenes, true);
+            state.NotifyValue(SceneConst.StateKey);
 
             return state;
         }

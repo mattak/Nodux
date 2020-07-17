@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Nodux.Core;
+using Nodux.Nodux.Scripts.PluginScene;
 using Nodux.PluginState;
 
 namespace Nodux.PluginScene.Reducers
@@ -13,7 +14,7 @@ namespace Nodux.PluginScene.Reducers
         {
             if (!(action.Reducer is SceneRemoveReducer)) return state;
 
-            var value = state.GetValue<IDictionary<string, bool>>(action.StateKey);
+            var value = state.GetValue<IDictionary<string, bool>>(SceneConst.StateKey);
             if (value == default(IDictionary<string, bool>)) value = new Dictionary<string, bool>();
 
             var sceneNames = action.GetValue<IList<string>>();

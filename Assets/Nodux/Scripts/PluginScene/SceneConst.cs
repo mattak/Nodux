@@ -1,4 +1,4 @@
-namespace Nodux.Nodux.Scripts.PluginScene
+namespace Nodux.PluginScene
 {
     public static class SceneConst
     {

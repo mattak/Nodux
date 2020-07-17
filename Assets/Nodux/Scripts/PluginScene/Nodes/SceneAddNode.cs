@@ -8,12 +8,12 @@ namespace Nodux.PluginScene.Nodes
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class SceneReplaceNode : Node
+    public class SceneAddNode : Node
     {
         public StoreHolder StoreHolder;
         public string[] AddSceneNames;
 
-        public SceneReplaceNode(INode parent, StoreHolder holder, string[] addSceneNames) : base(parent)
+        public SceneAddNode(INode parent, StoreHolder holder, string[] addSceneNames) : base(parent)
         {
             this.StoreHolder = holder;
             this.AddSceneNames = addSceneNames;
@@ -21,17 +21,7 @@ namespace Nodux.PluginScene.Nodes
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            var removeNode = this.CreateRemoveNode(this.Parent);
-            var addNode = this.CreateAddNode(removeNode);
-            return addNode.Subscribe(observer);
-        }
-
-        private INode CreateRemoveNode(INode parent)
-        {
-            var removeSceneNode = new LoadListSceneNode(parent);
-            var actionNode = new StateActionNode(removeSceneNode, "scene", new SceneRemoveReducer());
-            var writerNode = new StateWriterNode(actionNode, this.StoreHolder);
-            return writerNode;
+            return this.CreateAddNode(this.Parent).Subscribe(observer);
         }
 
         private INode CreateAddNode(INode parent)

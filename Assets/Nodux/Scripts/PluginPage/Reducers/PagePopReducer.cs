@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Nodux.Core;
-using Nodux.Nodux.Scripts.PluginScene;
+using Nodux.PluginScene;
 using Nodux.PluginState;
 
 namespace Nodux.PluginPage.Reducers

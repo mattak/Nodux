@@ -33,6 +33,18 @@ namespace Nodux.PluginState
             return this.Get(key).Value<TValue>();
         }
 
+        public TValue GetValueOrSetDefault<TValue>(string key, Func<TValue> defaultCreator)
+        {
+            var value = this.Get(key).Value<TValue>();
+            if (value == null)
+            {
+                value = defaultCreator.Invoke();
+                this.SetValue(key, value);
+            }
+
+            return value;
+        }
+
         public IObservable<Any> GetObservable(string key)
         {
             if (!this.SubjectMap.ContainsKey(key)) this.SubjectMap[key] = new Subject<Any>();

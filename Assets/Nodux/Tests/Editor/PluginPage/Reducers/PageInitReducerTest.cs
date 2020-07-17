@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Nodux.Core;
+using Nodux.PluginScene;
 using Nodux.PluginPage;
 using Nodux.PluginPage.Reducers;
 using Nodux.PluginState;
@@ -19,7 +20,8 @@ namespace Nodux.Tests.PluginPage.Reducers
 
             var definition = new PageDefinition()
             {
-                PageScenes = new List<PageScene>()
+                PermanentScenes = new[] {"PermanentScene1"},
+                PageScenes = new[]
                 {
                     new PageScene
                     {
@@ -45,9 +47,16 @@ namespace Nodux.Tests.PluginPage.Reducers
             var newState = reducer.Reduce(state, action);
 
             var newStateDefinition = newState.GetValue<PageDefinition>(PageConst.StateDefinitionKey);
-            Assert.That(newStateDefinition.PageScenes.Count, Is.EqualTo(2));
+            Assert.That(newStateDefinition.PageScenes.Length, Is.EqualTo(2));
             Assert.That(newStateDefinition.PageScenes[0].Name, Is.EqualTo("Page1"));
             Assert.That(newStateDefinition.PageScenes[1].Name, Is.EqualTo("Page2"));
+
+            var stack = newState.GetValue<PageStack>(PageConst.StateStackKey);
+            Assert.That(stack.Count, Is.EqualTo(0));
+
+            var scenes = newState.GetValue<IDictionary<string, bool>>(SceneConst.StateKey);
+            Assert.That(scenes.Count, Is.EqualTo(1));
+            Assert.That(scenes["PermanentScene1"], Is.True);
         }
     }
 }

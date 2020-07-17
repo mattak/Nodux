@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Nodux.Core;
-using Nodux.Nodux.Scripts.PluginScene;
+using Nodux.PluginScene;
 using Nodux.PluginPage;
 using Nodux.PluginPage.Reducers;
 using Nodux.PluginState;
@@ -20,7 +20,8 @@ namespace Nodux.Tests.PluginPage.Reducers
             state.SetValue<PageStack>(PageConst.StateStackKey, new PageStack());
             state.SetValue<PageDefinition>(PageConst.StateDefinitionKey, new PageDefinition
             {
-                PageScenes = new List<PageScene>
+                PermanentScenes = new[] {"PermanentScene1"},
+                PageScenes = new[]
                 {
                     new PageScene
                     {
@@ -47,6 +48,8 @@ namespace Nodux.Tests.PluginPage.Reducers
                 {"Scene1", true},
                 {"Scene2", false},
                 {"Scene3", false},
+                {"Scene4", true},
+                {"PermanentScene1", true},
             });
 
 
@@ -57,10 +60,12 @@ namespace Nodux.Tests.PluginPage.Reducers
                 state = reducer.Reduce(state, action1);
 
                 var sceneMap = state.GetValue<IDictionary<string, bool>>(SceneConst.StateKey);
-                Assert.That(sceneMap.Count, Is.EqualTo(3));
+                Assert.That(sceneMap.Count, Is.EqualTo(5));
                 Assert.That(sceneMap["Scene1"], Is.True);
                 Assert.That(sceneMap["Scene2"], Is.True);
                 Assert.That(sceneMap["Scene3"], Is.False);
+                Assert.That(sceneMap["Scene4"], Is.False);
+                Assert.That(sceneMap["PermanentScene1"], Is.True);
 
                 var pageStack = state.GetValue<PageStack>(PageConst.StateStackKey);
                 Assert.That(pageStack.Count, Is.EqualTo(1));
@@ -74,10 +79,12 @@ namespace Nodux.Tests.PluginPage.Reducers
                 state = reducer.Reduce(state, action2);
 
                 var sceneMap = state.GetValue<IDictionary<string, bool>>(SceneConst.StateKey);
-                Assert.That(sceneMap.Count, Is.EqualTo(3));
+                Assert.That(sceneMap.Count, Is.EqualTo(5));
                 Assert.That(sceneMap["Scene1"], Is.True);
                 Assert.That(sceneMap["Scene2"], Is.False);
                 Assert.That(sceneMap["Scene3"], Is.True);
+                Assert.That(sceneMap["Scene4"], Is.False);
+                Assert.That(sceneMap["PermanentScene1"], Is.True);
 
                 var pageStack = state.GetValue<PageStack>(PageConst.StateStackKey);
                 Assert.That(pageStack.Count, Is.EqualTo(1));

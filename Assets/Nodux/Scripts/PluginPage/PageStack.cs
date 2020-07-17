@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Nodux.PluginPage
         [SerializeField] private List<Page> Pages = new List<Page>();
 
         public int Count => this.Pages.Count;
+        public bool IsEmpty => Count < 1;
 
         public void Push(Page page)
         {

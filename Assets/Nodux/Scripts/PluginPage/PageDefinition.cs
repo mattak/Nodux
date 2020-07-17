@@ -1,12 +1,12 @@
 using System;
-using System.Collections.Generic;
 
 namespace Nodux.PluginPage
 {
     [Serializable]
     public class PageDefinition
     {
-        public List<PageScene> PageScenes;
+        public string[] PermanentScenes;
+        public PageScene[] PageScenes;
 
         public PageScene GetPageScene(string name)
         {

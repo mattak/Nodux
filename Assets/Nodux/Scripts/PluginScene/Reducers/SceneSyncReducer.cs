@@ -20,7 +20,7 @@ namespace Nodux.PluginScene.Reducers
             }
 
             // init
-            var value = state.GetValue<IDictionary<string, bool>>(action.StateKey);
+            var value = state.GetValue<IDictionary<string, bool>>(SceneConst.StateKey);
             if (value == default(IDictionary<string, bool>)) value = new Dictionary<string, bool>();
 
             // update
