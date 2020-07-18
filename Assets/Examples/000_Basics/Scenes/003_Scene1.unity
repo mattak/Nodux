@@ -173,7 +173,7 @@ MonoBehaviour:
       - {fileID: 1591365636}
     - FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":17184},"AddSceneName":"003_Scene2"}'
+      ContentJson: '{"StoreHolder":{"instanceID":29850},"AddSceneNames":["003_Scene2"]}'
       UnityObjects:
       - {fileID: 458755935}
   _graphContainer:
@@ -193,7 +193,7 @@ MonoBehaviour:
       Data:
         FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"StoreHolder":{"instanceID":17184},"AddSceneName":"003_Scene2"}'
+        ContentJson: '{"StoreHolder":{"instanceID":29850},"AddSceneNames":["003_Scene2"]}'
         UnityObjects:
         - {fileID: 458755935}
     Links:
