@@ -1,6 +1,6 @@
 using System;
 using Nodux.Core;
-using Nodux.Nodux.Scripts.PluginScene;
+using Nodux.PluginScene;
 using Nodux.PluginNode;
 using Nodux.PluginState;
 using UnityEngine;
@@ -9,11 +9,11 @@ namespace Nodux.PluginScene.Nodes
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class SceneRendererNode : RootNode
+    public class SceneRendererNode : Node
     {
         [SerializeField] private StoreHolder StoreHolder = default;
 
-        public SceneRendererNode(StoreHolder holder)
+        public SceneRendererNode(StoreHolder holder) : base(null)
         {
             StoreHolder = holder;
         }

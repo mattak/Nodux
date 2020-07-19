@@ -244,54 +244,97 @@ MonoBehaviour:
   m_GameObject: {fileID: 365279973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginNode.ConstVector2Node, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":{"x":0.0,"y":9999.0}}'
-      UnityObjects: []
-  - NodeList:
-    - FullName: Nodux.PluginNode.ConstVector3Node, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":{"x":1.0,"y":0.0,"z":10.0}}'
-      UnityObjects: []
-  - NodeList:
-    - FullName: Nodux.PluginNode.ConstUnityObjectNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":{"instanceID":-18554}}'
-      UnityObjects:
-      - {fileID: 365279973}
+  _nodes:
+  - id: 0
   _graphContainer:
     Nodes:
-    - Guid: c512e7ba-4a8a-466a-a037-3b43183ce08e
+    - Guid: 09ca086e-fc38-4b7a-a084-7c3d5b270186
       Name: ConstVector2Node
       Position: {x: 50, y: 50}
-      Data:
-        FullName: Nodux.PluginNode.ConstVector2Node, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":{"x":0.0,"y":9999.0}}'
-        UnityObjects: []
-    - Guid: 4822c3e4-5df7-46fb-8ff8-98532c7e6914
+      Node:
+        id: 1
+    - Guid: dfd9139c-f020-4a00-88c5-0541aa9ef54e
       Name: ConstVector3Node
       Position: {x: 50, y: 147}
-      Data:
-        FullName: Nodux.PluginNode.ConstVector3Node, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":{"x":1.0,"y":0.0,"z":10.0}}'
-        UnityObjects: []
-    - Guid: 3e885895-f35b-412b-b365-5bf121f2fd51
+      Node:
+        id: 2
+    - Guid: f566fb1f-4ad4-434a-85fb-89aba57eaaee
       Name: ConstUnityObjectNode
       Position: {x: 50, y: 244}
-      Data:
-        FullName: Nodux.PluginNode.ConstUnityObjectNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"Value":{"instanceID":-18554}}'
-        UnityObjects:
-        - {fileID: 365279973}
-    Links: []
+      Node:
+        id: 3
+    Links:
+    - SourceNodeGuid: 09ca086e-fc38-4b7a-a084-7c3d5b270186
+      TargetNodeGuid: dfd9139c-f020-4a00-88c5-0541aa9ef54e
+    - SourceNodeGuid: dfd9139c-f020-4a00-88c5-0541aa9ef54e
+      TargetNodeGuid: f566fb1f-4ad4-434a-85fb-89aba57eaaee
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+        - id: 3
+    00000001:
+      type: {class: ConstVector2Node, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: {x: 1, y: 2}
+    00000002:
+      type: {class: ConstVector3Node, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: {x: 3, y: 4, z: 5}
+    00000003:
+      type: {class: ConstUnityObjectNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: {fileID: 1199737813}
+--- !u!1 &707836724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707836726}
+  - component: {fileID: 707836725}
+  m_Layer: 0
+  m_Name: Store
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &707836725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707836724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eb8ad586014e83bb6f6235474ac528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &707836726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707836724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &859083641
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,67 +375,72 @@ MonoBehaviour:
   m_GameObject: {fileID: 859083641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginNode.ConstStringArrayNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":["A","B","C"]}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.ConstStringListNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":["A","B","C"]}'
-      UnityObjects: []
-  - NodeList:
-    - FullName: Nodux.PluginNode.ConstIntArrayNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":[0,0,0]}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.ConstIntListNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":[0,0,0]}'
-      UnityObjects: []
+  _nodes:
+  - id: 0
   _graphContainer:
     Nodes:
-    - Guid: af437db7-dd82-4d5f-b94a-761043d9a958
-      Name: ConstStringArrayNode
-      Position: {x: 50, y: 50}
-      Data:
-        FullName: Nodux.PluginNode.ConstStringArrayNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"Value":["A","B","C"]}'
-        UnityObjects: []
-    - Guid: 9701d7cf-ad40-463a-b26f-e0dde130920e
+    - Guid: 8423aa73-94cc-4525-a43e-34e4180e2b41
       Name: ConstStringListNode
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: e3ec43a1-9572-435a-81bc-6778705e19b9
+      Name: ConstStringArrayNode
       Position: {x: 50, y: 195}
-      Data:
-        FullName: Nodux.PluginNode.ConstStringListNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":["A","B","C"]}'
-        UnityObjects: []
-    - Guid: 2638997d-8ae3-4a55-b240-e425fcfa639d
+      Node:
+        id: 2
+    - Guid: 189469e5-dd45-460f-90c8-50d304dc6049
       Name: ConstIntListNode
-      Position: {x: 307, y: 197}
-      Data:
-        FullName: Nodux.PluginNode.ConstIntListNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":[0,0,0]}'
-        UnityObjects: []
-    - Guid: c5fa6413-742e-4acd-88e3-be439d3d8049
+      Position: {x: 50, y: 340}
+      Node:
+        id: 3
+    - Guid: 60b47969-d82f-46b9-bf2f-77d9674077a8
       Name: ConstIntArrayNode
-      Position: {x: 307, y: 52}
-      Data:
-        FullName: Nodux.PluginNode.ConstIntArrayNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":[0,0,0]}'
-        UnityObjects: []
+      Position: {x: 50, y: 485}
+      Node:
+        id: 4
     Links:
-    - SourceNodeGuid: af437db7-dd82-4d5f-b94a-761043d9a958
-      TargetNodeGuid: 9701d7cf-ad40-463a-b26f-e0dde130920e
-    - SourceNodeGuid: c5fa6413-742e-4acd-88e3-be439d3d8049
-      TargetNodeGuid: 2638997d-8ae3-4a55-b240-e425fcfa639d
+    - SourceNodeGuid: 8423aa73-94cc-4525-a43e-34e4180e2b41
+      TargetNodeGuid: e3ec43a1-9572-435a-81bc-6778705e19b9
+    - SourceNodeGuid: e3ec43a1-9572-435a-81bc-6778705e19b9
+      TargetNodeGuid: 189469e5-dd45-460f-90c8-50d304dc6049
+    - SourceNodeGuid: 189469e5-dd45-460f-90c8-50d304dc6049
+      TargetNodeGuid: 60b47969-d82f-46b9-bf2f-77d9674077a8
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+        - id: 3
+        - id: 4
+    00000001:
+      type: {class: ConstStringListNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value:
+        - A
+        - B
+        - C
+    00000002:
+      type: {class: ConstStringArrayNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value:
+        - a
+        - b
+        - c
+    00000003:
+      type: {class: ConstIntListNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 0a000000140000001e000000
+    00000004:
+      type: {class: ConstIntArrayNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 010000000200000003000000
 --- !u!1 &1137775521
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,95 +481,90 @@ MonoBehaviour:
   m_GameObject: {fileID: 1137775521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":1}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.ConstStringNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":"Hello World"}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.ConstBoolNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":true}'
-      UnityObjects: []
-  - NodeList:
-    - FullName: Nodux.PluginNode.ConstFloatNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":7.699999809265137}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.ConstDoubleNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":7.7}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.ConstLongNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":81}'
-      UnityObjects: []
+  _nodes:
+  - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 00385987-e4da-422c-8694-a0836947b07b
-      Name: ConstIntNode
-      Position: {x: 50, y: 50}
-      Data:
-        FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":1}'
-        UnityObjects: []
-    - Guid: 9322a26d-790a-4710-9535-14785394d176
-      Name: ConstFloatNode
-      Position: {x: 50, y: 148}
-      Data:
-        FullName: Nodux.PluginNode.ConstFloatNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":7.699999809265137}'
-        UnityObjects: []
-    - Guid: 40258024-b27a-4161-a98b-c68212ee1523
-      Name: ConstDoubleNode
-      Position: {x: 240, y: 148}
-      Data:
-        FullName: Nodux.PluginNode.ConstDoubleNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":7.7}'
-        UnityObjects: []
-    - Guid: 4548a336-d632-4036-9e7a-499dbf543e0e
+    - Guid: c6f26e67-ed65-4763-bf92-9eaf2e86ba23
       Name: ConstBoolNode
-      Position: {x: 538, y: 50}
-      Data:
-        FullName: Nodux.PluginNode.ConstBoolNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":true}'
-        UnityObjects: []
-    - Guid: 88e29b5b-8060-4d62-948e-b12d7baef079
-      Name: ConstStringNode
-      Position: {x: 294, y: 50}
-      Data:
-        FullName: Nodux.PluginNode.ConstStringNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":"Hello World"}'
-        UnityObjects: []
-    - Guid: ffd3ff5d-e519-4ca2-9437-505924a9cc7a
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: 0847cf74-d1d1-47ec-8461-a1d9aa0cd9d8
+      Name: ConstFloatNode
+      Position: {x: 50, y: 345}
+      Node:
+        id: 2
+    - Guid: b9e749d8-a205-4cc1-99a5-351f436117b5
       Name: ConstLongNode
-      Position: {x: 438, y: 148}
-      Data:
-        FullName: Nodux.PluginNode.ConstLongNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":81}'
-        UnityObjects: []
+      Position: {x: 50, y: 539}
+      Node:
+        id: 3
+    - Guid: a9e14752-4ec1-449c-9e94-dcccd7d0154d
+      Name: ConstIntNode
+      Position: {x: 50, y: 442}
+      Node:
+        id: 4
+    - Guid: ecb633da-9721-40e2-8690-3aa6ae3f70af
+      Name: ConstDoubleNode
+      Position: {x: 50, y: 243}
+      Node:
+        id: 5
+    - Guid: 38ec33d0-0135-4f6a-a816-d2f1a1efcfb1
+      Name: ConstStringNode
+      Position: {x: 50, y: 146}
+      Node:
+        id: 6
     Links:
-    - SourceNodeGuid: 00385987-e4da-422c-8694-a0836947b07b
-      TargetNodeGuid: 88e29b5b-8060-4d62-948e-b12d7baef079
-    - SourceNodeGuid: 88e29b5b-8060-4d62-948e-b12d7baef079
-      TargetNodeGuid: 4548a336-d632-4036-9e7a-499dbf543e0e
-    - SourceNodeGuid: 9322a26d-790a-4710-9535-14785394d176
-      TargetNodeGuid: 40258024-b27a-4161-a98b-c68212ee1523
-    - SourceNodeGuid: 40258024-b27a-4161-a98b-c68212ee1523
-      TargetNodeGuid: ffd3ff5d-e519-4ca2-9437-505924a9cc7a
+    - SourceNodeGuid: c6f26e67-ed65-4763-bf92-9eaf2e86ba23
+      TargetNodeGuid: 38ec33d0-0135-4f6a-a816-d2f1a1efcfb1
+    - SourceNodeGuid: 38ec33d0-0135-4f6a-a816-d2f1a1efcfb1
+      TargetNodeGuid: ecb633da-9721-40e2-8690-3aa6ae3f70af
+    - SourceNodeGuid: ecb633da-9721-40e2-8690-3aa6ae3f70af
+      TargetNodeGuid: 0847cf74-d1d1-47ec-8461-a1d9aa0cd9d8
+    - SourceNodeGuid: 0847cf74-d1d1-47ec-8461-a1d9aa0cd9d8
+      TargetNodeGuid: a9e14752-4ec1-449c-9e94-dcccd7d0154d
+    - SourceNodeGuid: a9e14752-4ec1-449c-9e94-dcccd7d0154d
+      TargetNodeGuid: b9e749d8-a205-4cc1-99a5-351f436117b5
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 6
+        - id: 5
+        - id: 2
+        - id: 4
+        - id: 3
+    00000001:
+      type: {class: ConstBoolNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 1
+    00000002:
+      type: {class: ConstFloatNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 4.5
+    00000003:
+      type: {class: ConstLongNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 2
+    00000004:
+      type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 1
+    00000005:
+      type: {class: ConstDoubleNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 3.1
+    00000006:
+      type: {class: ConstStringNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: Hello World
 --- !u!1 &1199737813
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +595,90 @@ Transform:
   - {fileID: 859083642}
   - {fileID: 1137775522}
   - {fileID: 365279974}
+  - {fileID: 1436644158}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1436644157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436644158}
+  - component: {fileID: 1436644159}
+  m_Layer: 0
+  m_Name: StateReadWrite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436644158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436644157}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1199737814}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1436644159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436644157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodes:
+  - id: 0
+  _graphContainer:
+    Nodes:
+    - Guid: 747c8e2e-9d21-431e-8a4f-dc4647525802
+      Name: StateReaderNode
+      Position: {x: 97, y: 56}
+      Node:
+        id: 1
+    - Guid: 7b64bf14-66cf-4871-913a-8bfb39482f52
+      Name: StateActionWriterNode
+      Position: {x: 100, y: 183}
+      Node:
+        id: 2
+    Links:
+    - SourceNodeGuid: 747c8e2e-9d21-431e-8a4f-dc4647525802
+      TargetNodeGuid: 7b64bf14-66cf-4871-913a-8bfb39482f52
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+    00000001:
+      type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StoreHolder: {fileID: 707836725}
+        StateKey: 
+    00000002:
+      type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StateKey: Score
+        ReducerSelection:
+          FullName: Nodux.PluginCounter.IncrementReducer, Nodux, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          ContentJson: '{}'
+          UnityObjects: []
+        StoreHolder: {fileID: 707836725}

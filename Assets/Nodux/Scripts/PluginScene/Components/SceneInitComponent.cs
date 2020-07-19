@@ -3,11 +3,11 @@ using Nodux.PluginState;
 using UniRx;
 using UnityEngine;
 
-namespace Nodux.Nodux.Scripts.PluginScene.Components
+namespace Nodux.PluginScene.Components
 {
     public class SceneInitComponent : MonoBehaviour
     {
-        public StoreHolder StoreHolder;
+        public StoreHolder StoreHolder = default;
 
         private void Start()
         {

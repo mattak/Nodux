@@ -5,6 +5,7 @@ using UniRx;
 
 namespace Nodux.PluginGraph
 {
+    [Obsolete("Please use NoduxLinkGraph")]
     public class NoduxGraph : MonoBehaviour
     {
         public ChainNode ChainNode => _chainNodes.FirstOrDefault();

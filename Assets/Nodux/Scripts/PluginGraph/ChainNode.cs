@@ -8,17 +8,14 @@ using Nodux.PluginNode;
 
 namespace Nodux.PluginGraph
 {
+    [Obsolete("Please use LinkedNode")]
     [Serializable]
     public class ChainNode : Node
     {
-        // NOTE: this fields hold unity objects reference including file id which is used on NodeList.
-        // [SerializeField] private List<UnityEngine.Object> UnityObjectList = new List<UnityEngine.Object>();
-
         [TypeSelectionFilter("Node")] [SerializeField]
         private List<TypeSelection> NodeList = new List<TypeSelection>();
 
         private IList<INode> ConnectionList = new List<INode>();
-        public List<TypeSelection> NodeListForEditor => NodeList;
 
         public ChainNode(INode parent) : base(parent)
         {

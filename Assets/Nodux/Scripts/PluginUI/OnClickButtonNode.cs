@@ -9,11 +9,11 @@ namespace Nodux.PluginUI
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class OnClickButtonNode : RootNode
+    public class OnClickButtonNode : Node
     {
         [SerializeField] private Button Button;
 
-        public OnClickButtonNode(Button button)
+        public OnClickButtonNode(Button button) : base(null)
         {
             this.Button = button;
         }

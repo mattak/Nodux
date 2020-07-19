@@ -352,4 +352,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StoreHolder: {fileID: 287110753}
   PageSetting: {fileID: 11400000, guid: 4781e16b5909944d79a389ee27ab207c, type: 2}
-  InitialPageName: Start

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nodux.PluginGraph;
-using UnityEditor;
+using Nodux.PluginNode;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ namespace Nodux.PluginEditor.NoduxGraph
             this._graphView = view;
         }
 
-        public void LoadGraph(PluginGraph.NoduxGraph component)
+        public void LoadGraph(NoduxLinkGraph component)
         {
             NoduxGraphUtil.ClearGraph(_graphView);
 
@@ -28,7 +28,7 @@ namespace Nodux.PluginEditor.NoduxGraph
             // create nodes
             foreach (var node in component.GraphContainer.Nodes)
             {
-                node.Data.Restore();
+                // node.Data.Restore();
                 var graphNode = NoduxGraphNodeCreator.Create(node);
                 _graphView.AddElement(graphNode);
                 graphNodeMap[graphNode.Guid] = graphNode;
@@ -50,15 +50,15 @@ namespace Nodux.PluginEditor.NoduxGraph
             }
         }
 
-        public void SaveGraph(PluginGraph.NoduxGraph component)
+        public void SaveGraph(NoduxLinkGraph component)
         {
-            Undo.RecordObject(component, "save node data");
+            UnityEditor.Undo.RecordObject(component, "save node data");
 
             // 1. Containerを抽出
             // 2. ChainNodeを抽出
             var container = ExtractGraphContainer();
-            var chainNodes = ExtractChainNodes();
-            component.UpdateEditData(container, chainNodes);
+            var nodes = ExtractChainNodes();
+            component.UpdateEditData(container, nodes);
         }
 
         private GraphContainer ExtractGraphContainer()
@@ -72,7 +72,7 @@ namespace Nodux.PluginEditor.NoduxGraph
                     Guid = node.Guid,
                     Name = node.name,
                     Position = node.GetPosition().position,
-                    Data = node.Data,
+                    Node = node.Data,
                 });
             }
 
@@ -91,16 +91,17 @@ namespace Nodux.PluginEditor.NoduxGraph
             return container;
         }
 
-        private ChainNode[] ExtractChainNodes()
+        private INode[] ExtractChainNodes()
         {
             var nodesArray = NoduxGraphUtil.ExtractGraphNodeChains(_graphView);
             return nodesArray
                 .Select(nodes =>
-                    new ChainNode(
+                    new LinkedNode(
                         null,
                         nodes.Select(it => it.Data)
                     )
                 )
+                .Cast<INode>()
                 .ToArray();
         }
     }

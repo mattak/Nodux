@@ -1,9 +1,11 @@
 using System;
 using Nodux.Core;
 using Nodux.PluginGraph;
+using Nodux.PluginNode;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Node = UnityEditor.Experimental.GraphView.Node;
 
 namespace Nodux.PluginEditor.NoduxGraph
 {
@@ -13,20 +15,26 @@ namespace Nodux.PluginEditor.NoduxGraph
 
         public static NoduxGraphNode Create(GraphNodeData nodeData)
         {
-            var type = nodeData.Data.Type;
+            var type = nodeData.Node.GetType();
             var name = type.Name;
             var node = new NoduxGraphNode()
             {
                 title = name,
                 name = name,
-                Data = nodeData.Data,
+                Data = nodeData.Node,
                 Guid = nodeData.Guid
             };
 
             var inputPort = GenerateInputPort(node);
             var outputPort = GenerateOutputPort(node);
 
-            NoduxGraphPropertyUtil.CreateProperties(node, nodeData.Data);
+            // NoduxGraphPropertyUtil.CreateProperties(node, nodeData.Data);
+            UIElementPropertyRenderer.RenderClass(
+                node.extensionContainer,
+                nodeData.Node.GetType(),
+                nodeData.Node,
+                newValue => node.Data = (PluginNode.Node) newValue
+            );
 
             node.styleSheets.Add(Resources.Load<StyleSheet>("NoduxGraphNode"));
             node.RefreshPorts();
@@ -35,22 +43,28 @@ namespace Nodux.PluginEditor.NoduxGraph
             return node;
         }
 
-        public static NoduxGraphNode Create(TypeSelection selection, Vector2 position)
+        public static NoduxGraphNode Create(INode nodeData, Vector2 position)
         {
-            var type = selection.Type;
+            var type = nodeData.GetType();
             var name = type.Name;
             var node = new NoduxGraphNode()
             {
                 title = name,
                 name = name,
-                Data = selection,
+                Data = nodeData,
                 Guid = Guid.NewGuid().ToString(),
             };
 
             var inputPort = GenerateInputPort(node);
             var outputPort = GenerateOutputPort(node);
 
-            NoduxGraphPropertyUtil.CreateProperties(node, selection);
+            // NoduxGraphPropertyUtil.Create(node, nodeContent);
+            UIElementPropertyRenderer.RenderClass(
+                node.extensionContainer,
+                type,
+                nodeData,
+                newValue => node.Data = (INode) newValue
+            );
 
             node.styleSheets.Add(Resources.Load<StyleSheet>("NoduxGraphNode"));
             node.RefreshPorts();

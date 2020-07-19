@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Nodux.PluginPage
 {
@@ -6,7 +7,7 @@ namespace Nodux.PluginPage
     public class Page
     {
         public string Name;
-        public IPageData Data;
+        [SerializeReference] public IPageData Data;
 
         public TData GetData<TData>() where TData : IPageData
         {

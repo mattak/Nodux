@@ -13,17 +13,20 @@ namespace Nodux.PluginEditor
 {
     public static class UIElementPropertyRenderer
     {
-        public static void RenderTypeSelection(
+        public static void RenderClass(
             VisualElement container,
-            TypeSelection selection)
+            Type type,
+            object obj,
+            Action<object> setter)
         {
-            if (selection.Type == null || selection.Object == null)
+            if (type == null || obj == null)
             {
-                container.Add(new Label("no properties"));
+                var label = new Label($"no properties - {type}");
+                container.Add(label);
                 return;
             }
 
-            var fields = selection.Type
+            var fields = type
                 .GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(field => field.IsPublic || field.GetCustomAttribute(typeof(SerializeField)) != null);
 
@@ -33,8 +36,8 @@ namespace Nodux.PluginEditor
                     container,
                     info.FieldType,
                     info.Name,
-                    info.GetValue(selection.Object),
-                    newValue => selection.UpdateValue(info, newValue),
+                    info.GetValue(obj),
+                    newValue => info.SetValue(obj, newValue),
                     info.GetCustomAttributes<Attribute>()
                 );
             }
@@ -101,7 +104,8 @@ namespace Nodux.PluginEditor
             }
             else
             {
-                RenderUndefinedProperty(container, name, value, setter);
+                RenderClass(container, fieldType, value, setter);
+                // RenderUndefinedProperty(container, name, value, setter);
             }
         }
 

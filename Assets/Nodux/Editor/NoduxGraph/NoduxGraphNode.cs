@@ -1,11 +1,12 @@
-using Nodux.Core;
-using UnityEditor.Experimental.GraphView;
+using Nodux.PluginNode;
+using UnityEngine;
+using Node = UnityEditor.Experimental.GraphView.Node;
 
 namespace Nodux.PluginEditor.NoduxGraph
 {
     public class NoduxGraphNode : Node
     {
         public string Guid;
-        public TypeSelection Data;
+        [SerializeReference] public INode Data;
     }
 }

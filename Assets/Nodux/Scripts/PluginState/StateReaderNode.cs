@@ -8,12 +8,12 @@ namespace Nodux.PluginState
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class StateReaderNode : RootNode
+    public class StateReaderNode : Node
     {
         [SerializeField] private StoreHolder StoreHolder;
         [SerializeField] private string StateKey;
 
-        public StateReaderNode(StoreHolder storeHolder, string stateKey)
+        public StateReaderNode(StoreHolder storeHolder, string stateKey) : base(null)
         {
             this.StoreHolder = storeHolder;
             this.StateKey = stateKey;

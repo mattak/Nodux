@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 2166112563128779387}
   - component: {fileID: 2166112563128779381}
   - component: {fileID: 2166112563128779380}
-  - component: {fileID: 2166112563128779382}
   - component: {fileID: 552333960}
-  - component: {fileID: 8732425634781431348}
+  - component: {fileID: 3168342509382129383}
   m_Layer: 5
   m_Name: Mole
   m_TagString: Untagged
@@ -77,85 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2166112563128779382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2166112563128779386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginUI.OnPointerDownNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Behaviour":{"instanceID":26774}}'
-      UnityObjects:
-      - {fileID: 2166112563128779380}
-    - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":1}'
-      UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StateKey":"Score","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":26772}}'
-      UnityObjects:
-      - {fileID: 552333960}
-    - FullName: Nodux.PluginUI.GameObjectDestroyNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Target":{"instanceID":27186},"DelaySeconds":0.0}'
-      UnityObjects:
-      - {fileID: 2166112563128779387}
-  _graphContainer:
-    Nodes:
-    - Guid: bbb73ee2-ff52-4ae7-a3e9-08d4834e1d84
-      Name: ConstIntNode
-      Position: {x: 50, y: 148}
-      Data:
-        FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":1}'
-        UnityObjects: []
-    - Guid: 79226670-8d3b-4d98-b1a1-88501d1317bb
-      Name: StateActionWriterNode
-      Position: {x: 50, y: 245}
-      Data:
-        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"StateKey":"Score","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
-          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":26772}}'
-        UnityObjects:
-        - {fileID: 552333960}
-    - Guid: 415bef5a-9100-4623-8ec4-b919a9c64026
-      Name: GameObjectDestroyNode
-      Position: {x: 50, y: 385}
-      Data:
-        FullName: Nodux.PluginUI.GameObjectDestroyNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Target":{"instanceID":27186},"DelaySeconds":0.0}'
-        UnityObjects:
-        - {fileID: 2166112563128779387}
-    - Guid: a92dd6bd-c1f5-497c-8bf4-130081dbed61
-      Name: OnPointerDownNode
-      Position: {x: 50, y: 50}
-      Data:
-        FullName: Nodux.PluginUI.OnPointerDownNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Behaviour":{"instanceID":26774}}'
-        UnityObjects:
-        - {fileID: 2166112563128779380}
-    Links:
-    - SourceNodeGuid: bbb73ee2-ff52-4ae7-a3e9-08d4834e1d84
-      TargetNodeGuid: 79226670-8d3b-4d98-b1a1-88501d1317bb
-    - SourceNodeGuid: 79226670-8d3b-4d98-b1a1-88501d1317bb
-      TargetNodeGuid: 415bef5a-9100-4623-8ec4-b919a9c64026
-    - SourceNodeGuid: a92dd6bd-c1f5-497c-8bf4-130081dbed61
-      TargetNodeGuid: bbb73ee2-ff52-4ae7-a3e9-08d4834e1d84
 --- !u!114 &552333960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98eb8ad586014e83bb6f6235474ac528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8732425634781431348
+--- !u!114 &3168342509382129383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,6 +97,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 2166112563128779386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ae5b5965df2344d99ef7792521b937, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nodes:
+  - id: 0
+  _graphContainer:
+    Nodes:
+    - Guid: 2869a304-0893-46ad-8a27-a09928569783
+      Name: OnPointerDownNode
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: 274fec44-6f6b-49ab-af12-b40410bd41d6
+      Name: ConstIntNode
+      Position: {x: 50, y: 148}
+      Node:
+        id: 2
+    - Guid: eaa924a1-39ab-44f4-b285-99d14fa425d2
+      Name: GameObjectDestroyNode
+      Position: {x: 50, y: 385}
+      Node:
+        id: 3
+    - Guid: f54f1342-8a81-46ea-bc7e-a3ca7b02c473
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 245}
+      Node:
+        id: 4
+    Links:
+    - SourceNodeGuid: 2869a304-0893-46ad-8a27-a09928569783
+      TargetNodeGuid: 274fec44-6f6b-49ab-af12-b40410bd41d6
+    - SourceNodeGuid: 274fec44-6f6b-49ab-af12-b40410bd41d6
+      TargetNodeGuid: f54f1342-8a81-46ea-bc7e-a3ca7b02c473
+    - SourceNodeGuid: f54f1342-8a81-46ea-bc7e-a3ca7b02c473
+      TargetNodeGuid: eaa924a1-39ab-44f4-b285-99d14fa425d2
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+        - id: 4
+        - id: 3
+    00000001:
+      type: {class: OnPointerDownNode, ns: Nodux.PluginUI, asm: Nodux}
+      data:
+        Behaviour: {fileID: 2166112563128779380}
+    00000002:
+      type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 1
+    00000003:
+      type: {class: GameObjectDestroyNode, ns: Nodux.PluginUI, asm: Nodux}
+      data:
+        Target: {fileID: 2166112563128779387}
+        DelaySeconds: 0
+    00000004:
+      type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StateKey: Score
+        ReducerSelection:
+          FullName: Nodux.PluginCounter.IncrementReducer, Nodux, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          ContentJson: '{}'
+          UnityObjects: []
+        StoreHolder: {fileID: 552333960}

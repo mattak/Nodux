@@ -18,12 +18,15 @@ namespace Nodux.PluginPage.Reducers
 
             var definition = action.GetValue<PageDefinition>();
 
-            state.Set(definitionKey, new Any(definition));
-            state.Set(stackKey, new Any(new PageStack()));
+            if (state.Get(stackKey).IsNull() || state.Get(definitionKey).IsNull())
+            {
+                state.Set(definitionKey, new Any(definition));
+                state.Set(stackKey, new Any(new PageStack()));
 
-            // load permanent scenes
-            PageReducerUtility.ChangeScenes(state, definition.PermanentScenes, true);
-            state.NotifyValue(SceneConst.StateKey);
+                // load permanent scenes
+                PageReducerUtility.ChangeScenes(state, definition.PermanentScenes, true);
+                state.NotifyValue(SceneConst.StateKey);
+            }
 
             return state;
         }

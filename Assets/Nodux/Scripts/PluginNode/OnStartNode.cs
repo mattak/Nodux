@@ -7,11 +7,11 @@ namespace Nodux.PluginNode
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class OnStartNode : RootNode
+    public class OnStartNode : Node
     {
         [SerializeField] private OnStartTriggerBehaviour component;
 
-        public OnStartNode(OnStartTriggerBehaviour component)
+        public OnStartNode(OnStartTriggerBehaviour component) : base(null)
         {
             this.component = component;
         }
