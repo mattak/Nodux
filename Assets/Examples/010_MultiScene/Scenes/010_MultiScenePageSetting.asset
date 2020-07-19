@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 010_MultiScenePageSetting
   m_EditorClassIdentifier: 
   Definition:
+    RootPageName: Start
     PermanentScenes:
     - 010_MultiScene_Base
     PageScenes:

@@ -5,6 +5,7 @@ namespace Nodux.PluginPage
     [Serializable]
     public class PageDefinition
     {
+        public string RootPageName;
         public string[] PermanentScenes;
         public PageScene[] PageScenes;
 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 100_WhackAMolePageSetting
   m_EditorClassIdentifier: 
   Definition:
+    RootPageName: Top
     PermanentScenes: []
     PageScenes:
     - Name: Top

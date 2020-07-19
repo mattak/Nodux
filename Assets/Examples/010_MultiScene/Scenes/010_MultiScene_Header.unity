@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 1278284839}
   - component: {fileID: 1278284841}
   - component: {fileID: 1278284840}
+  - component: {fileID: 1278284842}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -372,6 +373,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278284838}
   m_CullTransparentMesh: 0
+--- !u!114 &1278284842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278284838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodes:
+  - id: 0
+  _graphContainer:
+    Nodes:
+    - Guid: 3c22e5c1-dd0d-413b-b889-e18193533779
+      Name: SampleHeaderTitleReadNode
+      Position: {x: 67, y: 109}
+      Node:
+        id: 1
+    - Guid: 7ad94e11-aefa-456a-abdc-2a786cc770e3
+      Name: TextRenderNode
+      Position: {x: 67, y: 219}
+      Node:
+        id: 2
+    Links:
+    - SourceNodeGuid: 3c22e5c1-dd0d-413b-b889-e18193533779
+      TargetNodeGuid: 7ad94e11-aefa-456a-abdc-2a786cc770e3
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+    00000001:
+      type: {class: SampleHeaderTitleReadNode, ns: Example.MultiScene, asm: Exmaple.MultiScene}
+      data:
+        StoreHolder: {fileID: 1859461596}
+    00000002:
+      type: {class: TextRenderNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Text: {fileID: 1278284840}
+        Format: '{0}'
 --- !u!1001 &1859461595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,6 +488,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843d9fc9f6e7545a39a89ead923dd2c5, type: 3}
+--- !u!114 &1859461596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5837827704639016548, guid: 843d9fc9f6e7545a39a89ead923dd2c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1859461595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eb8ad586014e83bb6f6235474ac528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1946560198
 GameObject:
   m_ObjectHideFlags: 0

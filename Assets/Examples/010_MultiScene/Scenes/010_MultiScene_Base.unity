@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 287110754}
   - component: {fileID: 287110753}
   m_Layer: 0
-  m_Name: StoreHolder
+  m_Name: Store
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

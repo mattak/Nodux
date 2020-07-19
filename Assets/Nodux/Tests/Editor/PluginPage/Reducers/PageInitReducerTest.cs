@@ -20,6 +20,7 @@ namespace Nodux.Tests.PluginPage.Reducers
 
             var definition = new PageDefinition()
             {
+                RootPageName = "Page1",
                 PermanentScenes = new[] {"PermanentScene1"},
                 PageScenes = new[]
                 {
@@ -52,7 +53,8 @@ namespace Nodux.Tests.PluginPage.Reducers
             Assert.That(newStateDefinition.PageScenes[1].Name, Is.EqualTo("Page2"));
 
             var stack = newState.GetValue<PageStack>(PageConst.StateStackKey);
-            Assert.That(stack.Count, Is.EqualTo(0));
+            Assert.That(stack.Count, Is.EqualTo(1));
+            Assert.That(stack.Peek().Name, Is.EqualTo("Page1"));
 
             var scenes = newState.GetValue<IDictionary<string, bool>>(SceneConst.StateKey);
             Assert.That(scenes.Count, Is.EqualTo(1));

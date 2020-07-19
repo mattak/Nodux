@@ -20,8 +20,11 @@ namespace Nodux.PluginPage.Reducers
 
             if (state.Get(stackKey).IsNull() || state.Get(definitionKey).IsNull())
             {
+                var pageStack = new PageStack();
+                pageStack.Push(new Page {Name = definition.RootPageName, Data = null});
+
                 state.Set(definitionKey, new Any(definition));
-                state.Set(stackKey, new Any(new PageStack()));
+                state.Set(stackKey, new Any(pageStack));
 
                 // load permanent scenes
                 PageReducerUtility.ChangeScenes(state, definition.PermanentScenes, true);
