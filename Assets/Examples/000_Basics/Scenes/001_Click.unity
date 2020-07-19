@@ -854,7 +854,7 @@ MonoBehaviour:
     00000003:
       type: {class: TextRenderNode, ns: Nodux.PluginNode, asm: Nodux}
       data:
-        Text: {fileID: 2025006685}
+        Text: {fileID: 681454224}
         Format: 'Clicks: {0}'
 --- !u!1 &2025006683
 GameObject:
