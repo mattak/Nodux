@@ -1,5 +1,4 @@
 using System;
-using Nodux.Core;
 using Nodux.PluginGraph;
 using Nodux.PluginNode;
 using UnityEditor.Experimental.GraphView;
@@ -13,64 +12,63 @@ namespace Nodux.PluginEditor.NoduxGraph
     {
         private static readonly Vector2 DefaultNodeSize = new Vector2(150, 200);
 
-        public static NoduxGraphNode Create(GraphNodeData nodeData)
+        public static NoduxGraphNodeView Load(SerializedNoduxLinkGraph serializedObject, GraphNodeData inspectorNode,
+            int index)
         {
-            var type = nodeData.Node.GetType();
-            var name = type.Name;
-            var node = new NoduxGraphNode()
+            var graphNode = new NoduxGraphNodeView()
             {
-                title = name,
-                name = name,
-                Data = nodeData.Node,
-                Guid = nodeData.Guid
+                title = inspectorNode.Name,
+                name = inspectorNode.Name,
+                Data = inspectorNode.Node,
+                Guid = inspectorNode.Guid
             };
 
-            var inputPort = GenerateInputPort(node);
-            var outputPort = GenerateOutputPort(node);
+            var inputPort = GenerateInputPort(graphNode);
+            var outputPort = GenerateOutputPort(graphNode);
 
-            // NoduxGraphPropertyUtil.CreateProperties(node, nodeData.Data);
-            UIElementPropertyRenderer.RenderClass(
-                node.extensionContainer,
-                nodeData.Node.GetType(),
-                nodeData.Node,
-                newValue => node.Data = (PluginNode.Node) newValue
-            );
+            var property = serializedObject.GetNode(index);
+            INodeFieldRenderer.Render(graphNode.extensionContainer, property, inspectorNode.Node);
 
-            node.styleSheets.Add(Resources.Load<StyleSheet>("NoduxGraphNode"));
-            node.RefreshPorts();
-            node.RefreshExpandedState();
-            node.SetPosition(new Rect(nodeData.Position, DefaultNodeSize));
-            return node;
+            graphNode.styleSheets.Add(Resources.Load<StyleSheet>("NoduxGraphNode"));
+            graphNode.RefreshPorts();
+            graphNode.RefreshExpandedState();
+            graphNode.SetPosition(new Rect(inspectorNode.Position, DefaultNodeSize));
+            return graphNode;
         }
 
-        public static NoduxGraphNode Create(INode nodeData, Vector2 position)
+        public static NoduxGraphNodeView Create(SerializedNoduxLinkGraph serializedObject, INode nodeData,
+            Vector2 position)
         {
             var type = nodeData.GetType();
             var name = type.Name;
-            var node = new NoduxGraphNode()
+            var inspectorNode = new GraphNodeData()
             {
-                title = name,
-                name = name,
-                Data = nodeData,
                 Guid = Guid.NewGuid().ToString(),
+                Name = name,
+                Position = position,
+                Node = nodeData,
             };
 
-            var inputPort = GenerateInputPort(node);
-            var outputPort = GenerateOutputPort(node);
+            var nodeView = new NoduxGraphNodeView()
+            {
+                title = inspectorNode.Name,
+                name = inspectorNode.Name,
+                Data = inspectorNode.Node,
+                Guid = inspectorNode.Guid
+            };
 
-            // NoduxGraphPropertyUtil.Create(node, nodeContent);
-            UIElementPropertyRenderer.RenderClass(
-                node.extensionContainer,
-                type,
-                nodeData,
-                newValue => node.Data = (INode) newValue
-            );
+            var inputPort = GenerateInputPort(nodeView);
+            var outputPort = GenerateOutputPort(nodeView);
 
-            node.styleSheets.Add(Resources.Load<StyleSheet>("NoduxGraphNode"));
-            node.RefreshPorts();
-            node.RefreshExpandedState();
-            node.SetPosition(new Rect(position, DefaultNodeSize));
-            return node;
+            var index = serializedObject.AddNode(inspectorNode);
+            var property = serializedObject.GetNode(index);
+            INodeFieldRenderer.Render(nodeView.extensionContainer, property, inspectorNode.Node);
+
+            nodeView.styleSheets.Add(Resources.Load<StyleSheet>("NoduxGraphNode"));
+            nodeView.RefreshPorts();
+            nodeView.RefreshExpandedState();
+            nodeView.SetPosition(new Rect(inspectorNode.Position, DefaultNodeSize));
+            return nodeView;
         }
 
         private static Port GenerateInputPort(Node node)

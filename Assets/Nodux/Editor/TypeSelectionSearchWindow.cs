@@ -4,7 +4,7 @@ using Nodux.Core;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Nodux.PluginEditor.NoduxGraph
+namespace Nodux.PluginEditor
 {
     public class TypeSelectionSearchWindow : ScriptableObject, ISearchWindowProvider
     {

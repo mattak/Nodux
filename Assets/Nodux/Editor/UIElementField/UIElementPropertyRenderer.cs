@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 
-namespace Nodux.PluginEditor
+namespace Nodux.PluginEditor.UIElementField
 {
     public static class UIElementPropertyRenderer
     {

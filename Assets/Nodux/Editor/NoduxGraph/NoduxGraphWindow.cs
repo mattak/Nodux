@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
@@ -12,7 +13,7 @@ namespace Nodux.PluginEditor.NoduxGraph
         private Toolbar _toolbar;
         private Label _toolbarTitle;
 
-        [MenuItem("Window/NoduxGraph")]
+        [MenuItem("Window/NoduxGraph %&n")]
         public static void OpenDialog()
         {
             var window = GetWindow<NoduxGraphWindow>();
@@ -31,6 +32,11 @@ namespace Nodux.PluginEditor.NoduxGraph
         {
             rootVisualElement.Remove(_graphView);
             rootVisualElement.Remove(_toolbar);
+        }
+
+        public void OnHierarchyChange()
+        {
+            _graphView.OnHierarchyChange();
         }
 
         private void ConstructGraphView()

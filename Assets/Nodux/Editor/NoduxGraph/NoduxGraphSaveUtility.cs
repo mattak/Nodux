@@ -12,7 +12,7 @@ namespace Nodux.PluginEditor.NoduxGraph
         private NoduxGraphView _graphView;
         private IList<Edge> _edges => _graphView.edges.ToList();
         private IList<Edge> _connectedEdges => _edges.Where(x => x.input.node != null).ToArray();
-        private IList<NoduxGraphNode> _nodes => _graphView.nodes.ToList().Cast<NoduxGraphNode>().ToList();
+        private IList<NoduxGraphNodeView> _nodes => _graphView.nodes.ToList().Cast<NoduxGraphNodeView>().ToList();
 
         public NoduxGraphSaveUtility(NoduxGraphView view)
         {
@@ -22,14 +22,14 @@ namespace Nodux.PluginEditor.NoduxGraph
         public void LoadGraph(NoduxLinkGraph component)
         {
             NoduxGraphUtil.ClearGraph(_graphView);
+            _graphView.SetSerializeTarget(component);
 
-            var graphNodeMap = new Dictionary<string, NoduxGraphNode>();
+            var graphNodeMap = new Dictionary<string, NoduxGraphNodeView>();
 
             // create nodes
-            foreach (var node in component.GraphContainer.Nodes)
+            for (var i = 0; i < component.GraphContainer.Nodes.Count; i++)
             {
-                // node.Data.Restore();
-                var graphNode = NoduxGraphNodeCreator.Create(node);
+                var graphNode = NoduxGraphNodeCreator.Load(_graphView.SerializedGraph, component.GraphContainer.Nodes[i], i);
                 _graphView.AddElement(graphNode);
                 graphNodeMap[graphNode.Guid] = graphNode;
             }
@@ -52,13 +52,16 @@ namespace Nodux.PluginEditor.NoduxGraph
 
         public void SaveGraph(NoduxLinkGraph component)
         {
-            UnityEditor.Undo.RecordObject(component, "save node data");
+            // UnityEditor.Undo.RecordObject(component, "save node data");
 
             // 1. Containerを抽出
             // 2. ChainNodeを抽出
             var container = ExtractGraphContainer();
             var nodes = ExtractChainNodes();
-            component.UpdateEditData(container, nodes);
+
+            var serializedObject = new SerializedNoduxLinkGraph(component);
+            serializedObject.SetContainer(container, nodes);
+            // component.UpdateEditData(container, nodes);
         }
 
         private GraphContainer ExtractGraphContainer()
@@ -78,8 +81,8 @@ namespace Nodux.PluginEditor.NoduxGraph
 
             foreach (var edge in _connectedEdges)
             {
-                var outputNode = edge.output.node as NoduxGraphNode;
-                var inputNode = edge.input.node as NoduxGraphNode;
+                var outputNode = edge.output.node as NoduxGraphNodeView;
+                var inputNode = edge.input.node as NoduxGraphNodeView;
 
                 container.Links.Add(new GraphLinkData()
                 {

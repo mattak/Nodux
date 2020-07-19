@@ -4,7 +4,7 @@ using Node = UnityEditor.Experimental.GraphView.Node;
 
 namespace Nodux.PluginEditor.NoduxGraph
 {
-    public class NoduxGraphNode : Node
+    public class NoduxGraphNodeView : Node
     {
         public string Guid;
         [SerializeReference] public INode Data;

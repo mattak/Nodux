@@ -7,12 +7,12 @@ using Nodux.PluginState;
 
 namespace Nodux.PluginEditor
 {
-    public class StatePanel : EditorWindow
+    public class NoduxStateWindow : EditorWindow
     {
-        [MenuItem("Window/StatePanel %&l")]
+        [MenuItem("Window/StateWindow %&l")]
         public static void Init()
         {
-            var window = GetWindow<StatePanel>();
+            var window = GetWindow<NoduxStateWindow>();
             window.titleContent.text = "State Panel";
             window.Show();
         }
