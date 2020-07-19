@@ -9,9 +9,14 @@ namespace Nodux.PluginUI
 {
     [Serializable]
     [TypeSelectionEnable("Node")]
-    public class OnPointerDownNode : RootNode
+    public class OnPointerDownNode : Node
     {
         public UIBehaviour Behaviour;
+
+        public OnPointerDownNode(UIBehaviour behaviour) : base(null)
+        {
+            this.Behaviour = behaviour;
+        }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {

@@ -97,7 +97,7 @@ namespace Nodux.PluginEditor.NoduxGraph
             NoduxGraphUtil.ClearGraph(_graphView);
         }
 
-        private PluginGraph.NoduxGraph[] FetchActiveNoduxGraphs()
+        private PluginGraph.NoduxLinkGraph[] FetchActiveNoduxGraphs()
         {
             if (Selection.activeTransform == null)
             {
@@ -107,7 +107,7 @@ namespace Nodux.PluginEditor.NoduxGraph
             }
 
             // FIXME: set guid to support multiple graph in same game object
-            var components = Selection.activeTransform.GetComponents<PluginGraph.NoduxGraph>();
+            var components = Selection.activeTransform.GetComponents<PluginGraph.NoduxLinkGraph>();
 
             if (components.Length < 1)
             {

@@ -17,9 +17,32 @@ namespace Nodux.PluginState
             return this;
         }
 
+        public State SetValue<TValue>(string key, TValue value)
+        {
+            this.Set(key, new Any(value));
+            return this;
+        }
+
         public Any Get(string key)
         {
             return this.Map.ContainsKey(key) ? this.Map[key] : default(Any);
+        }
+
+        public TValue GetValue<TValue>(string key)
+        {
+            return this.Get(key).Value<TValue>();
+        }
+
+        public TValue GetValueOrSetDefault<TValue>(string key, Func<TValue> defaultCreator)
+        {
+            var value = this.Get(key).Value<TValue>();
+            if (value == null)
+            {
+                value = defaultCreator.Invoke();
+                this.SetValue(key, value);
+            }
+
+            return value;
         }
 
         public IObservable<Any> GetObservable(string key)
@@ -34,7 +57,12 @@ namespace Nodux.PluginState
             this.SubjectMap[key].OnNext(value);
         }
 
-        public IDictionary<string, Any> GetRaw()
+        public void NotifyValue(string key)
+        {
+            this.Notify(key, this.Get(key));
+        }
+
+        public IDictionary<string, Any> GetRawMap()
         {
             return this.Map;
         }

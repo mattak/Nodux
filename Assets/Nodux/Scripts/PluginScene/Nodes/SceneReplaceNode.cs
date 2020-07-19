@@ -11,10 +11,12 @@ namespace Nodux.PluginScene.Nodes
     public class SceneReplaceNode : Node
     {
         public StoreHolder StoreHolder;
-        public string AddSceneName;
+        public string[] AddSceneNames;
 
-        public SceneReplaceNode(INode parent) : base(parent)
+        public SceneReplaceNode(INode parent, StoreHolder holder, string[] addSceneNames) : base(parent)
         {
+            this.StoreHolder = holder;
+            this.AddSceneNames = addSceneNames;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -34,9 +36,9 @@ namespace Nodux.PluginScene.Nodes
 
         private INode CreateAddNode(INode parent)
         {
-            var addSceneNode = new ConstStringNode(parent, this.AddSceneName);
-            var actionNOde = new StateActionNode(addSceneNode, "scene", new SceneAddReducer());
-            var writerNode = new StateWriterNode(actionNOde, this.StoreHolder);
+            var addSceneNode = new ValueNode(parent, this.AddSceneNames);
+            var actionNode = new StateActionNode(addSceneNode, "scene", new SceneAddReducer());
+            var writerNode = new StateWriterNode(actionNode, this.StoreHolder);
             return writerNode;
         }
     }

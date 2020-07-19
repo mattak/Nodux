@@ -20,11 +20,11 @@ namespace Nodux.PluginScene.Reducers
             }
 
             // init
-            var value = state.Get(action.StateKey).Value<IDictionary<string, bool>>();
+            var value = state.GetValue<IDictionary<string, bool>>(SceneConst.StateKey);
             if (value == default(IDictionary<string, bool>)) value = new Dictionary<string, bool>();
 
             // update
-            var map = action.Value.Value<IDictionary<string, bool>>();
+            var map = action.GetValue<IDictionary<string, bool>>();
             foreach (var scene in value.Keys.ToList()) value[scene] = false;
             foreach (var scene in map.Keys.ToList()) value[scene] = map[scene];
             state.Set(action.StateKey, new Any(value));

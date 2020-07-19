@@ -50,7 +50,7 @@ namespace Nodux.PluginEditor
             else if (typeof(TypeSelection).IsAssignableFrom(type))
                 dirty = TypeSelectionRenderer.RenderFromSystemObject(key, (TypeSelection) value,
                     attributeAccessor, setter);
-            else if (type.GetCustomAttribute(typeof(SerializableAttribute)) != null)
+            else if (type?.GetCustomAttribute(typeof(SerializableAttribute)) != null)
                 dirty = RenderClass(key, value);
             else
             {

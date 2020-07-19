@@ -12,12 +12,11 @@ namespace Nodux.PluginStopwatch
         {
             if (!(action.Reducer is StopwatchAggregateReducer)) return state;
 
-            var timeValue = state.Get(action.StateKey);
-            var time = timeValue.Value<StopwatchValue>();
+            var time = state.GetValue<StopwatchValue>(action.StateKey);
 
             if (time.IsPlaying)
             {
-                var value = time.ElapsedTime + action.Value.Value<float>();
+                var value = time.ElapsedTime + action.GetValue<float>();
                 time.ElapsedTime = value;
                 state.Set(action.StateKey, new Any(time));
             }

@@ -121,84 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &257927472
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 257927473}
-  - component: {fileID: 257927474}
-  m_Layer: 0
-  m_Name: SceneReplace
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &257927473
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257927472}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1959370115}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &257927474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257927472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":17232}}'
-      UnityObjects:
-      - {fileID: 1591365636}
-    - FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":17184},"AddSceneName":"003_Scene2"}'
-      UnityObjects:
-      - {fileID: 458755935}
-  _graphContainer:
-    Nodes:
-    - Guid: c784c427-8148-4f53-b00f-81ec5c36e4b1
-      Name: OnClickButtonNode
-      Position: {x: 50, y: 50}
-      Data:
-        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Button":{"instanceID":17232}}'
-        UnityObjects:
-        - {fileID: 1591365636}
-    - Guid: dd71fd06-9e79-40b9-8ced-4cc1d6bc5953
-      Name: SceneReplaceNode
-      Position: {x: 50, y: 148}
-      Data:
-        FullName: Nodux.PluginScene.Nodes.SceneReplaceNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"StoreHolder":{"instanceID":17184},"AddSceneName":"003_Scene2"}'
-        UnityObjects:
-        - {fileID: 458755935}
-    Links:
-    - SourceNodeGuid: c784c427-8148-4f53-b00f-81ec5c36e4b1
-      TargetNodeGuid: dd71fd06-9e79-40b9-8ced-4cc1d6bc5953
 --- !u!1 &458755934
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,97 +347,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &809142130
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 809142131}
-  - component: {fileID: 809142133}
-  - component: {fileID: 809142132}
-  m_Layer: 0
-  m_Name: SceneSync
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &809142131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809142130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1959370115}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &809142132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809142130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginNode.OnStartNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"component":{"instanceID":17212}}'
-      UnityObjects:
-      - {fileID: 809142133}
-    - FullName: Nodux.PluginScene.Nodes.SceneSyncNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":17184}}'
-      UnityObjects:
-      - {fileID: 458755935}
-  _graphContainer:
-    Nodes:
-    - Guid: a044a8b2-e82b-4df1-a45e-5dd63343d26d
-      Name: OnStartNode
-      Position: {x: 58, y: 62}
-      Data:
-        FullName: Nodux.PluginNode.OnStartNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"component":{"instanceID":17212}}'
-        UnityObjects:
-        - {fileID: 809142133}
-    - Guid: f41f2d22-623e-4da1-988c-8dc69f0cb777
-      Name: SceneSyncNode
-      Position: {x: 55, y: 185}
-      Data:
-        FullName: Nodux.PluginScene.Nodes.SceneSyncNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"StoreHolder":{"instanceID":17184}}'
-        UnityObjects:
-        - {fileID: 458755935}
-    Links:
-    - SourceNodeGuid: a044a8b2-e82b-4df1-a45e-5dd63343d26d
-      TargetNodeGuid: f41f2d22-623e-4da1-988c-8dc69f0cb777
---- !u!114 &809142133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809142130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15dd36e613284bcfa98802138eebf98a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &818091400
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +425,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818091400}
   m_CullTransparentMesh: 0
---- !u!1 &1287325703
+--- !u!1 &1053966603
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -602,60 +433,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1287325704}
-  - component: {fileID: 1287325705}
+  - component: {fileID: 1053966604}
   m_Layer: 0
-  m_Name: SceneRenderer
+  m_Name: Graphs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1287325704
+--- !u!4 &1053966604
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287325703}
+  m_GameObject: {fileID: 1053966603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1959370115}
-  m_RootOrder: 0
+  m_Children:
+  - {fileID: 1689879891}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1287325705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287325703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginScene.Nodes.SceneRendererNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":17184}}'
-      UnityObjects:
-      - {fileID: 458755935}
-  _graphContainer:
-    Nodes:
-    - Guid: 5ce869ad-669d-4e9a-869f-92803e0e0c40
-      Name: SceneRendererNode
-      Position: {x: 50, y: 50}
-      Data:
-        FullName: Nodux.PluginScene.Nodes.SceneRendererNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"StoreHolder":{"instanceID":17184}}'
-        UnityObjects:
-        - {fileID: 458755935}
-    Links: []
 --- !u!1 &1591365634
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +468,7 @@ GameObject:
   - component: {fileID: 1591365638}
   - component: {fileID: 1591365637}
   - component: {fileID: 1591365636}
+  - component: {fileID: 1591365639}
   m_Layer: 5
   m_Name: Button/Click
   m_TagString: Untagged
@@ -775,6 +576,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591365634}
   m_CullTransparentMesh: 0
+--- !u!114 &1591365639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591365634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5aa7d274c4444b833f46c03639406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scenes:
+  - 003_Scene2
+  StoreHolder: {fileID: 458755935}
+--- !u!1 &1689879890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1689879891}
+  - component: {fileID: 1689879892}
+  m_Layer: 0
+  m_Name: SceneInit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1689879891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689879890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1053966604}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689879892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689879890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11deab5994f440259c9a4dfa74a18d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StoreHolder: {fileID: 458755935}
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,39 +700,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1959370114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1959370115}
-  m_Layer: 0
-  m_Name: Graphs
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1959370115
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959370114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1287325704}
-  - {fileID: 809142131}
-  - {fileID: 257927473}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2025006683
 GameObject:

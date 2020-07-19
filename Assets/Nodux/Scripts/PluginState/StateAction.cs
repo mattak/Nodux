@@ -15,6 +15,10 @@ namespace Nodux.PluginState
             this.Value = value;
         }
 
+        public TValue GetValue<TValue>() => this.Value.Value<TValue>();
+
+        public bool IsValueOf<TValue>() => this.Value.Is<TValue>();
+
         public override string ToString()
         {
             return $"StateAction(Reducer:{Reducer}, StateKey:{StateKey}, Value:{Value})";

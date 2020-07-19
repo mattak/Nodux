@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
@@ -29,37 +30,41 @@ namespace Nodux.PluginEditor.NoduxGraph
             if (nodes.Count < 1) return new Rect(0, 0, 0, 0);
 
             var position = new Vector2(origin.x, origin.y);
-            var xMax = position.x;
+            var drawAreaSize = new Vector2(0, 0);
 
-            var maxWidth = nodes.Select(it => it.resolvedStyle.width).Max();
-            var maxHeight = 0f;
+            var rowHeight = 0f;
 
             for (var i = 0; i < nodes.Count; i++)
             {
                 var height = nodes[i].resolvedStyle.height;
                 var width = nodes[i].resolvedStyle.width;
                 var size = new Vector2(width, height);
+
+                // set position
                 nodes[i].SetPosition(new Rect(position, size));
 
+                // update draw area
+                drawAreaSize = new Vector2(
+                    Math.Max(drawAreaSize.x, position.x - origin.x + size.x),
+                    Math.Max(drawAreaSize.y, position.y - origin.y + size.y)
+                );
+                rowHeight = Math.Max(rowHeight, size.y);
+
+                // select next node
                 var x = (i + 1) % maxColumns;
-                var y = (i + 1) / maxColumns;
 
-                maxWidth = width;
-                maxHeight = height > maxHeight ? height : maxHeight;
-
-                if (x == 0 && y > 0)
+                if (x == 0)
                 {
-                    position = new Vector2(origin.x, position.y + maxHeight);
-                    maxHeight = 0f;
+                    position = new Vector2(origin.x, position.y + rowHeight);
+                    rowHeight = 0f;
                 }
                 else
                 {
-                    position = new Vector2(position.x + maxWidth, position.y);
-                    xMax = position.x > xMax ? position.x : xMax;
+                    position = new Vector2(position.x + size.x, position.y);
                 }
             }
 
-            return new Rect(origin.x, origin.y, xMax - origin.x, position.y - origin.y);
+            return new Rect(origin.x, origin.y, drawAreaSize.x, drawAreaSize.y);
         }
 
         public static void LinkNode(GraphView view, NoduxGraphNode source, NoduxGraphNode target)

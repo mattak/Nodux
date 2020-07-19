@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nodux.Core;
+using Nodux.PluginGraph;
 using Nodux.PluginNode;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
@@ -35,10 +36,10 @@ namespace Nodux.PluginEditor.NoduxGraph
             };
             ListUpNodeTypes().ToList().ForEach(type =>
             {
-                var node = JsonUtility.FromJson("{}", type);
+                var node = (INode) JsonUtility.FromJson("{}", type);
                 tree.Add(new SearchTreeEntry(new GUIContent(type.Name, _indentationIcon))
                 {
-                    userData = NoduxGraphNodeCreator.Create(new TypeSelection(node), Vector2.zero),
+                    userData = NoduxGraphNodeCreator.Create(node, Vector2.zero),
                     level = 2
                 });
             });
@@ -65,7 +66,7 @@ namespace Nodux.PluginEditor.NoduxGraph
             }
         }
 
-        private IEnumerable<System.Type> ListUpNodeTypes()
+        private IEnumerable<Type> ListUpNodeTypes()
         {
             return TypeSelectionHolder.GetTypeList("Node");
         }

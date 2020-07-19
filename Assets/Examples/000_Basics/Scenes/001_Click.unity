@@ -533,58 +533,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424312067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":15440}}'
-      UnityObjects:
-      - {fileID: 1591365636}
-    - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":1}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":15458},"Format":"Count: {0}"}'
-      UnityObjects:
-      - {fileID: 2025006685}
+  _nodes:
+  - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 9ec91eba-ef76-4251-a3f5-d6d0335a32f5
-      Name: ConstIntNode
-      Position: {x: 85, y: 229}
-      Data:
-        FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":1}'
-        UnityObjects: []
-    - Guid: beb2926f-34a6-4c7b-b509-39e75e045a97
+    - Guid: 6f6d2672-01bb-40ba-ba62-035c84718619
       Name: OnClickButtonNode
-      Position: {x: 82, y: 103}
-      Data:
-        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Button":{"instanceID":15440}}'
-        UnityObjects:
-        - {fileID: 1591365636}
-    - Guid: 275c0d67-9bea-46f7-bc80-2151b02494f5
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: 905e0a90-97c7-494c-88a2-de08c906678c
+      Name: ConstIntNode
+      Position: {x: 50, y: 148}
+      Node:
+        id: 2
+    - Guid: 6669ad9f-c2c1-4208-9e97-ab56a0a32d40
       Name: TextRenderNode
-      Position: {x: 88, y: 353}
-      Data:
-        FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Text":{"instanceID":15458},"Format":"Count: {0}"}'
-        UnityObjects:
-        - {fileID: 2025006685}
+      Position: {x: 50, y: 245}
+      Node:
+        id: 3
     Links:
-    - SourceNodeGuid: beb2926f-34a6-4c7b-b509-39e75e045a97
-      TargetNodeGuid: 9ec91eba-ef76-4251-a3f5-d6d0335a32f5
-    - SourceNodeGuid: 9ec91eba-ef76-4251-a3f5-d6d0335a32f5
-      TargetNodeGuid: 275c0d67-9bea-46f7-bc80-2151b02494f5
+    - SourceNodeGuid: 6f6d2672-01bb-40ba-ba62-035c84718619
+      TargetNodeGuid: 905e0a90-97c7-494c-88a2-de08c906678c
+    - SourceNodeGuid: 905e0a90-97c7-494c-88a2-de08c906678c
+      TargetNodeGuid: 6669ad9f-c2c1-4208-9e97-ab56a0a32d40
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+        - id: 3
+    00000001:
+      type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
+      data:
+        Button: {fileID: 1591365636}
+    00000002:
+      type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 1
+    00000003:
+      type: {class: TextRenderNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Text: {fileID: 2025006685}
+        Format: 'Clicks: {0}'
 --- !u!1 &1591365634
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,58 +807,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 1935450703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":15440}}'
-      UnityObjects:
-      - {fileID: 1591365636}
-    - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":10}'
-      UnityObjects: []
-    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":15424},"Format":"Count: {0}"}'
-      UnityObjects:
-      - {fileID: 681454224}
+  _nodes:
+  - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 9ec91eba-ef76-4251-a3f5-d6d0335a32f5
-      Name: ConstIntNode
-      Position: {x: 85, y: 229}
-      Data:
-        FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":10}'
-        UnityObjects: []
-    - Guid: beb2926f-34a6-4c7b-b509-39e75e045a97
+    - Guid: 6f6d2672-01bb-40ba-ba62-035c84718619
       Name: OnClickButtonNode
-      Position: {x: 82, y: 103}
-      Data:
-        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Button":{"instanceID":15440}}'
-        UnityObjects:
-        - {fileID: 1591365636}
-    - Guid: 275c0d67-9bea-46f7-bc80-2151b02494f5
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: 905e0a90-97c7-494c-88a2-de08c906678c
+      Name: ConstIntNode
+      Position: {x: 50, y: 148}
+      Node:
+        id: 2
+    - Guid: 6669ad9f-c2c1-4208-9e97-ab56a0a32d40
       Name: TextRenderNode
-      Position: {x: 88, y: 353}
-      Data:
-        FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Text":{"instanceID":15424},"Format":"Count: {0}"}'
-        UnityObjects:
-        - {fileID: 681454224}
+      Position: {x: 50, y: 245}
+      Node:
+        id: 3
     Links:
-    - SourceNodeGuid: beb2926f-34a6-4c7b-b509-39e75e045a97
-      TargetNodeGuid: 9ec91eba-ef76-4251-a3f5-d6d0335a32f5
-    - SourceNodeGuid: 9ec91eba-ef76-4251-a3f5-d6d0335a32f5
-      TargetNodeGuid: 275c0d67-9bea-46f7-bc80-2151b02494f5
+    - SourceNodeGuid: 6f6d2672-01bb-40ba-ba62-035c84718619
+      TargetNodeGuid: 905e0a90-97c7-494c-88a2-de08c906678c
+    - SourceNodeGuid: 905e0a90-97c7-494c-88a2-de08c906678c
+      TargetNodeGuid: 6669ad9f-c2c1-4208-9e97-ab56a0a32d40
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+        - id: 3
+    00000001:
+      type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
+      data:
+        Button: {fileID: 1591365636}
+    00000002:
+      type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 10
+    00000003:
+      type: {class: TextRenderNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Text: {fileID: 681454224}
+        Format: 'Clicks: {0}'
 --- !u!1 &2025006683
 GameObject:
   m_ObjectHideFlags: 0

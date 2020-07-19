@@ -1,5 +1,5 @@
 using System;
-using Nodux.Core;
+using Nodux.PluginNode;
 using UnityEngine;
 
 namespace Nodux.PluginGraph
@@ -10,6 +10,6 @@ namespace Nodux.PluginGraph
         public string Guid;
         public string Name;
         public Vector2 Position;
-        public TypeSelection Data;
+        [SerializeReference] public INode Node;
     }
 }

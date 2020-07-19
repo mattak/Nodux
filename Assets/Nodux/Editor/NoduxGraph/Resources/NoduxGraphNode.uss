@@ -1,3 +1,19 @@
 NoduxGraphNode #contents {
     background-color: #3c3c3c;
 }
+
+IntegerField > IntegerInput {
+    min-width: 80px;
+}
+
+TextField > TextInput {
+    min-width: 80px;
+}
+
+Vector3Field > VisualElement > FloatField {
+    min-width: 80px;
+}
+
+Vector2Field > VisualElement > FloatField {
+    min-width: 80px;
+}

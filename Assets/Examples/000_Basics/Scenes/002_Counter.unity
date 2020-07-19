@@ -161,60 +161,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 343830305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":16384}}'
-      UnityObjects:
-      - {fileID: 1591365636}
-    - FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":1}'
-      UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StateKey":"Clicks","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":16342}}'
-      UnityObjects:
-      - {fileID: 458755935}
+  _nodes:
+  - id: 0
   _graphContainer:
     Nodes:
-    - Guid: da4e9b79-78d2-4018-8ac4-e58ff4445492
-      Name: OnClickButtonNode
-      Position: {x: 142, y: 136}
-      Data:
-        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Button":{"instanceID":16384}}'
-        UnityObjects:
-        - {fileID: 1591365636}
-    - Guid: 3d4633c6-ae96-4291-aaae-6c6853b2e766
+    - Guid: 25f87f88-33cf-4fc1-961d-05c14f5ff7a0
       Name: ConstIntNode
-      Position: {x: 145, y: 246}
-      Data:
-        FullName: Nodux.PluginNode.ConstIntNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":1}'
-        UnityObjects: []
-    - Guid: e9c4bb66-3eca-41da-b348-c52dafafec37
+      Position: {x: 50, y: 148}
+      Node:
+        id: 1
+    - Guid: 8dcb8dc1-9c31-475d-ac17-5916a1ffb104
       Name: StateActionWriterNode
-      Position: {x: 146, y: 359}
-      Data:
-        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"StateKey":"Clicks","ReducerSelection":{"FullName":"Nodux.PluginCounter.IncrementReducer,
-          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":16342}}'
-        UnityObjects:
-        - {fileID: 458755935}
+      Position: {x: 50, y: 245}
+      Node:
+        id: 2
+    - Guid: 76df29dc-e1c5-4bf0-9208-94374d2ba56c
+      Name: OnClickButtonNode
+      Position: {x: 50, y: 50}
+      Node:
+        id: 3
     Links:
-    - SourceNodeGuid: da4e9b79-78d2-4018-8ac4-e58ff4445492
-      TargetNodeGuid: 3d4633c6-ae96-4291-aaae-6c6853b2e766
-    - SourceNodeGuid: 3d4633c6-ae96-4291-aaae-6c6853b2e766
-      TargetNodeGuid: e9c4bb66-3eca-41da-b348-c52dafafec37
+    - SourceNodeGuid: 76df29dc-e1c5-4bf0-9208-94374d2ba56c
+      TargetNodeGuid: 25f87f88-33cf-4fc1-961d-05c14f5ff7a0
+    - SourceNodeGuid: 25f87f88-33cf-4fc1-961d-05c14f5ff7a0
+      TargetNodeGuid: 8dcb8dc1-9c31-475d-ac17-5916a1ffb104
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 3
+        - id: 1
+        - id: 2
+    00000001:
+      type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 1
+    00000002:
+      type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StateKey: Clicks
+        ReducerSelection:
+          FullName: Nodux.PluginCounter.IncrementReducer, Nodux, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          ContentJson: '{}'
+          UnityObjects: []
+        StoreHolder: {fileID: 458755935}
+    00000003:
+      type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
+      data:
+        Button: {fileID: 1591365636}
 --- !u!1 &458755934
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,44 +591,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364146548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":16342},"StateKey":"Clicks"}'
-      UnityObjects:
-      - {fileID: 458755935}
-    - FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Text":{"instanceID":16402},"Format":"Click {0}"}'
-      UnityObjects:
-      - {fileID: 2025006685}
+  _nodes:
+  - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 9335b0e5-f380-45fd-93dd-49d2f80d6e48
+    - Guid: fc292ae9-30d1-48ba-995d-7912afff1a77
       Name: StateReaderNode
-      Position: {x: 136, y: 192}
-      Data:
-        FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"StoreHolder":{"instanceID":16342},"StateKey":"Clicks"}'
-        UnityObjects:
-        - {fileID: 458755935}
-    - Guid: 0c77c6df-a689-4a47-86f0-262b4c4ef2e9
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: 3234f0e6-4e27-4d38-aa1c-d7e5952b5c25
       Name: TextRenderNode
-      Position: {x: 138, y: 333}
-      Data:
-        FullName: Nodux.PluginNode.TextRenderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Text":{"instanceID":16402},"Format":"Click {0}"}'
-        UnityObjects:
-        - {fileID: 2025006685}
+      Position: {x: 50, y: 167}
+      Node:
+        id: 2
     Links:
-    - SourceNodeGuid: 9335b0e5-f380-45fd-93dd-49d2f80d6e48
-      TargetNodeGuid: 0c77c6df-a689-4a47-86f0-262b4c4ef2e9
+    - SourceNodeGuid: fc292ae9-30d1-48ba-995d-7912afff1a77
+      TargetNodeGuid: 3234f0e6-4e27-4d38-aa1c-d7e5952b5c25
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+    00000001:
+      type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StoreHolder: {fileID: 458755935}
+        StateKey: Clicks
+    00000002:
+      type: {class: TextRenderNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Text: {fileID: 2025006685}
+        Format: Click {0}
 --- !u!1 &1591365634
 GameObject:
   m_ObjectHideFlags: 0

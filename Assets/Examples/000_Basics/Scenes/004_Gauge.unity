@@ -281,7 +281,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -466,38 +466,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &592432116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 592432117}
-  m_Layer: 0
-  m_Name: Graphs
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &592432117
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592432116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1724879913}
-  - {fileID: 1483271703}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654682111
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +664,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063511160}
   m_CullTransparentMesh: 0
---- !u!1 &1483271702
+--- !u!1 &1336743321
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -704,76 +672,105 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1483271703}
-  - component: {fileID: 1483271704}
+  - component: {fileID: 1336743322}
+  - component: {fileID: 1336743324}
+  - component: {fileID: 1336743323}
   m_Layer: 0
-  m_Name: Gauge
+  m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1483271703
+--- !u!4 &1336743322
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483271702}
+  m_GameObject: {fileID: 1336743321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 592432117}
-  m_RootOrder: 1
+  m_Father: {fileID: 2000705499}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1483271704
+--- !u!114 &1336743323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483271702}
+  m_GameObject: {fileID: 1336743321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"StoreHolder":{"instanceID":18974},"StateKey":"Gauge"}'
-      UnityObjects:
-      - {fileID: 458755935}
-    - FullName: Nodux.PluginSliderGauge.SliderGaugeRenderNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"Slider":{"instanceID":19008}}'
-      UnityObjects:
-      - {fileID: 661672848}
+  _nodes:
+  - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 4db5ba22-f77f-48fe-9aa0-c34216ee4c84
-      Name: SliderGaugeRenderNode
-      Position: {x: 103, y: 283}
-      Data:
-        FullName: Nodux.PluginSliderGauge.SliderGaugeRenderNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"Slider":{"instanceID":19008}}'
-        UnityObjects:
-        - {fileID: 661672848}
-    - Guid: 7c17a5ad-5853-4619-8d3d-9efb767c5827
-      Name: StateReaderNode
-      Position: {x: 105, y: 143}
-      Data:
-        FullName: Nodux.PluginState.StateReaderNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"StoreHolder":{"instanceID":18974},"StateKey":"Gauge"}'
-        UnityObjects:
-        - {fileID: 458755935}
+    - Guid: 3fc154ce-a7dc-492a-ab07-3a99223053ee
+      Name: ConstFloatNode
+      Position: {x: 50, y: 148}
+      Node:
+        id: 1
+    - Guid: f6dad31e-383a-4978-86a1-a3a09bca47fb
+      Name: StateActionWriterNode
+      Position: {x: 50, y: 245}
+      Node:
+        id: 2
+    - Guid: 7e71f985-6f27-4d17-afd0-ec54c30f9561
+      Name: OnClickButtonNode
+      Position: {x: 50, y: 50}
+      Node:
+        id: 3
     Links:
-    - SourceNodeGuid: 7c17a5ad-5853-4619-8d3d-9efb767c5827
-      TargetNodeGuid: 4db5ba22-f77f-48fe-9aa0-c34216ee4c84
+    - SourceNodeGuid: 3fc154ce-a7dc-492a-ab07-3a99223053ee
+      TargetNodeGuid: f6dad31e-383a-4978-86a1-a3a09bca47fb
+    - SourceNodeGuid: 7e71f985-6f27-4d17-afd0-ec54c30f9561
+      TargetNodeGuid: 3fc154ce-a7dc-492a-ab07-3a99223053ee
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 3
+        - id: 1
+        - id: 2
+    00000001:
+      type: {class: ConstFloatNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 0.5
+    00000002:
+      type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StateKey: Gauge
+        ReducerSelection:
+          FullName: Nodux.PluginState.AssignmentReducer, Nodux, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          ContentJson: '{}'
+          UnityObjects: []
+        StoreHolder: {fileID: 458755935}
+    00000003:
+      type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
+      data:
+        Button: {fileID: 47410468}
+--- !u!114 &1336743324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336743321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dd36e613284bcfa98802138eebf98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1507698039
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,127 +849,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507698039}
   m_CullTransparentMesh: 0
---- !u!1 &1724879912
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1724879913}
-  - component: {fileID: 1724879915}
-  - component: {fileID: 1724879914}
-  m_Layer: 0
-  m_Name: Value
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1724879913
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724879912}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 592432117}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1724879914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724879912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b6e6f734e547dbae0af2ccb8ee82e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chainNodes:
-  - NodeList:
-    - FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Button":{"instanceID":18966}}'
-      UnityObjects:
-      - {fileID: 47410468}
-    - FullName: Nodux.PluginNode.ConstFloatNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"Value":0.5}'
-      UnityObjects: []
-    - FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      ContentJson: '{"min":0.0,"max":1.0}'
-      UnityObjects: []
-    - FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      ContentJson: '{"StateKey":"Gauge","ReducerSelection":{"FullName":"Nodux.PluginState.AssignmentReducer,
-        Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":18974}}'
-      UnityObjects:
-      - {fileID: 458755935}
-  _graphContainer:
-    Nodes:
-    - Guid: 1c1bf466-e323-4ff2-96cc-a8ef494933d1
-      Name: ConstFloatNode
-      Position: {x: 50, y: 148}
-      Data:
-        FullName: Nodux.PluginNode.ConstFloatNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Value":0.5}'
-        UnityObjects: []
-    - Guid: f4fc7143-4301-47b4-8a36-1e8e1929bbd8
-      Name: FloatRangeNode
-      Position: {x: 50, y: 245}
-      Data:
-        FullName: Nodux.PluginOperator.FloatRangeNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"min":0.0,"max":1.0}'
-        UnityObjects: []
-    - Guid: 0e94958d-a715-4c2f-88f2-8aac2c1c4021
-      Name: StateActionWriterNode
-      Position: {x: 50, y: 361}
-      Data:
-        FullName: Nodux.PluginState.StateActionWriterNode, Nodux, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        ContentJson: '{"StateKey":"Gauge","ReducerSelection":{"FullName":"Nodux.PluginState.AssignmentReducer,
-          Nodux, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","ContentJson":"{}","UnityObjects":[]},"StoreHolder":{"instanceID":18974}}'
-        UnityObjects:
-        - {fileID: 458755935}
-    - Guid: 37bffe12-6106-463c-b5f1-8e49d8c5ff50
-      Name: OnClickButtonNode
-      Position: {x: 50, y: 50}
-      Data:
-        FullName: Nodux.PluginUI.OnClickButtonNode, Nodux, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        ContentJson: '{"Button":{"instanceID":18966}}'
-        UnityObjects:
-        - {fileID: 47410468}
-    Links:
-    - SourceNodeGuid: 37bffe12-6106-463c-b5f1-8e49d8c5ff50
-      TargetNodeGuid: 1c1bf466-e323-4ff2-96cc-a8ef494933d1
-    - SourceNodeGuid: 1c1bf466-e323-4ff2-96cc-a8ef494933d1
-      TargetNodeGuid: f4fc7143-4301-47b4-8a36-1e8e1929bbd8
-    - SourceNodeGuid: f4fc7143-4301-47b4-8a36-1e8e1929bbd8
-      TargetNodeGuid: 0e94958d-a715-4c2f-88f2-8aac2c1c4021
---- !u!114 &1724879915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724879912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15dd36e613284bcfa98802138eebf98a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +914,128 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1755946753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1755946754}
+  - component: {fileID: 1755946755}
+  m_Layer: 0
+  m_Name: Gauge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1755946754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755946753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2000705499}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1755946755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755946753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodes:
+  - id: 0
+  _graphContainer:
+    Nodes:
+    - Guid: fee9763c-36b5-4b4d-8be6-b2884339fc49
+      Name: StateReaderNode
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: e7d8a5e9-d63e-44ec-8470-9f08f0236a65
+      Name: FloatRangeNode
+      Position: {x: 50, y: 167}
+      Node:
+        id: 2
+    - Guid: 6042011a-91b2-4477-9c83-b520f8892079
+      Name: SliderGaugeRenderNode
+      Position: {x: 50, y: 283}
+      Node:
+        id: 3
+    Links:
+    - SourceNodeGuid: fee9763c-36b5-4b4d-8be6-b2884339fc49
+      TargetNodeGuid: e7d8a5e9-d63e-44ec-8470-9f08f0236a65
+    - SourceNodeGuid: e7d8a5e9-d63e-44ec-8470-9f08f0236a65
+      TargetNodeGuid: 6042011a-91b2-4477-9c83-b520f8892079
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+        - id: 3
+    00000001:
+      type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StoreHolder: {fileID: 458755935}
+        StateKey: Gauge
+    00000002:
+      type: {class: FloatRangeNode, ns: Nodux.PluginOperator, asm: Nodux}
+      data:
+        min: 0
+        max: 1
+    00000003:
+      type: {class: SliderGaugeRenderNode, ns: Nodux.PluginSliderGauge, asm: Nodux}
+      data:
+        Slider: {fileID: 661672848}
+--- !u!1 &2000705498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2000705499}
+  m_Layer: 0
+  m_Name: Graphs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2000705499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000705498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1336743322}
+  - {fileID: 1755946754}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2117223595
 GameObject:

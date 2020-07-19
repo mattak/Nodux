@@ -1,0 +1,684 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 256
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 1
+    m_PVRDenoiserTypeDirect: 1
+    m_PVRDenoiserTypeIndirect: 1
+    m_PVRDenoiserTypeAO: 1
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &255361722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 255361725}
+  - component: {fileID: 255361724}
+  - component: {fileID: 255361723}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &255361723
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255361722}
+  m_Enabled: 1
+--- !u!20 &255361724
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255361722}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &255361725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255361722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &365279973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 365279974}
+  - component: {fileID: 365279975}
+  m_Layer: 0
+  m_Name: UnityValue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &365279974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365279973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1199737814}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365279975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365279973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodes:
+  - id: 0
+  _graphContainer:
+    Nodes:
+    - Guid: 09ca086e-fc38-4b7a-a084-7c3d5b270186
+      Name: ConstVector2Node
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: dfd9139c-f020-4a00-88c5-0541aa9ef54e
+      Name: ConstVector3Node
+      Position: {x: 50, y: 147}
+      Node:
+        id: 2
+    - Guid: f566fb1f-4ad4-434a-85fb-89aba57eaaee
+      Name: ConstUnityObjectNode
+      Position: {x: 50, y: 244}
+      Node:
+        id: 3
+    Links:
+    - SourceNodeGuid: 09ca086e-fc38-4b7a-a084-7c3d5b270186
+      TargetNodeGuid: dfd9139c-f020-4a00-88c5-0541aa9ef54e
+    - SourceNodeGuid: dfd9139c-f020-4a00-88c5-0541aa9ef54e
+      TargetNodeGuid: f566fb1f-4ad4-434a-85fb-89aba57eaaee
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+        - id: 3
+    00000001:
+      type: {class: ConstVector2Node, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: {x: 1, y: 2}
+    00000002:
+      type: {class: ConstVector3Node, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: {x: 3, y: 4, z: 5}
+    00000003:
+      type: {class: ConstUnityObjectNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: {fileID: 1199737813}
+--- !u!1 &707836724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707836726}
+  - component: {fileID: 707836725}
+  m_Layer: 0
+  m_Name: Store
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &707836725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707836724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eb8ad586014e83bb6f6235474ac528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &707836726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707836724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &859083641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 859083642}
+  - component: {fileID: 859083643}
+  m_Layer: 0
+  m_Name: ListAndArray
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &859083642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859083641}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1199737814}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &859083643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859083641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodes:
+  - id: 0
+  _graphContainer:
+    Nodes:
+    - Guid: 8423aa73-94cc-4525-a43e-34e4180e2b41
+      Name: ConstStringListNode
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: e3ec43a1-9572-435a-81bc-6778705e19b9
+      Name: ConstStringArrayNode
+      Position: {x: 50, y: 195}
+      Node:
+        id: 2
+    - Guid: 189469e5-dd45-460f-90c8-50d304dc6049
+      Name: ConstIntListNode
+      Position: {x: 50, y: 340}
+      Node:
+        id: 3
+    - Guid: 60b47969-d82f-46b9-bf2f-77d9674077a8
+      Name: ConstIntArrayNode
+      Position: {x: 50, y: 485}
+      Node:
+        id: 4
+    Links:
+    - SourceNodeGuid: 8423aa73-94cc-4525-a43e-34e4180e2b41
+      TargetNodeGuid: e3ec43a1-9572-435a-81bc-6778705e19b9
+    - SourceNodeGuid: e3ec43a1-9572-435a-81bc-6778705e19b9
+      TargetNodeGuid: 189469e5-dd45-460f-90c8-50d304dc6049
+    - SourceNodeGuid: 189469e5-dd45-460f-90c8-50d304dc6049
+      TargetNodeGuid: 60b47969-d82f-46b9-bf2f-77d9674077a8
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+        - id: 3
+        - id: 4
+    00000001:
+      type: {class: ConstStringListNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value:
+        - A
+        - B
+        - C
+    00000002:
+      type: {class: ConstStringArrayNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value:
+        - a
+        - b
+        - c
+    00000003:
+      type: {class: ConstIntListNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 0a000000140000001e000000
+    00000004:
+      type: {class: ConstIntArrayNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 010000000200000003000000
+--- !u!1 &1137775521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137775522}
+  - component: {fileID: 1137775523}
+  m_Layer: 0
+  m_Name: Primitive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1137775522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137775521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1199737814}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1137775523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137775521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodes:
+  - id: 0
+  _graphContainer:
+    Nodes:
+    - Guid: c6f26e67-ed65-4763-bf92-9eaf2e86ba23
+      Name: ConstBoolNode
+      Position: {x: 50, y: 50}
+      Node:
+        id: 1
+    - Guid: 0847cf74-d1d1-47ec-8461-a1d9aa0cd9d8
+      Name: ConstFloatNode
+      Position: {x: 50, y: 345}
+      Node:
+        id: 2
+    - Guid: b9e749d8-a205-4cc1-99a5-351f436117b5
+      Name: ConstLongNode
+      Position: {x: 50, y: 539}
+      Node:
+        id: 3
+    - Guid: a9e14752-4ec1-449c-9e94-dcccd7d0154d
+      Name: ConstIntNode
+      Position: {x: 50, y: 442}
+      Node:
+        id: 4
+    - Guid: ecb633da-9721-40e2-8690-3aa6ae3f70af
+      Name: ConstDoubleNode
+      Position: {x: 50, y: 243}
+      Node:
+        id: 5
+    - Guid: 38ec33d0-0135-4f6a-a816-d2f1a1efcfb1
+      Name: ConstStringNode
+      Position: {x: 50, y: 146}
+      Node:
+        id: 6
+    Links:
+    - SourceNodeGuid: c6f26e67-ed65-4763-bf92-9eaf2e86ba23
+      TargetNodeGuid: 38ec33d0-0135-4f6a-a816-d2f1a1efcfb1
+    - SourceNodeGuid: 38ec33d0-0135-4f6a-a816-d2f1a1efcfb1
+      TargetNodeGuid: ecb633da-9721-40e2-8690-3aa6ae3f70af
+    - SourceNodeGuid: ecb633da-9721-40e2-8690-3aa6ae3f70af
+      TargetNodeGuid: 0847cf74-d1d1-47ec-8461-a1d9aa0cd9d8
+    - SourceNodeGuid: 0847cf74-d1d1-47ec-8461-a1d9aa0cd9d8
+      TargetNodeGuid: a9e14752-4ec1-449c-9e94-dcccd7d0154d
+    - SourceNodeGuid: a9e14752-4ec1-449c-9e94-dcccd7d0154d
+      TargetNodeGuid: b9e749d8-a205-4cc1-99a5-351f436117b5
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 6
+        - id: 5
+        - id: 2
+        - id: 4
+        - id: 3
+    00000001:
+      type: {class: ConstBoolNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 1
+    00000002:
+      type: {class: ConstFloatNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 4.5
+    00000003:
+      type: {class: ConstLongNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 2
+    00000004:
+      type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 1
+    00000005:
+      type: {class: ConstDoubleNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: 3.1
+    00000006:
+      type: {class: ConstStringNode, ns: Nodux.PluginNode, asm: Nodux}
+      data:
+        Value: Hello World
+--- !u!1 &1199737813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1199737814}
+  m_Layer: 0
+  m_Name: Graphs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1199737814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199737813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 859083642}
+  - {fileID: 1137775522}
+  - {fileID: 365279974}
+  - {fileID: 1436644158}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1436644157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436644158}
+  - component: {fileID: 1436644159}
+  m_Layer: 0
+  m_Name: StateReadWrite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436644158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436644157}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1199737814}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1436644159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436644157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodes:
+  - id: 0
+  _graphContainer:
+    Nodes:
+    - Guid: 747c8e2e-9d21-431e-8a4f-dc4647525802
+      Name: StateReaderNode
+      Position: {x: 97, y: 56}
+      Node:
+        id: 1
+    - Guid: 7b64bf14-66cf-4871-913a-8bfb39482f52
+      Name: StateActionWriterNode
+      Position: {x: 100, y: 183}
+      Node:
+        id: 2
+    Links:
+    - SourceNodeGuid: 747c8e2e-9d21-431e-8a4f-dc4647525802
+      TargetNodeGuid: 7b64bf14-66cf-4871-913a-8bfb39482f52
+  references:
+    version: 1
+    00000000:
+      type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
+      data:
+        Nodes:
+        - id: 1
+        - id: 2
+    00000001:
+      type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StoreHolder: {fileID: 707836725}
+        StateKey: 
+    00000002:
+      type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StateKey: Score
+        ReducerSelection:
+          FullName: Nodux.PluginCounter.IncrementReducer, Nodux, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          ContentJson: '{}'
+          UnityObjects: []
+        StoreHolder: {fileID: 707836725}

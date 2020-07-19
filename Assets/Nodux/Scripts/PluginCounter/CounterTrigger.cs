@@ -8,14 +8,20 @@ using UnityEngine.UI;
 namespace Nodux.PluginCounter
 {
     [Serializable]
-    public class CounterTrigger : INode
+    public class CounterTrigger : Node
     {
         public Button button;
         public string stateKey;
         public StoreHolder storeHolder;
-        public INode Parent { get; set; }
 
-        public IDisposable Subscribe(IObserver<Any> observer)
+        public CounterTrigger(INode parent, Button button, string stateKey, StoreHolder holder) : base(parent)
+        {
+            this.button = button;
+            this.stateKey = stateKey;
+            this.storeHolder = holder;
+        }
+
+        public override IDisposable Subscribe(IObserver<Any> observer)
         {
             var buttonNode = new OnClickButtonNode(button);
             var intNode = new ConstIntNode(buttonNode, 1);
