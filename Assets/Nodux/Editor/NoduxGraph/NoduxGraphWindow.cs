@@ -100,7 +100,7 @@ namespace Nodux.PluginEditor.NoduxGraph
 
         private void RequestClear()
         {
-            NoduxGraphUtil.ClearGraph(_graphView);
+            NoduxGraphOperation.ClearGraph(_graphView);
         }
 
         private PluginGraph.NoduxLinkGraph[] FetchActiveNoduxGraphs()

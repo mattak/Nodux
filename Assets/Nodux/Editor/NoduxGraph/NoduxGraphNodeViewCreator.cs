@@ -8,14 +8,17 @@ using Node = UnityEditor.Experimental.GraphView.Node;
 
 namespace Nodux.PluginEditor.NoduxGraph
 {
-    public static class NoduxGraphNodeCreator
+    public static class NoduxGraphNodeViewCreator
     {
         private static readonly Vector2 DefaultNodeSize = new Vector2(150, 200);
 
-        public static NoduxGraphNodeView Load(SerializedNoduxLinkGraph serializedObject, GraphNodeData inspectorNode,
-            int index)
+        public static NoduxGraphNodeView Load(
+            SerializedNoduxLinkGraph serializedObject,
+            GraphNodeData inspectorNode,
+            int index
+        )
         {
-            var graphNode = new NoduxGraphNodeView()
+            var nodeView = new NoduxGraphNodeView()
             {
                 title = inspectorNode.Name,
                 name = inspectorNode.Name,
@@ -23,20 +26,22 @@ namespace Nodux.PluginEditor.NoduxGraph
                 Guid = inspectorNode.Guid
             };
 
-            var inputPort = GenerateInputPort(graphNode);
-            var outputPort = GenerateOutputPort(graphNode);
+            var inputPort = GenerateInputPort(nodeView);
+            var outputPort = GenerateOutputPort(nodeView);
 
             var property = serializedObject.GetNode(index);
-            INodeFieldRenderer.Render(graphNode.extensionContainer, property, inspectorNode.Node);
+            INodeFieldRenderer.Render(nodeView.extensionContainer, property, inspectorNode.Node);
 
-            graphNode.styleSheets.Add(Resources.Load<StyleSheet>("NoduxGraphNode"));
-            graphNode.RefreshPorts();
-            graphNode.RefreshExpandedState();
-            graphNode.SetPosition(new Rect(inspectorNode.Position, DefaultNodeSize));
-            return graphNode;
+            nodeView.styleSheets.Add(Resources.Load<StyleSheet>("NoduxGraphNode"));
+            nodeView.RefreshPorts();
+            nodeView.RefreshExpandedState();
+            nodeView.SetPosition(new Rect(inspectorNode.Position, DefaultNodeSize));
+            return nodeView;
         }
 
-        public static NoduxGraphNodeView Create(SerializedNoduxLinkGraph serializedObject, INode nodeData,
+        public static NoduxGraphNodeView Create(
+            SerializedNoduxLinkGraph serializedObject,
+            INode nodeData,
             Vector2 position)
         {
             var type = nodeData.GetType();

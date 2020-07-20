@@ -58,7 +58,7 @@ namespace Nodux.PluginEditor.NoduxGraph
             {
                 case Type type:
                     var nodeData = (INode) JsonUtility.FromJson("{}", type);
-                    var node = NoduxGraphNodeCreator.Create(_graphView.SerializedGraph, nodeData, Vector2.zero);
+                    var node = NoduxGraphNodeViewCreator.Create(_graphView.SerializedGraph, nodeData, Vector2.zero);
                     node.SetPosition(new Rect(localMousePosition, new Vector2(320, 160)));
                     _graphView.AddElement(node);
                     return true;

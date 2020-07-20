@@ -22,7 +22,15 @@ namespace Nodux.PluginEditor
             string[] fieldStructure = property.propertyPath.Split('.');
             for (int i = 0; i < fieldStructure.Length - 1; i++)
             {
-                obj = GetFieldOrPropertyValue<object>(fieldStructure[i], obj);
+                if (obj is IList && i < fieldStructure.Length - 1)
+                {
+                    i++;
+                    obj = GetIListValue<object>(fieldStructure[i], obj);
+                }
+                else
+                {
+                    obj = GetFieldOrPropertyValue<object>(fieldStructure[i], obj);
+                }
             }
 
             var fieldName = fieldStructure.Last();
@@ -56,12 +64,36 @@ namespace Nodux.PluginEditor
 
         public static T GetNestedObject<T>(string path, object obj, bool includeAllBases = false)
         {
-            foreach (string part in path.Split('.'))
+            var parts = path.Split('.');
+            for (var i = 0; i < parts.Length; i++)
             {
-                obj = GetFieldOrPropertyValue<object>(part, obj, includeAllBases);
+                if (obj is IList && i < parts.Length - 1)
+                {
+                    i++;
+                    obj = GetIListValue<object>(parts[i], obj);
+                }
+                else
+                {
+                    obj = GetFieldOrPropertyValue<object>(parts[i], obj);
+                }
             }
 
             return (T) obj;
+        }
+
+        public static T GetIListValue<T>(string fieldName, object obj)
+        {
+            if (!(obj is IList)) return default;
+
+            var start = fieldName?.IndexOf("[") ?? -1;
+            var end = fieldName?.IndexOf("]") ?? -1;
+            if (start == -1 || end == -1 || start >= end) return default(T);
+
+            var indexText = fieldName.Substring(start + 1, end - start - 1);
+            var index = Int32.Parse(indexText);
+            var list = (IList) obj;
+            if (index >= list.Count) return default;
+            return (T) list[index];
         }
 
         public static T GetFieldOrPropertyValue<T>(string fieldName, object obj, bool includeAllBases = false,

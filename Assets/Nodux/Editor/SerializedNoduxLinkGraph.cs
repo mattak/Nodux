@@ -1,12 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Nodux.PluginEditor.NoduxGraph;
 using Nodux.PluginGraph;
 using Nodux.PluginNode;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 
 namespace Nodux.PluginEditor
 {
     public class SerializedNoduxLinkGraph
     {
         private SerializedObject _graph;
+
+        public GraphContainer Container => this._graph.FindProperty("_graphContainer").GetValue<GraphContainer>();
         public string GraphSceneName { get; }
 
         public SerializedNoduxLinkGraph(NoduxLinkGraph graph)
@@ -54,6 +60,50 @@ namespace Nodux.PluginEditor
             return nodes.GetArrayElementAtIndex(index).FindPropertyRelative("Node");
         }
 
+        public void RemoveUnExistNodes(IEnumerable<NoduxGraphNodeView> views)
+        {
+            this._graph.Update();
+            var guidMap = new Dictionary<string, bool>();
+            foreach (var view in views) guidMap[view.Guid] = true;
+
+            var filteredNodes = Container.Nodes
+                .Where(x => guidMap.ContainsKey(x.Guid))
+                .ToList();
+
+            this.Container.Nodes = filteredNodes;
+            this._graph.ApplyModifiedProperties();
+        }
+
+        public bool UpdateNodeMeta(IEnumerable<NoduxGraphNodeView> views)
+        {
+            this._graph.Update();
+
+            var dictionary = new Dictionary<string, NoduxGraphNodeView>();
+            foreach (var view in views) dictionary[view.Guid] = view;
+
+            var isUpdated = false;
+            var nodes = Container.Nodes;
+            for (var i = 0; i < nodes.Count; i++)
+            {
+                var node = nodes[i];
+                if (dictionary.ContainsKey(nodes[i].Guid))
+                {
+                    var view = dictionary[nodes[i].Guid];
+                    node.Name = view.name;
+                    node.Position = view.GetPosition().position;
+                    isUpdated = true;
+                }
+            }
+
+            if (isUpdated)
+            {
+                this._graph.ApplyModifiedProperties();
+                this._graph.Update();
+            }
+
+            return isUpdated;
+        }
+
         public void RemoveNode(int index)
         {
             var container = this._graph.FindProperty("_graphContainer");
@@ -89,6 +139,45 @@ namespace Nodux.PluginEditor
             var container = this._graph.FindProperty("_graphContainer");
             var links = container.FindPropertyRelative("Links");
             links.DeleteArrayElementAtIndex(index);
+        }
+
+        public void UpdateLinks(IEnumerable<Edge> edges)
+        {
+            this._graph.Update();
+
+            var links = Container.Links;
+            links.Clear();
+
+            foreach (var edge in edges)
+            {
+                var inputNode = edge.input.node as NoduxGraphNodeView;
+                var outputNode = edge.output.node as NoduxGraphNodeView;
+
+                links.Add(new GraphLinkData()
+                {
+                    SourceNodeGuid = outputNode.Guid,
+                    TargetNodeGuid = inputNode.Guid,
+                });
+            }
+
+            this._graph.ApplyModifiedProperties();
+        }
+
+        public void UpdateLinkedNodes(INode[][] nodes)
+        {
+            var linkedNodes = nodes.Select(x => new LinkedNode(null, x)).ToArray();
+            this._graph.Update();
+
+            var property = this._graph.FindProperty("_nodes");
+            property.arraySize = linkedNodes.Length;
+            this._graph.ApplyModifiedProperties();
+
+            for (var i = 0; i < linkedNodes.Length; i++)
+            {
+                property.SetValueToIListIndex(linkedNodes[i], i);
+            }
+
+            this._graph.ApplyModifiedProperties();
         }
     }
 }

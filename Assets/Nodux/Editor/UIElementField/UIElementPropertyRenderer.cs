@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Nodux.Core;
-using Nodux.PluginEditor.NoduxGraph;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
@@ -219,7 +218,10 @@ namespace Nodux.PluginEditor.UIElementField
             field.MarkDirtyRepaint();
             field.clickable.clicked += () =>
             {
-                TypeSelectionSearchWindow.Show(filter,
+                TypeSelectionSearchWindow.Show(
+                    filter,
+                    GUIUtility.GUIToScreenPoint(Event.current.mousePosition),
+                    200,
                     type =>
                     {
                         field.text = type.Name;

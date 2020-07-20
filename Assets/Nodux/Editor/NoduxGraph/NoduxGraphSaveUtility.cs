@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nodux.PluginGraph;
-using Nodux.PluginNode;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -21,7 +20,7 @@ namespace Nodux.PluginEditor.NoduxGraph
 
         public void LoadGraph(NoduxLinkGraph component)
         {
-            NoduxGraphUtil.ClearGraph(_graphView);
+            NoduxGraphOperation.ClearGraph(_graphView);
             _graphView.SetSerializeTarget(component);
 
             var graphNodeMap = new Dictionary<string, NoduxGraphNodeView>();
@@ -29,7 +28,8 @@ namespace Nodux.PluginEditor.NoduxGraph
             // create nodes
             for (var i = 0; i < component.GraphContainer.Nodes.Count; i++)
             {
-                var graphNode = NoduxGraphNodeCreator.Load(_graphView.SerializedGraph, component.GraphContainer.Nodes[i], i);
+                var graphNode =
+                    NoduxGraphNodeViewCreator.Load(_graphView.SerializedGraph, component.GraphContainer.Nodes[i], i);
                 _graphView.AddElement(graphNode);
                 graphNodeMap[graphNode.Guid] = graphNode;
             }
@@ -46,66 +46,18 @@ namespace Nodux.PluginEditor.NoduxGraph
 
                 var source = graphNodeMap[link.SourceNodeGuid];
                 var target = graphNodeMap[link.TargetNodeGuid];
-                NoduxGraphUtil.LinkNode(_graphView, source, target);
+                NoduxGraphOperation.LinkNode(_graphView, source, target);
             }
         }
 
         public void SaveGraph(NoduxLinkGraph component)
         {
-            // UnityEditor.Undo.RecordObject(component, "save node data");
-
-            // 1. Containerを抽出
-            // 2. ChainNodeを抽出
-            var container = ExtractGraphContainer();
-            var nodes = ExtractChainNodes();
-
-            var serializedObject = new SerializedNoduxLinkGraph(component);
-            serializedObject.SetContainer(container, nodes);
-            // component.UpdateEditData(container, nodes);
-        }
-
-        private GraphContainer ExtractGraphContainer()
-        {
-            var container = new GraphContainer();
-
-            foreach (var node in _nodes)
-            {
-                container.Nodes.Add(new GraphNodeData()
-                {
-                    Guid = node.Guid,
-                    Name = node.name,
-                    Position = node.GetPosition().position,
-                    Node = node.Data,
-                });
-            }
-
-            foreach (var edge in _connectedEdges)
-            {
-                var outputNode = edge.output.node as NoduxGraphNodeView;
-                var inputNode = edge.input.node as NoduxGraphNodeView;
-
-                container.Links.Add(new GraphLinkData()
-                {
-                    SourceNodeGuid = outputNode.Guid,
-                    TargetNodeGuid = inputNode.Guid,
-                });
-            }
-
-            return container;
-        }
-
-        private INode[] ExtractChainNodes()
-        {
-            var nodesArray = NoduxGraphUtil.ExtractGraphNodeChains(_graphView);
-            return nodesArray
-                .Select(nodes =>
-                    new LinkedNode(
-                        null,
-                        nodes.Select(it => it.Data)
-                    )
-                )
-                .Cast<INode>()
-                .ToArray();
+            // node, link, LinkedNodeの更新
+            _graphView.SerializedGraph.RemoveUnExistNodes(_nodes);
+            _graphView.SerializedGraph.UpdateNodeMeta(_nodes);
+            _graphView.SerializedGraph.UpdateLinks(_edges);
+            var nodesArray = NoduxGraphOperation.ExtractGraphNodeChains(_graphView.SerializedGraph.Container);
+            _graphView.SerializedGraph.UpdateLinkedNodes(nodesArray);
         }
     }
 }

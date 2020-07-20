@@ -51,7 +51,7 @@ namespace Nodux.PluginEditor.NoduxGraph
                 if (graphSceneName == scene.name) return;
             }
 
-            NoduxGraphUtil.ClearGraph(this);
+            NoduxGraphOperation.ClearGraph(this);
             _internalGameObject = null;
             _serializedGraph = null;
         }
@@ -95,13 +95,13 @@ namespace Nodux.PluginEditor.NoduxGraph
 
         public void AlignNodes(int columns)
         {
-            var nodesList = NoduxGraphUtil.ExtractGraphNodeChains(this);
+            var nodesList = NoduxGraphOperation.ExtractGraphNodeChains(this);
             if (nodesList == null) return;
 
             var origin = StartNodeOrigin;
             foreach (var nodes in nodesList)
             {
-                var rect = NoduxGraphUtil.LayoutNodes(columns, origin, nodes);
+                var rect = NoduxGraphOperation.LayoutNodes(columns, origin, nodes);
                 origin.y += rect.height;
             }
         }
