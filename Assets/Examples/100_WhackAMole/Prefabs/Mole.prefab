@@ -104,23 +104,23 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 2869a304-0893-46ad-8a27-a09928569783
-      Name: OnPointerDownNode
+    - Name: OnPointerDownNode
+      Guid: 2869a304-0893-46ad-8a27-a09928569783
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 274fec44-6f6b-49ab-af12-b40410bd41d6
-      Name: ConstIntNode
+    - Name: ConstIntNode
+      Guid: 274fec44-6f6b-49ab-af12-b40410bd41d6
       Position: {x: 50, y: 148}
       Node:
         id: 2
-    - Guid: eaa924a1-39ab-44f4-b285-99d14fa425d2
-      Name: GameObjectDestroyNode
+    - Name: GameObjectDestroyNode
+      Guid: eaa924a1-39ab-44f4-b285-99d14fa425d2
       Position: {x: 50, y: 385}
       Node:
         id: 3
-    - Guid: f54f1342-8a81-46ea-bc7e-a3ca7b02c473
-      Name: StateActionWriterNode
+    - Name: StateActionWriterNode
+      Guid: f54f1342-8a81-46ea-bc7e-a3ca7b02c473
       Position: {x: 50, y: 245}
       Node:
         id: 4
@@ -158,9 +158,8 @@ MonoBehaviour:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Score
-        ReducerSelection:
-          FullName: Nodux.PluginCounter.IncrementReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 5
         StoreHolder: {fileID: 552333960}
+    00000005:
+      type: {class: IncrementReducer, ns: Nodux.PluginCounter, asm: Nodux}

@@ -19,8 +19,7 @@ namespace Nodux.PluginEditor
 
             // restore
             var attr = (TypeSelectionFilter) this.attribute;
-            var propertyValue = property.GetValue<TypeSelection>();
-            propertyValue?.Restore();
+            var propertyValue = property.GetValue<object>();
 
             // draw
             label = EditorGUI.BeginProperty(rect, label, property);
@@ -35,7 +34,7 @@ namespace Nodux.PluginEditor
                 rect.height
             );
 
-            if (GUI.Button(buttonRect, propertyValue.Type?.Name ?? "None"))
+            if (GUI.Button(buttonRect, propertyValue?.GetType().Name ?? "None"))
             {
                 var screenButtonRect = GUIUtility.GUIToScreenRect(buttonRect);
                 var position = new Vector2(
@@ -62,8 +61,7 @@ namespace Nodux.PluginEditor
 
             // restore
             var attr = (TypeSelectionFilter) this.attribute;
-            var propertyValue = property.GetValue<TypeSelection>();
-            propertyValue?.Restore();
+            var propertyValue = property.GetValue<object>();
 
             // Create property fields.
             var fieldContainer = new VisualElement()
@@ -89,11 +87,13 @@ namespace Nodux.PluginEditor
             var button = new Button();
             button.clickable.clicked += () =>
             {
-                var position = GUIUtility.GUIToScreenPoint(Event.current.mousePosition);
+                var mousePosition = GUIUtility.GUIToScreenPoint(Event.current.mousePosition);
                 var width = button.resolvedStyle.width;
+                var height = button.resolvedStyle.height;
+                var position = new Vector2(mousePosition.x, mousePosition.y + 2 * height);
                 OnClick(attr, property, position, width, newName => button.text = newName);
             };
-            button.text = propertyValue?.Type?.Name ?? "None";
+            button.text = propertyValue?.GetType().Name ?? "None";
             fieldContainer.Add(button);
 
             container.Add(fieldContainer);
@@ -117,11 +117,10 @@ namespace Nodux.PluginEditor
                 {
                     Undo.RecordObject(property.serializedObject.targetObject, "update TypeSelection");
                     var value = JsonUtility.FromJson("{}", type);
-                    var selection = new TypeSelection(value);
-                    property.SetValue(selection);
+                    property.SetValue(value);
                     property.serializedObject.ApplyModifiedProperties();
                     property.serializedObject.Update();
-                    invoke(selection.Type?.Name ?? "None");
+                    invoke(value?.GetType()?.Name ?? "None");
                 });
         }
 

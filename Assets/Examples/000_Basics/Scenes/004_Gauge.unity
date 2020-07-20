@@ -712,18 +712,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 3fc154ce-a7dc-492a-ab07-3a99223053ee
-      Name: ConstFloatNode
+    - Name: ConstFloatNode
+      Guid: 3fc154ce-a7dc-492a-ab07-3a99223053ee
       Position: {x: 50, y: 148}
       Node:
         id: 1
-    - Guid: f6dad31e-383a-4978-86a1-a3a09bca47fb
-      Name: StateActionWriterNode
+    - Name: StateActionWriterNode
+      Guid: f6dad31e-383a-4978-86a1-a3a09bca47fb
       Position: {x: 50, y: 245}
       Node:
         id: 2
-    - Guid: 7e71f985-6f27-4d17-afd0-ec54c30f9561
-      Name: OnClickButtonNode
+    - Name: OnClickButtonNode
+      Guid: 7e71f985-6f27-4d17-afd0-ec54c30f9561
       Position: {x: 50, y: 50}
       Node:
         id: 3
@@ -749,16 +749,15 @@ MonoBehaviour:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Gauge
-        ReducerSelection:
-          FullName: Nodux.PluginState.AssignmentReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 4
         StoreHolder: {fileID: 458755935}
     00000003:
       type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
       data:
         Button: {fileID: 47410468}
+    00000004:
+      type: {class: AssignmentReducer, ns: Nodux.PluginState, asm: Nodux}
 --- !u!114 &1336743324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,18 +961,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: fee9763c-36b5-4b4d-8be6-b2884339fc49
-      Name: StateReaderNode
+    - Name: StateReaderNode
+      Guid: fee9763c-36b5-4b4d-8be6-b2884339fc49
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: e7d8a5e9-d63e-44ec-8470-9f08f0236a65
-      Name: FloatRangeNode
+    - Name: FloatRangeNode
+      Guid: e7d8a5e9-d63e-44ec-8470-9f08f0236a65
       Position: {x: 50, y: 167}
       Node:
         id: 2
-    - Guid: 6042011a-91b2-4477-9c83-b520f8892079
-      Name: SliderGaugeRenderNode
+    - Name: SliderGaugeRenderNode
+      Guid: 6042011a-91b2-4477-9c83-b520f8892079
       Position: {x: 50, y: 283}
       Node:
         id: 3

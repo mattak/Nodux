@@ -25,7 +25,7 @@ namespace Nodux.PluginPage.Nodes
             var reducer = new PageInitReducer();
             var configNode = new ValueNode(this.definition);
             var actionWriterNode =
-                new StateActionWriterNode(configNode, "page", StoreHolder, reducer, new TypeSelection(reducer));
+                new StateActionWriterNode(configNode, "page", StoreHolder, reducer);
             return actionWriterNode.Subscribe(observer);
         }
     }

@@ -544,18 +544,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 65fee8d0-1dd7-449c-b01b-f0a05652eafa
-      Name: OnStartNode
+    - Name: OnStartNode
+      Guid: 65fee8d0-1dd7-449c-b01b-f0a05652eafa
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 8bf27e9b-285a-41bf-83ee-372d299482a2
-      Name: ConstIntNode
+    - Name: ConstIntNode
+      Guid: 8bf27e9b-285a-41bf-83ee-372d299482a2
       Position: {x: 50, y: 148}
       Node:
         id: 2
-    - Guid: 4101be18-a4fa-46a8-a658-604c627db312
-      Name: StateActionWriterNode
+    - Name: StateActionWriterNode
+      Guid: 4101be18-a4fa-46a8-a658-604c627db312
       Position: {x: 50, y: 245}
       Node:
         id: 3
@@ -585,12 +585,11 @@ MonoBehaviour:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Score
-        ReducerSelection:
-          FullName: Nodux.PluginState.AssignmentReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 4
         StoreHolder: {fileID: 446254325}
+    00000004:
+      type: {class: AssignmentReducer, ns: Nodux.PluginState, asm: Nodux}
 --- !u!1 &586772990
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,14 +860,14 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 65fee8d0-1dd7-449c-b01b-f0a05652eafa
-      Name: OnStartNode
-      Position: {x: 148, y: 104}
+    - Name: OnStartNode
+      Guid: 65fee8d0-1dd7-449c-b01b-f0a05652eafa
+      Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: a662f0a9-ff1b-4bdd-8222-5362c51f8865
-      Name: StateActionWriterNode
-      Position: {x: 149, y: 215}
+    - Name: StateActionWriterNode
+      Guid: a662f0a9-ff1b-4bdd-8222-5362c51f8865
+      Position: {x: 50, y: 148}
       Node:
         id: 2
     Links:
@@ -890,12 +889,11 @@ MonoBehaviour:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Time
-        ReducerSelection:
-          FullName: Nodux.PluginStopwatch.StopwatchResetReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 3
         StoreHolder: {fileID: 446254325}
+    00000003:
+      type: {class: AssignmentReducer, ns: Nodux.PluginState, asm: Nodux}
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0

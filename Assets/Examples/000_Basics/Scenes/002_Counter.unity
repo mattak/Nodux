@@ -168,18 +168,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 25f87f88-33cf-4fc1-961d-05c14f5ff7a0
-      Name: ConstIntNode
+    - Name: ConstIntNode
+      Guid: 25f87f88-33cf-4fc1-961d-05c14f5ff7a0
       Position: {x: 50, y: 148}
       Node:
         id: 1
-    - Guid: 8dcb8dc1-9c31-475d-ac17-5916a1ffb104
-      Name: StateActionWriterNode
+    - Name: StateActionWriterNode
+      Guid: 8dcb8dc1-9c31-475d-ac17-5916a1ffb104
       Position: {x: 50, y: 245}
       Node:
         id: 2
-    - Guid: 76df29dc-e1c5-4bf0-9208-94374d2ba56c
-      Name: OnClickButtonNode
+    - Name: OnClickButtonNode
+      Guid: 76df29dc-e1c5-4bf0-9208-94374d2ba56c
       Position: {x: 50, y: 50}
       Node:
         id: 3
@@ -205,16 +205,15 @@ MonoBehaviour:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Clicks
-        ReducerSelection:
-          FullName: Nodux.PluginCounter.IncrementReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 4
         StoreHolder: {fileID: 458755935}
     00000003:
       type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
       data:
         Button: {fileID: 1591365636}
+    00000004:
+      type: {class: IncrementReducer, ns: Nodux.PluginCounter, asm: Nodux}
 --- !u!1 &458755934
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,13 +597,13 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: fc292ae9-30d1-48ba-995d-7912afff1a77
-      Name: StateReaderNode
+    - Name: StateReaderNode
+      Guid: fc292ae9-30d1-48ba-995d-7912afff1a77
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 3234f0e6-4e27-4d38-aa1c-d7e5952b5c25
-      Name: TextRenderNode
+    - Name: TextRenderNode
+      Guid: 3234f0e6-4e27-4d38-aa1c-d7e5952b5c25
       Position: {x: 50, y: 167}
       Node:
         id: 2

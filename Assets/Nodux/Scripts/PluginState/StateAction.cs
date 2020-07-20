@@ -1,10 +1,11 @@
 using Nodux.Core;
+using UnityEngine;
 
 namespace Nodux.PluginState
 {
     public struct StateAction
     {
-        public IReducer Reducer;
+        [SerializeReference] public IReducer Reducer;
         public string StateKey;
         public Any Value;
 

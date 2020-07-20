@@ -1148,18 +1148,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 3d214022-988e-49bb-b97c-e15491ef3460
-      Name: SamplePageDataNode
+    - Name: SamplePageDataNode
+      Guid: 3d214022-988e-49bb-b97c-e15491ef3460
       Position: {x: 50, y: 148}
       Node:
         id: 1
-    - Guid: a837971f-94fc-44c7-afe8-cd3b63d6e92c
-      Name: OnClickButtonNode
+    - Name: OnClickButtonNode
+      Guid: a837971f-94fc-44c7-afe8-cd3b63d6e92c
       Position: {x: 50, y: 50}
       Node:
         id: 2
-    - Guid: f866dfc4-eca2-4c22-b86e-bd11ac7d32b8
-      Name: StateActionWriterNode
+    - Name: StateActionWriterNode
+      Guid: f866dfc4-eca2-4c22-b86e-bd11ac7d32b8
       Position: {x: 50, y: 266}
       Node:
         id: 3
@@ -1191,12 +1191,11 @@ MonoBehaviour:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Page
-        ReducerSelection:
-          FullName: Nodux.PluginPage.Reducers.PagePushReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 4
         StoreHolder: {fileID: 1084557343}
+    00000004:
+      type: {class: PagePushReducer, ns: Nodux.PluginPage.Reducers, asm: Nodux}
 --- !u!114 &1286939612
 MonoBehaviour:
   m_ObjectHideFlags: 0

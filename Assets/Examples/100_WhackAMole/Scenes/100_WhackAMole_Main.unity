@@ -760,18 +760,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 346ea1f4-b3ff-4599-a776-76fe8991e1cc
-      Name: OnStartNode
+    - Name: OnStartNode
+      Guid: 346ea1f4-b3ff-4599-a776-76fe8991e1cc
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 15c504c1-a4e4-4fb7-bc3a-7db270efd663
-      Name: ConstBoolNode
+    - Name: ConstBoolNode
+      Guid: 15c504c1-a4e4-4fb7-bc3a-7db270efd663
       Position: {x: 50, y: 148}
       Node:
         id: 2
-    - Guid: 8a66d710-3dd6-47ea-b164-4cba4fb2210b
-      Name: StateActionWriterNode
+    - Name: StateActionWriterNode
+      Guid: 8a66d710-3dd6-47ea-b164-4cba4fb2210b
       Position: {x: 50, y: 244}
       Node:
         id: 3
@@ -801,12 +801,11 @@ MonoBehaviour:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Time
-        ReducerSelection:
-          FullName: Nodux.PluginStopwatch.StopwatchIsPlayingReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 4
         StoreHolder: {fileID: 759295588}
+    00000004:
+      type: {class: StopwatchIsPlayingReducer, ns: Nodux.PluginStopwatch, asm: Nodux}
 --- !u!1 &1245811248
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,13 +853,13 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 2a1f2508-58ed-4076-8c9c-11bff73cda39
-      Name: DeltaTimeNode
+    - Name: DeltaTimeNode
+      Guid: 2a1f2508-58ed-4076-8c9c-11bff73cda39
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 35a5eb19-5a51-4975-ba88-6443fe71c0c4
-      Name: StateActionWriterNode
+    - Name: StateActionWriterNode
+      Guid: 35a5eb19-5a51-4975-ba88-6443fe71c0c4
       Position: {x: 50, y: 127}
       Node:
         id: 2
@@ -881,12 +880,11 @@ MonoBehaviour:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Time
-        ReducerSelection:
-          FullName: Nodux.PluginStopwatch.StopwatchAggregateReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 3
         StoreHolder: {fileID: 759295588}
+    00000003:
+      type: {class: StopwatchAggregateReducer, ns: Nodux.PluginStopwatch, asm: Nodux}
 --- !u!1 &1507698039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,23 +1010,23 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: f38ba667-6b78-416f-96f2-54847e57b48b
-      Name: StopwatchTimeStateReaderNode
+    - Name: StopwatchTimeStateReaderNode
+      Guid: f38ba667-6b78-416f-96f2-54847e57b48b
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 05159241-1eca-4e91-99e2-dcb77b6888b3
-      Name: FloatSubtractNode
+    - Name: FloatSubtractNode
+      Guid: 05159241-1eca-4e91-99e2-dcb77b6888b3
       Position: {x: 50, y: 167}
       Node:
         id: 2
-    - Guid: 92aef37a-24a1-4188-bab0-356606e1e130
-      Name: TextRenderNode
+    - Name: TextRenderNode
+      Guid: 92aef37a-24a1-4188-bab0-356606e1e130
       Position: {x: 50, y: 380}
       Node:
         id: 3
-    - Guid: 0d0a4664-cdd7-4efb-8f51-31266f0a9914
-      Name: FloatRangeNode
+    - Name: FloatRangeNode
+      Guid: 0d0a4664-cdd7-4efb-8f51-31266f0a9914
       Position: {x: 50, y: 264}
       Node:
         id: 4
@@ -1115,13 +1113,13 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 1c9adb61-c117-487c-a5b5-37f605245b50
-      Name: StateReaderNode
+    - Name: StateReaderNode
+      Guid: 1c9adb61-c117-487c-a5b5-37f605245b50
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 5e13e429-3caf-4402-9a46-9756d2f7b143
-      Name: TextRenderNode
+    - Name: TextRenderNode
+      Guid: 5e13e429-3caf-4402-9a46-9756d2f7b143
       Position: {x: 50, y: 167}
       Node:
         id: 2
@@ -1193,28 +1191,28 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 97d63ac4-ca3a-4f8f-a1ca-b788b80ae45c
-      Name: StopwatchTimeStateReaderNode
+    - Name: StopwatchTimeStateReaderNode
+      Guid: 97d63ac4-ca3a-4f8f-a1ca-b788b80ae45c
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: cdd4067a-9901-4c52-9b5e-442c5a96fd32
-      Name: PageReplaceNode
+    - Name: PageReplaceNode
+      Guid: cdd4067a-9901-4c52-9b5e-442c5a96fd32
       Position: {x: 50, y: 437}
       Node:
         id: 2
-    - Guid: 498ad506-a9f6-4a5c-a9d5-ef7990b48270
-      Name: GreaterEqualNode
+    - Name: GreaterEqualNode
+      Guid: 498ad506-a9f6-4a5c-a9d5-ef7990b48270
       Position: {x: 50, y: 167}
       Node:
         id: 3
-    - Guid: e1760956-88e2-4207-91d0-f846bc4e7d7d
-      Name: BoolFilterNode
+    - Name: BoolFilterNode
+      Guid: e1760956-88e2-4207-91d0-f846bc4e7d7d
       Position: {x: 50, y: 264}
       Node:
         id: 4
-    - Guid: bc1c4758-5dff-43f7-8a90-2829e86100c0
-      Name: DistinctUntilChangedNode
+    - Name: DistinctUntilChangedNode
+      Guid: bc1c4758-5dff-43f7-8a90-2829e86100c0
       Position: {x: 50, y: 360}
       Node:
         id: 5
@@ -1310,18 +1308,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 6ac2fea3-cf1e-404a-ada1-f8b6213245e9
-      Name: IntervalTimerNode
+    - Name: IntervalTimerNode
+      Guid: 6ac2fea3-cf1e-404a-ada1-f8b6213245e9
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: cafb044e-1861-4da2-9e0f-61aec9003940
-      Name: PrefabInstantiateNode
+    - Name: PrefabInstantiateNode
+      Guid: cafb044e-1861-4da2-9e0f-61aec9003940
       Position: {x: 50, y: 147}
       Node:
         id: 2
-    - Guid: 984fb971-3049-4913-a59b-4018f748582c
-      Name: RandomRectPositionNode
+    - Name: RandomRectPositionNode
+      Guid: 984fb971-3049-4913-a59b-4018f748582c
       Position: {x: 50, y: 265}
       Node:
         id: 3
