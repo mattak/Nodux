@@ -14,7 +14,7 @@ namespace Nodux.PluginStopwatch
 
             var timer = state.GetValue<StopwatchValue>(action.StateKey);
 
-            timer.ElapsedTime = 0f;
+            timer.elapsedTime = 0f;
 
             state.Set(action.StateKey, new Any(timer));
             return state;

@@ -3,6 +3,7 @@ using Nodux.Core;
 using Nodux.PluginNode;
 using Nodux.PluginScene.Reducers;
 using Nodux.PluginState;
+using UnityEngine;
 
 namespace Nodux.PluginScene.Nodes
 {
@@ -10,23 +11,23 @@ namespace Nodux.PluginScene.Nodes
     [TypeSelectionEnable("Node")]
     public class SceneSyncNode : Node
     {
-        public StoreHolder StoreHolder;
+        [SerializeField] private StoreHolder storeHolder;
 
         public SceneSyncNode(StoreHolder holder) : base(null)
         {
-            this.StoreHolder = holder;
+            this.storeHolder = holder;
         }
 
         public SceneSyncNode(INode parent, StoreHolder holder) : base(parent)
         {
-            this.StoreHolder = holder;
+            this.storeHolder = holder;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
             var map = new CurrentSceneDictionaryNode(this.Parent);
             var actionNode = new StateActionNode(map, "scene", new SceneSyncReducer());
-            var writerNode = new StateWriterNode(actionNode, this.StoreHolder);
+            var writerNode = new StateWriterNode(actionNode, this.storeHolder);
             return writerNode.Subscribe(observer);
         }
     }

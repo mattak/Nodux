@@ -302,13 +302,13 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: b6c44c1b-6ba9-4e58-a24b-d14bf10bef5f
-      Name: StateReaderNode
+    - Name: StateReaderNode
+      Guid: b6c44c1b-6ba9-4e58-a24b-d14bf10bef5f
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 690fa6b8-f1db-4b85-841b-f52d7cc15fc2
-      Name: TextRenderNode
+    - Name: TextRenderNode
+      Guid: 690fa6b8-f1db-4b85-841b-f52d7cc15fc2
       Position: {x: 50, y: 167}
       Node:
         id: 2
@@ -326,8 +326,8 @@ MonoBehaviour:
     00000001:
       type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StoreHolder: {fileID: 340679180}
-        StateKey: Score
+        storeHolder: {fileID: 340679180}
+        stateKey: Score
     00000002:
       type: {class: TextRenderNode, ns: Nodux.PluginNode, asm: Nodux}
       data:

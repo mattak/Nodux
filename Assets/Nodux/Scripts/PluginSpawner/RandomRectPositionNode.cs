@@ -11,10 +11,11 @@ namespace Nodux.PluginSpawner
     [TypeSelectionEnable("Node")]
     public class RandomRectPositionNode : Node
     {
-        [SerializeField] private RectTransform RandomArea = null;
+        [SerializeField] private RectTransform randomArea = null;
 
-        public RandomRectPositionNode(INode parent) : base(parent)
+        public RandomRectPositionNode(INode parent, RectTransform randomArea) : base(parent)
         {
+            this.randomArea = randomArea;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -27,7 +28,7 @@ namespace Nodux.PluginSpawner
                 var rectTransform = gameObject.GetComponent<RectTransform>();
                 if (rectTransform == null) return it;
 
-                var rect = this.RandomArea.rect;
+                var rect = this.randomArea.rect;
                 var x = (rect.xMax - rect.xMin) * Random.value + rect.xMin;
                 var y = (rect.yMax - rect.yMin) * Random.value + rect.yMin;
 

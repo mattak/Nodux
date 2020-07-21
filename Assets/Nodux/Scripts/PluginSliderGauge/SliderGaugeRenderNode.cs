@@ -1,8 +1,9 @@
 ﻿using System;
 using Nodux.Core;
 using Nodux.PluginNode;
-using UnityEngine.UI;
 using UniRx;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Nodux.PluginSliderGauge
 {
@@ -10,10 +11,11 @@ namespace Nodux.PluginSliderGauge
     [TypeSelectionEnable("Node")]
     public class SliderGaugeRenderNode : Node
     {
-        public Slider Slider;
+        [SerializeField] private Slider slider;
 
-        public SliderGaugeRenderNode(INode parent) : base(parent)
+        public SliderGaugeRenderNode(INode parent, Slider slider) : base(parent)
         {
+            this.slider = slider;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -24,7 +26,7 @@ namespace Nodux.PluginSliderGauge
                     var value = it.Value<float>();
                     value = value < 0f ? 0f : value;
                     value = value > 1f ? 1f : value;
-                    this.Slider.value = value;
+                    this.slider.value = value;
                     observer.OnNext(it);
                 },
                 error => observer.OnError(error),

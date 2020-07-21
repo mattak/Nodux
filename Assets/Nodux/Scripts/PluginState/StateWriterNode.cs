@@ -3,6 +3,7 @@ using UniRx;
 using UnityEngine;
 using Nodux.Core;
 using Nodux.PluginNode;
+using UnityEngine.Serialization;
 
 namespace Nodux.PluginState
 {
@@ -10,11 +11,11 @@ namespace Nodux.PluginState
     [TypeSelectionEnable("Node")]
     public class StateWriterNode : Node
     {
-       [SerializeField] private StoreHolder StoreHolder;
+       [SerializeField] private StoreHolder storeHolder;
 
         public StateWriterNode(INode parent, StoreHolder storeHolder) : base(parent)
         {
-            this.StoreHolder = storeHolder;
+            this.storeHolder = storeHolder;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -23,7 +24,7 @@ namespace Nodux.PluginState
                 it =>
                 {
                     var action = it.Value<StateAction>();
-                    StoreHolder.GetStore().Write(action);
+                    storeHolder.GetStore().Write(action);
                     observer.OnNext(it);
                 },
                 err => observer.OnError(err),

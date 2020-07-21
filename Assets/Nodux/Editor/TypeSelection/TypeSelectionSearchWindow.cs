@@ -4,7 +4,7 @@ using Nodux.Core;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Nodux.PluginEditor.NoduxGraph
+namespace Nodux.PluginEditor.TypeSelection
 {
     public class TypeSelectionSearchWindow : ScriptableObject, ISearchWindowProvider
     {
@@ -12,7 +12,7 @@ namespace Nodux.PluginEditor.NoduxGraph
         private Action<Type> _onSelect = null;
         private Texture2D _indentationIcon;
 
-        public static void Show(TypeSelectionFilter enable, Action<Type> onSelected)
+        public static void Show(TypeSelectionFilter enable, Vector2 position, float width, Action<Type> onSelected)
         {
             var provider = CreateInstance<TypeSelectionSearchWindow>();
             provider.Initialize(enable, (selectedType) =>
@@ -23,11 +23,8 @@ namespace Nodux.PluginEditor.NoduxGraph
 
             SearchWindow.Open(
                 new SearchWindowContext(
-                    new Vector2(
-                        0, // window.position.x + window.position.width / 2,
-                        0 //window.position.y + 50
-                    ),
-                    200 // window.position.width
+                    position,
+                    width
                 ),
                 provider
             );

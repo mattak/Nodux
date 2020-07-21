@@ -14,10 +14,10 @@ namespace Nodux.PluginStopwatch
 
             var time = state.GetValue<StopwatchValue>(action.StateKey);
 
-            if (time.IsPlaying)
+            if (time.isPlaying)
             {
-                var value = time.ElapsedTime + action.GetValue<float>();
-                time.ElapsedTime = value;
+                var value = time.elapsedTime + action.GetValue<float>();
+                time.elapsedTime = value;
                 state.Set(action.StateKey, new Any(time));
             }
 

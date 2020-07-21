@@ -14,7 +14,7 @@ namespace Nodux.PluginStopwatch
 
             var time = state.GetValue<StopwatchValue>(action.StateKey);
 
-            time.IsPlaying = action.GetValue<bool>();
+            time.isPlaying = action.GetValue<bool>();
             state.Set(action.StateKey, new Any(time));
             return state;
         }

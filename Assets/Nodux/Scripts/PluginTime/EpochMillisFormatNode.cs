@@ -2,6 +2,7 @@ using System;
 using Nodux.Core;
 using Nodux.PluginNode;
 using UniRx;
+using UnityEngine;
 
 namespace Nodux.Nodux.Scripts.PluginTime
 {
@@ -9,11 +10,11 @@ namespace Nodux.Nodux.Scripts.PluginTime
     [TypeSelectionEnable("Node")]
     public class EpochMillisFormatNode : Node
     {
-        public string Format = "yy-MM-dd HH:mm:ss zz";
+        [SerializeField] private string format = "yy-MM-dd HH:mm:ss zz";
 
         public EpochMillisFormatNode(INode parent, string format) : base(parent)
         {
-            this.Format = format;
+            this.format = format;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -28,7 +29,7 @@ namespace Nodux.Nodux.Scripts.PluginTime
         private string FormatToString(long epochMillis)
         {
             var time = DateTimeOffset.FromUnixTimeMilliseconds(epochMillis);
-            return time.ToString(this.Format);
+            return time.ToString(this.format);
         }
     }
 }

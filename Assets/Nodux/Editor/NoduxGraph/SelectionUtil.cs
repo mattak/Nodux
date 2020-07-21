@@ -1,23 +1,23 @@
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Nodux.PluginEditor.NoduxGraph
 {
     public static class SelectionUtil
     {
-        public static string GetSceneGameObjectPath()
+        public static string GetSceneGameObjectPath(Component component)
         {
-            var scene = SceneManager.GetActiveScene().name;
+            var scene = component.gameObject.scene.name;
             var list = new List<string>();
             list.Add(scene);
-            list.AddRange(GetGameObjectPath());
+            list.AddRange(GetGameObjectPath(component.transform));
             return string.Join(">", list);
         }
 
-        public static IEnumerable<string> GetGameObjectPath()
+        public static IEnumerable<string> GetGameObjectPath(Transform current)
         {
-            var current = Selection.activeTransform;
             if (current == null) return new string[0];
 
             var root = current.root;

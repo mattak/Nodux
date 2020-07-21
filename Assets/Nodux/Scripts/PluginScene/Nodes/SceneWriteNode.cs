@@ -14,7 +14,7 @@ namespace Nodux.PluginScene.Nodes
     [TypeSelectionEnable("Node")]
     public class SceneWriteNode : Node
     {
-        [SerializeField] private MonoBehaviour component;
+        [SerializeField] private MonoBehaviour component = default;
 
         public SceneWriteNode(INode parent, MonoBehaviour component) : base(parent)
         {

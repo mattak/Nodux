@@ -251,18 +251,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 09ca086e-fc38-4b7a-a084-7c3d5b270186
-      Name: ConstVector2Node
+    - Name: ConstVector2Node
+      Guid: 09ca086e-fc38-4b7a-a084-7c3d5b270186
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: dfd9139c-f020-4a00-88c5-0541aa9ef54e
-      Name: ConstVector3Node
+    - Name: ConstVector3Node
+      Guid: dfd9139c-f020-4a00-88c5-0541aa9ef54e
       Position: {x: 50, y: 147}
       Node:
         id: 2
-    - Guid: f566fb1f-4ad4-434a-85fb-89aba57eaaee
-      Name: ConstUnityObjectNode
+    - Name: ConstUnityObjectNode
+      Guid: f566fb1f-4ad4-434a-85fb-89aba57eaaee
       Position: {x: 50, y: 244}
       Node:
         id: 3
@@ -382,23 +382,23 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 8423aa73-94cc-4525-a43e-34e4180e2b41
-      Name: ConstStringListNode
+    - Name: ConstStringListNode
+      Guid: 8423aa73-94cc-4525-a43e-34e4180e2b41
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: e3ec43a1-9572-435a-81bc-6778705e19b9
-      Name: ConstStringArrayNode
+    - Name: ConstStringArrayNode
+      Guid: e3ec43a1-9572-435a-81bc-6778705e19b9
       Position: {x: 50, y: 195}
       Node:
         id: 2
-    - Guid: 189469e5-dd45-460f-90c8-50d304dc6049
-      Name: ConstIntListNode
+    - Name: ConstIntListNode
+      Guid: 189469e5-dd45-460f-90c8-50d304dc6049
       Position: {x: 50, y: 340}
       Node:
         id: 3
-    - Guid: 60b47969-d82f-46b9-bf2f-77d9674077a8
-      Name: ConstIntArrayNode
+    - Name: ConstIntArrayNode
+      Guid: 60b47969-d82f-46b9-bf2f-77d9674077a8
       Position: {x: 50, y: 485}
       Node:
         id: 4
@@ -488,33 +488,33 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: c6f26e67-ed65-4763-bf92-9eaf2e86ba23
-      Name: ConstBoolNode
+    - Name: ConstBoolNode
+      Guid: c6f26e67-ed65-4763-bf92-9eaf2e86ba23
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 0847cf74-d1d1-47ec-8461-a1d9aa0cd9d8
-      Name: ConstFloatNode
+    - Name: ConstFloatNode
+      Guid: 0847cf74-d1d1-47ec-8461-a1d9aa0cd9d8
       Position: {x: 50, y: 345}
       Node:
         id: 2
-    - Guid: b9e749d8-a205-4cc1-99a5-351f436117b5
-      Name: ConstLongNode
+    - Name: ConstLongNode
+      Guid: b9e749d8-a205-4cc1-99a5-351f436117b5
       Position: {x: 50, y: 539}
       Node:
         id: 3
-    - Guid: a9e14752-4ec1-449c-9e94-dcccd7d0154d
-      Name: ConstIntNode
+    - Name: ConstIntNode
+      Guid: a9e14752-4ec1-449c-9e94-dcccd7d0154d
       Position: {x: 50, y: 442}
       Node:
         id: 4
-    - Guid: ecb633da-9721-40e2-8690-3aa6ae3f70af
-      Name: ConstDoubleNode
+    - Name: ConstDoubleNode
+      Guid: ecb633da-9721-40e2-8690-3aa6ae3f70af
       Position: {x: 50, y: 243}
       Node:
         id: 5
-    - Guid: 38ec33d0-0135-4f6a-a816-d2f1a1efcfb1
-      Name: ConstStringNode
+    - Name: ConstStringNode
+      Guid: 38ec33d0-0135-4f6a-a816-d2f1a1efcfb1
       Position: {x: 50, y: 146}
       Node:
         id: 6
@@ -596,9 +596,59 @@ Transform:
   - {fileID: 1137775522}
   - {fileID: 365279974}
   - {fileID: 1436644158}
+  - {fileID: 1287991817}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1287991816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287991817}
+  - component: {fileID: 1287991818}
+  m_Layer: 0
+  m_Name: Sample
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287991817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287991816}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1199737814}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287991818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287991816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7a96cb4878475d8b9b92573e95c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nodes: []
+  _graphContainer:
+    Nodes: []
+    Links: []
+  references:
+    version: 1
 --- !u!1 &1436644157
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,39 +696,52 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 747c8e2e-9d21-431e-8a4f-dc4647525802
-      Name: StateReaderNode
-      Position: {x: 97, y: 56}
+    - Name: StateActionWriterNode
+      Guid: bc012f7e-50b1-4e11-8008-69b16d18309e
+      Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 7b64bf14-66cf-4871-913a-8bfb39482f52
-      Name: StateActionWriterNode
-      Position: {x: 100, y: 183}
+    - Name: StateReaderNode
+      Guid: b04829d5-18ea-4192-80d2-8db974690398
+      Position: {x: 50, y: 190}
       Node:
         id: 2
     Links:
-    - SourceNodeGuid: 747c8e2e-9d21-431e-8a4f-dc4647525802
-      TargetNodeGuid: 7b64bf14-66cf-4871-913a-8bfb39482f52
+    - SourceNodeGuid: bc012f7e-50b1-4e11-8008-69b16d18309e
+      TargetNodeGuid: b04829d5-18ea-4192-80d2-8db974690398
   references:
     version: 1
     00000000:
       type: {class: LinkedNode, ns: Nodux.PluginGraph, asm: Nodux}
       data:
         Nodes:
-        - id: 1
-        - id: 2
+        - id: 3
+        - id: 4
     00000001:
-      type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
-      data:
-        StoreHolder: {fileID: 707836725}
-        StateKey: 
-    00000002:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
         StateKey: Score
-        ReducerSelection:
-          FullName: Nodux.PluginCounter.IncrementReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
+        Reducer:
+          id: 5
         StoreHolder: {fileID: 707836725}
+    00000002:
+      type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StoreHolder: {fileID: 707836725}
+        StateKey: Score
+    00000003:
+      type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StateKey: Score
+        Reducer:
+          id: 6
+        StoreHolder: {fileID: 707836725}
+    00000004:
+      type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
+      data:
+        StoreHolder: {fileID: 707836725}
+        StateKey: Score
+    00000005:
+      type: {class: IncrementReducer, ns: Nodux.PluginCounter, asm: Nodux}
+    00000006:
+      type: {class: IncrementReducer, ns: Nodux.PluginCounter, asm: Nodux}

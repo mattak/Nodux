@@ -22,7 +22,7 @@ namespace Nodux.PluginNode
                 },
                 err =>
                 {
-                    UnityEngine.Debug.LogError(err);
+                    UnityEngine.Debug.LogException(err);
                     observer.OnError(err);
                 },
                 () =>

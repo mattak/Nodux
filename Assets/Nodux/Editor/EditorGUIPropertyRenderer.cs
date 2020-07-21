@@ -44,9 +44,9 @@ namespace Nodux.PluginEditor
                 dirty = RenderICollection(ref rect, key, (ICollection) value, setter);
             else if (typeof(UnityEngine.Object).IsAssignableFrom(type))
                 dirty = RenderUnityObject(ref rect, key, type, (UnityEngine.Object) value, setter);
-            else if (typeof(TypeSelection).IsAssignableFrom(type))
-                dirty = TypeSelectionRenderer.RenderFromSystemObject(ref rect, key, (TypeSelection) value,
-                    attributeAccessor, setter);
+            // else if (typeof(TypeSelection).IsAssignableFrom(type))
+            //     dirty = TypeSelectionRenderer.RenderFromSystemObject(ref rect, key, (TypeSelection) value,
+            //         attributeAccessor, setter);
 
             position.height += rect.height;
             return dirty;

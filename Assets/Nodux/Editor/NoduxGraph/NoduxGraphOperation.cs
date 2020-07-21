@@ -1,17 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nodux.PluginGraph;
+using Nodux.PluginNode;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Nodux.PluginEditor.NoduxGraph
 {
-    public static class NoduxGraphUtil
+    public static class NoduxGraphOperation
     {
         public static void ClearGraph(GraphView view)
         {
-            var nodes = view.nodes.ToList().Cast<NoduxGraphNode>().ToList();
+            var nodes = view.nodes.ToList().Cast<NoduxGraphNodeView>().ToList();
             var edges = view.edges.ToList();
 
             foreach (var node in nodes)
@@ -25,7 +27,7 @@ namespace Nodux.PluginEditor.NoduxGraph
             }
         }
 
-        public static Rect LayoutNodes(int maxColumns, Vector2 origin, IList<NoduxGraphNode> nodes)
+        public static Rect LayoutNodes(int maxColumns, Vector2 origin, IList<NoduxGraphNodeView> nodes)
         {
             if (nodes.Count < 1) return new Rect(0, 0, 0, 0);
 
@@ -67,7 +69,7 @@ namespace Nodux.PluginEditor.NoduxGraph
             return new Rect(origin.x, origin.y, drawAreaSize.x, drawAreaSize.y);
         }
 
-        public static void LinkNode(GraphView view, NoduxGraphNode source, NoduxGraphNode target)
+        public static void LinkNode(GraphView view, NoduxGraphNodeView source, NoduxGraphNodeView target)
         {
             var sourcePort = source.outputContainer.Q<Port>();
             var targetPort = target.inputContainer.Q<Port>();
@@ -86,18 +88,75 @@ namespace Nodux.PluginEditor.NoduxGraph
             view.Add(edge);
         }
 
-        public static NoduxGraphNode[][] ExtractGraphNodeChains(GraphView view)
+        public static INode[][] ExtractGraphNodeChains(GraphContainer container)
+        {
+            var links = container.Links
+                .Where(x => x.TargetNodeGuid != null && x.SourceNodeGuid != null)
+                .ToArray();
+            var target2SourceDictionary = new Dictionary<string, string>();
+            var source2TargetDictionary = new Dictionary<string, string>();
+            var nodeDictionary = new Dictionary<string, INode>();
+
+            foreach (var link in links)
+            {
+                // edge represents node1:output -> node2:input
+                target2SourceDictionary[link.TargetNodeGuid] = link.SourceNodeGuid;
+                source2TargetDictionary[link.SourceNodeGuid] = link.TargetNodeGuid;
+            }
+
+            foreach (var node in container.Nodes)
+            {
+                nodeDictionary[node.Guid] = node.Node;
+            }
+
+            var roots = new List<string>();
+            foreach (var entry in target2SourceDictionary)
+            {
+                var input = entry.Value;
+                if (!target2SourceDictionary.ContainsKey(input))
+                {
+                    roots.Add(entry.Value);
+                }
+            }
+
+            var results = new List<INode[]>();
+            for (var i = 0; i < roots.Count; i++)
+            {
+                var cursorGuid = roots[i];
+                var result = new List<INode>();
+
+                result.Add(nodeDictionary[cursorGuid]);
+                for (var x = 0; x < nodeDictionary.Count; x++)
+                {
+                    if (!source2TargetDictionary.ContainsKey(cursorGuid)) break;
+                    cursorGuid = source2TargetDictionary[cursorGuid];
+                    result.Add(nodeDictionary[cursorGuid]);
+                }
+
+                results.Add(result.ToArray());
+            }
+
+            var singleNodes = ExtractSingleGraphNodeChains(container, nodeDictionary);
+            foreach (var node in singleNodes)
+            {
+                results.Add(new INode[] {node});
+            }
+
+            return results.ToArray();
+        }
+
+        public static NoduxGraphNodeView[][] ExtractGraphNodeChains(GraphView view)
         {
             var connectedEdges = view.edges.ToList().Where(x => x.input.node != null).ToArray();
             var target2SourceDictionary = new Dictionary<string, string>();
             var source2TargetDictionary = new Dictionary<string, string>();
-            var nodeDictionary = new Dictionary<string, NoduxGraphNode>();
+            var nodeDictionary = new Dictionary<string, NoduxGraphNodeView>();
 
             foreach (var edge in connectedEdges)
             {
                 // edge represents node1:output -> node2:input
-                var sourceNode = edge.output.node as NoduxGraphNode;
-                var targetNode = edge.input.node as NoduxGraphNode;
+                var sourceNode = edge.output.node as NoduxGraphNodeView;
+                var targetNode = edge.input.node as NoduxGraphNodeView;
                 target2SourceDictionary[targetNode.Guid] = sourceNode.Guid;
                 source2TargetDictionary[sourceNode.Guid] = targetNode.Guid;
                 nodeDictionary[sourceNode.Guid] = sourceNode;
@@ -114,11 +173,11 @@ namespace Nodux.PluginEditor.NoduxGraph
                 }
             }
 
-            var results = new List<NoduxGraphNode[]>();
+            var results = new List<NoduxGraphNodeView[]>();
             for (var i = 0; i < roots.Count; i++)
             {
                 var cursorGuid = roots[i];
-                var result = new List<NoduxGraphNode>();
+                var result = new List<NoduxGraphNodeView>();
 
                 result.Add(nodeDictionary[cursorGuid]);
                 for (var x = 0; x < nodeDictionary.Count; x++)
@@ -134,16 +193,29 @@ namespace Nodux.PluginEditor.NoduxGraph
             var singleNodes = ExtractSingleGraphNodeChains(view, nodeDictionary);
             foreach (var node in singleNodes)
             {
-                results.Add(new NoduxGraphNode[] {node});
+                results.Add(new NoduxGraphNodeView[] {node});
             }
 
             return results.ToArray();
         }
 
-        private static IList<NoduxGraphNode> ExtractSingleGraphNodeChains(GraphView view,
-            IDictionary<string, NoduxGraphNode> linkedNodeMap)
+        private static IList<INode> ExtractSingleGraphNodeChains(
+            GraphContainer container,
+            IDictionary<string, INode> linkedNodeMap)
         {
-            var unlinkedNodes = view.nodes.ToList().Cast<NoduxGraphNode>()
+            var unlinkedNodes = container.Nodes
+                .Where(x => !linkedNodeMap.ContainsKey(x.Guid))
+                .Select(x => x.Node)
+                .ToList();
+
+            return unlinkedNodes;
+        }
+
+        private static IList<NoduxGraphNodeView> ExtractSingleGraphNodeChains(
+            GraphView view,
+            IDictionary<string, NoduxGraphNodeView> linkedNodeMap)
+        {
+            var unlinkedNodes = view.nodes.ToList().Cast<NoduxGraphNodeView>()
                 .Where(x => !linkedNodeMap.ContainsKey(x.Guid))
                 .ToList();
 

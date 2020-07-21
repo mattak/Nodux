@@ -47,9 +47,9 @@ namespace Nodux.PluginEditor
                 dirty = RenderICollection(key, (ICollection) value, setter);
             else if (typeof(UnityEngine.Object).IsAssignableFrom(type))
                 dirty = RenderUnityObject(key, type, (UnityEngine.Object) value, setter);
-            else if (typeof(TypeSelection).IsAssignableFrom(type))
-                dirty = TypeSelectionRenderer.RenderFromSystemObject(key, (TypeSelection) value,
-                    attributeAccessor, setter);
+            // else if (typeof(TypeSelection).IsAssignableFrom(type))
+            //     dirty = TypeSelectionRenderer.RenderFromSystemObject(key, (TypeSelection) value,
+            //         attributeAccessor, setter);
             else if (type?.GetCustomAttribute(typeof(SerializableAttribute)) != null)
                 dirty = RenderClass(key, value);
             else

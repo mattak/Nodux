@@ -104,33 +104,33 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 2869a304-0893-46ad-8a27-a09928569783
-      Name: OnPointerDownNode
+    - Name: OnPointerDownNode
+      Guid: f037ca04-d813-4de1-b964-2783d8583046
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 274fec44-6f6b-49ab-af12-b40410bd41d6
-      Name: ConstIntNode
-      Position: {x: 50, y: 148}
+    - Name: GameObjectDestroyNode
+      Guid: bd58bfcb-360c-41e7-bfbb-f545a9448972
+      Position: {x: 51, y: 385}
       Node:
         id: 2
-    - Guid: eaa924a1-39ab-44f4-b285-99d14fa425d2
-      Name: GameObjectDestroyNode
-      Position: {x: 50, y: 385}
+    - Name: ConstIntNode
+      Guid: 454307b7-3c68-4549-8778-5cf8c6a4b06e
+      Position: {x: 50, y: 148}
       Node:
         id: 3
-    - Guid: f54f1342-8a81-46ea-bc7e-a3ca7b02c473
-      Name: StateActionWriterNode
+    - Name: StateActionWriterNode
+      Guid: 2f099a09-e718-4771-b19d-0bdad472c4bf
       Position: {x: 50, y: 245}
       Node:
         id: 4
     Links:
-    - SourceNodeGuid: 2869a304-0893-46ad-8a27-a09928569783
-      TargetNodeGuid: 274fec44-6f6b-49ab-af12-b40410bd41d6
-    - SourceNodeGuid: 274fec44-6f6b-49ab-af12-b40410bd41d6
-      TargetNodeGuid: f54f1342-8a81-46ea-bc7e-a3ca7b02c473
-    - SourceNodeGuid: f54f1342-8a81-46ea-bc7e-a3ca7b02c473
-      TargetNodeGuid: eaa924a1-39ab-44f4-b285-99d14fa425d2
+    - SourceNodeGuid: f037ca04-d813-4de1-b964-2783d8583046
+      TargetNodeGuid: 454307b7-3c68-4549-8778-5cf8c6a4b06e
+    - SourceNodeGuid: 454307b7-3c68-4549-8778-5cf8c6a4b06e
+      TargetNodeGuid: 2f099a09-e718-4771-b19d-0bdad472c4bf
+    - SourceNodeGuid: 2f099a09-e718-4771-b19d-0bdad472c4bf
+      TargetNodeGuid: bd58bfcb-360c-41e7-bfbb-f545a9448972
   references:
     version: 1
     00000000:
@@ -138,29 +138,28 @@ MonoBehaviour:
       data:
         Nodes:
         - id: 1
-        - id: 2
-        - id: 4
         - id: 3
+        - id: 4
+        - id: 2
     00000001:
       type: {class: OnPointerDownNode, ns: Nodux.PluginUI, asm: Nodux}
       data:
-        Behaviour: {fileID: 2166112563128779380}
+        behaviour: {fileID: 2166112563128779380}
     00000002:
+      type: {class: GameObjectDestroyNode, ns: Nodux.PluginUI, asm: Nodux}
+      data:
+        target: {fileID: 2166112563128779387}
+        delaySeconds: 0
+    00000003:
       type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
       data:
         Value: 1
-    00000003:
-      type: {class: GameObjectDestroyNode, ns: Nodux.PluginUI, asm: Nodux}
-      data:
-        Target: {fileID: 2166112563128779387}
-        DelaySeconds: 0
     00000004:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StateKey: Score
-        ReducerSelection:
-          FullName: Nodux.PluginCounter.IncrementReducer, Nodux, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          ContentJson: '{}'
-          UnityObjects: []
-        StoreHolder: {fileID: 552333960}
+        stateKey: Score
+        reducer:
+          id: 5
+        storeHolder: {fileID: 552333960}
+    00000005:
+      type: {class: IncrementReducer, ns: Nodux.PluginCounter, asm: Nodux}

@@ -3,6 +3,7 @@ using Nodux.Core;
 using Nodux.PluginNode;
 using Nodux.PluginState;
 using UniRx;
+using UnityEngine;
 
 namespace Nodux.PluginStopwatch
 {
@@ -10,17 +11,19 @@ namespace Nodux.PluginStopwatch
     [TypeSelectionEnable("Node")]
     public class StopwatchTimeStateReaderNode : Node
     {
-        public string StateKey;
-        public StoreHolder StoreHolder;
+        [SerializeField] private string stateKey;
+        [SerializeField] private StoreHolder storeHolder;
 
-        public StopwatchTimeStateReaderNode(INode parent) : base(parent)
+        public StopwatchTimeStateReaderNode(INode parent, string stateKey, StoreHolder holder) : base(parent)
         {
+            this.stateKey = stateKey;
+            this.storeHolder = holder;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            var reader = this.StoreHolder.GetStore().Read(this.StateKey)
-                .Select(it => new Any(it.Value<StopwatchValue>().ElapsedTime));
+            var reader = this.storeHolder.GetStore().Read(this.stateKey)
+                .Select(it => new Any(it.Value<StopwatchValue>().elapsedTime));
             return reader.Subscribe(observer);
         }
     }

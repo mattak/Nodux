@@ -13,8 +13,10 @@ namespace Nodux.PluginSpawner
         [SerializeField] private GameObject Prefab = default;
         [SerializeField] private Transform ParentTransform = default;
 
-        public PrefabInstantiateNode(INode parent) : base(parent)
+        public PrefabInstantiateNode(INode parent, GameObject prefab, Transform parentTransform) : base(parent)
         {
+            this.Prefab = prefab;
+            this.ParentTransform = parentTransform;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)

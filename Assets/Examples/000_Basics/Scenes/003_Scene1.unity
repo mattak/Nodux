@@ -493,7 +493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 320, y: -30}
+  m_AnchoredPosition: {x: 20, y: -60}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1591365636
@@ -588,9 +588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5aa7d274c4444b833f46c03639406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scenes:
+  scenes:
   - 003_Scene2
-  StoreHolder: {fileID: 458755935}
+  storeHolder: {fileID: 458755935}
 --- !u!1 &1689879890
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11deab5994f440259c9a4dfa74a18d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StoreHolder: {fileID: 458755935}
+  storeHolder: {fileID: 458755935}
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,8 +735,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: 0}
-  m_SizeDelta: {x: 280, y: 90}
+  m_AnchoredPosition: {x: 20, y: 0}
+  m_SizeDelta: {x: 280, y: 60}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2025006685
 MonoBehaviour:

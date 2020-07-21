@@ -9,31 +9,12 @@ namespace Nodux.PluginState
     [TypeSelectionEnable("Node")]
     public class StateActionWriterNode : Node
     {
-        private IReducer Reducer;
-        [SerializeField] private string StateKey;
+        [SerializeField] private string stateKey;
 
-        [SerializeField] [TypeSelectionFilter("Reducer")]
-        private TypeSelection ReducerSelection;
+        [SerializeField, SerializeReference, TypeSelectionFilter("Reducer")]
+        private IReducer reducer;
 
-        [SerializeField] private StoreHolder StoreHolder;
-
-        public StateActionWriterNode(INode parent) : base(parent)
-        {
-        }
-
-        public StateActionWriterNode(
-            INode parent,
-            string stateKey,
-            StoreHolder storeHolder,
-            IReducer reducer,
-            TypeSelection reducerSelection
-        ) : base(parent)
-        {
-            this.StateKey = stateKey;
-            this.StoreHolder = storeHolder;
-            this.Reducer = reducer;
-            this.ReducerSelection = reducerSelection;
-        }
+        [SerializeField] private StoreHolder storeHolder;
 
         public StateActionWriterNode(
             INode parent,
@@ -42,16 +23,15 @@ namespace Nodux.PluginState
             IReducer reducer
         ) : base(parent)
         {
-            this.StateKey = stateKey;
-            this.StoreHolder = storeHolder;
-            this.Reducer = reducer;
-            this.ReducerSelection = null;
+            this.stateKey = stateKey;
+            this.storeHolder = storeHolder;
+            this.reducer = reducer;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            var actionNode = new StateActionNode(this.Parent, this.StateKey, this.Reducer, this.ReducerSelection);
-            var writerNode = new StateWriterNode(actionNode, this.StoreHolder);
+            var actionNode = new StateActionNode(this.Parent, this.stateKey, this.reducer);
+            var writerNode = new StateWriterNode(actionNode, this.storeHolder);
             return writerNode.Subscribe(observer);
         }
     }

@@ -540,18 +540,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 6f6d2672-01bb-40ba-ba62-035c84718619
-      Name: OnClickButtonNode
+    - Name: OnClickButtonNode
+      Guid: 6f6d2672-01bb-40ba-ba62-035c84718619
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 905e0a90-97c7-494c-88a2-de08c906678c
-      Name: ConstIntNode
+    - Name: ConstIntNode
+      Guid: 905e0a90-97c7-494c-88a2-de08c906678c
       Position: {x: 50, y: 148}
       Node:
         id: 2
-    - Guid: 6669ad9f-c2c1-4208-9e97-ab56a0a32d40
-      Name: TextRenderNode
+    - Name: TextRenderNode
+      Guid: 6669ad9f-c2c1-4208-9e97-ab56a0a32d40
       Position: {x: 50, y: 245}
       Node:
         id: 3
@@ -572,7 +572,7 @@ MonoBehaviour:
     00000001:
       type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
       data:
-        Button: {fileID: 1591365636}
+        button: {fileID: 1591365636}
     00000002:
       type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
       data:
@@ -814,18 +814,18 @@ MonoBehaviour:
   - id: 0
   _graphContainer:
     Nodes:
-    - Guid: 6f6d2672-01bb-40ba-ba62-035c84718619
-      Name: OnClickButtonNode
+    - Name: OnClickButtonNode
+      Guid: 6f6d2672-01bb-40ba-ba62-035c84718619
       Position: {x: 50, y: 50}
       Node:
         id: 1
-    - Guid: 905e0a90-97c7-494c-88a2-de08c906678c
-      Name: ConstIntNode
+    - Name: ConstIntNode
+      Guid: 905e0a90-97c7-494c-88a2-de08c906678c
       Position: {x: 50, y: 148}
       Node:
         id: 2
-    - Guid: 6669ad9f-c2c1-4208-9e97-ab56a0a32d40
-      Name: TextRenderNode
+    - Name: TextRenderNode
+      Guid: 6669ad9f-c2c1-4208-9e97-ab56a0a32d40
       Position: {x: 50, y: 245}
       Node:
         id: 3
@@ -846,7 +846,7 @@ MonoBehaviour:
     00000001:
       type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
       data:
-        Button: {fileID: 1591365636}
+        button: {fileID: 1591365636}
     00000002:
       type: {class: ConstIntNode, ns: Nodux.PluginNode, asm: Nodux}
       data:
