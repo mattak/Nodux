@@ -10,11 +10,13 @@ namespace Nodux.PluginUI
     [TypeSelectionEnable("Node")]
     public class GameObjectDestroyNode : Node
     {
-        public Component Target;
-        public float DelaySeconds;
+        [SerializeField] private Component target;
+        [SerializeField] private float delaySeconds;
 
-        public GameObjectDestroyNode(INode parent) : base(parent)
+        public GameObjectDestroyNode(INode parent, Component component, float delaySeconds) : base(parent)
         {
+            this.target = component;
+            this.delaySeconds = delaySeconds;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -22,7 +24,7 @@ namespace Nodux.PluginUI
             return this.Parent.Subscribe(
                 it =>
                 {
-                    GameObject.Destroy(this.Target.gameObject, this.DelaySeconds);
+                    GameObject.Destroy(this.target.gameObject, this.delaySeconds);
                     observer.OnNext(it);
                 },
                 observer.OnError,

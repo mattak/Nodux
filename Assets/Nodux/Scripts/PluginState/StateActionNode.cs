@@ -1,8 +1,8 @@
 using System;
-using UniRx;
-using UnityEngine;
 using Nodux.Core;
 using Nodux.PluginNode;
+using UniRx;
+using UnityEngine;
 
 namespace Nodux.PluginState
 {
@@ -10,21 +10,21 @@ namespace Nodux.PluginState
     [TypeSelectionEnable("Node")]
     public class StateActionNode : Node
     {
-        [SerializeField] private string StateKey;
+        [SerializeField] private string stateKey;
 
         [SerializeField, SerializeReference, TypeSelectionFilter("Reducer")]
-        private IReducer Reducer;
+        private IReducer reducer;
 
         public StateActionNode(INode parent, string stateKey, IReducer reducer) : base(parent)
         {
-            this.StateKey = stateKey;
-            this.Reducer = reducer;
+            this.stateKey = stateKey;
+            this.reducer = reducer;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
             return this.Parent
-                .Select(it => new Any(new StateAction(Reducer, StateKey, it)))
+                .Select(it => new Any(new StateAction(reducer, stateKey, it)))
                 .Subscribe(observer);
         }
     }

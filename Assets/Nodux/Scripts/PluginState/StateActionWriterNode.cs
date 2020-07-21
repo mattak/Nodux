@@ -9,12 +9,12 @@ namespace Nodux.PluginState
     [TypeSelectionEnable("Node")]
     public class StateActionWriterNode : Node
     {
-        [SerializeField] private string StateKey;
+        [SerializeField] private string stateKey;
 
         [SerializeField, SerializeReference, TypeSelectionFilter("Reducer")]
-        private IReducer Reducer;
+        private IReducer reducer;
 
-        [SerializeField] private StoreHolder StoreHolder;
+        [SerializeField] private StoreHolder storeHolder;
 
         public StateActionWriterNode(
             INode parent,
@@ -23,15 +23,15 @@ namespace Nodux.PluginState
             IReducer reducer
         ) : base(parent)
         {
-            this.StateKey = stateKey;
-            this.StoreHolder = storeHolder;
-            this.Reducer = reducer;
+            this.stateKey = stateKey;
+            this.storeHolder = storeHolder;
+            this.reducer = reducer;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            var actionNode = new StateActionNode(this.Parent, this.StateKey, this.Reducer);
-            var writerNode = new StateWriterNode(actionNode, this.StoreHolder);
+            var actionNode = new StateActionNode(this.Parent, this.stateKey, this.reducer);
+            var writerNode = new StateWriterNode(actionNode, this.storeHolder);
             return writerNode.Subscribe(observer);
         }
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nodux.PluginEditor.TypeSelection;
 using Nodux.PluginNode;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;

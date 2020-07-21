@@ -3,6 +3,8 @@ using Nodux.Core;
 using Nodux.PluginNode;
 using Nodux.PluginScene.Reducers;
 using Nodux.PluginState;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nodux.PluginScene.Nodes
 {
@@ -10,13 +12,13 @@ namespace Nodux.PluginScene.Nodes
     [TypeSelectionEnable("Node")]
     public class SceneRemoveNode : Node
     {
-        public StoreHolder StoreHolder;
-        public string[] RemoveSceneNames;
+        [SerializeField] private StoreHolder storeHolder;
+        [SerializeField] private string[] removeSceneNames;
 
         public SceneRemoveNode(INode parent, StoreHolder holder, string[] removeSceneNames) : base(parent)
         {
-            this.StoreHolder = holder;
-            this.RemoveSceneNames = removeSceneNames;
+            this.storeHolder = holder;
+            this.removeSceneNames = removeSceneNames;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -26,9 +28,9 @@ namespace Nodux.PluginScene.Nodes
 
         private INode CreateRemoveNode(INode parent)
         {
-            var removeSceneNode = new ValueNode(parent, RemoveSceneNames);
+            var removeSceneNode = new ValueNode(parent, removeSceneNames);
             var actionNode = new StateActionNode(removeSceneNode, "scene", new SceneRemoveReducer());
-            var writerNode = new StateWriterNode(actionNode, this.StoreHolder);
+            var writerNode = new StateWriterNode(actionNode, this.storeHolder);
             return writerNode;
         }
     }

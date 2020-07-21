@@ -3,6 +3,7 @@ using Nodux.Core;
 using Nodux.PluginNode;
 using Nodux.PluginScene.Reducers;
 using Nodux.PluginState;
+using UnityEngine;
 
 namespace Nodux.PluginScene.Nodes
 {
@@ -10,13 +11,13 @@ namespace Nodux.PluginScene.Nodes
     [TypeSelectionEnable("Node")]
     public class SceneReplaceNode : Node
     {
-        public StoreHolder StoreHolder;
-        public string[] AddSceneNames;
+        [SerializeField] private StoreHolder storeHolder;
+        [SerializeField] private string[] addSceneNames;
 
         public SceneReplaceNode(INode parent, StoreHolder holder, string[] addSceneNames) : base(parent)
         {
-            this.StoreHolder = holder;
-            this.AddSceneNames = addSceneNames;
+            this.storeHolder = holder;
+            this.addSceneNames = addSceneNames;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
@@ -30,15 +31,15 @@ namespace Nodux.PluginScene.Nodes
         {
             var removeSceneNode = new LoadListSceneNode(parent);
             var actionNode = new StateActionNode(removeSceneNode, "scene", new SceneRemoveReducer());
-            var writerNode = new StateWriterNode(actionNode, this.StoreHolder);
+            var writerNode = new StateWriterNode(actionNode, this.storeHolder);
             return writerNode;
         }
 
         private INode CreateAddNode(INode parent)
         {
-            var addSceneNode = new ValueNode(parent, this.AddSceneNames);
+            var addSceneNode = new ValueNode(parent, this.addSceneNames);
             var actionNode = new StateActionNode(addSceneNode, "scene", new SceneAddReducer());
-            var writerNode = new StateWriterNode(actionNode, this.StoreHolder);
+            var writerNode = new StateWriterNode(actionNode, this.storeHolder);
             return writerNode;
         }
     }

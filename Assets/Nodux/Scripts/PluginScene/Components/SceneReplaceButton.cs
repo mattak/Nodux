@@ -10,19 +10,19 @@ namespace Nodux.PluginScene.Components
     [RequireComponent(typeof(Button))]
     public class SceneReplaceButton : MonoBehaviour
     {
-        [SerializeField] private string[] Scenes = default;
-        [SerializeField] private StoreHolder StoreHolder = default;
+        [SerializeField] private string[] scenes = default;
+        [SerializeField] private StoreHolder storeHolder = default;
 
         private void Start()
         {
-            if (Scenes == null || Scenes.Length < 1)
+            if (scenes == null || scenes.Length < 1)
             {
                 Debug.LogWarning("Not defined scenes. subscription aborted");
                 return;
             }
 
             var button = new OnClickButtonNode(this.GetComponent<Button>());
-            var scene = new SceneReplaceNode(button, this.StoreHolder, this.Scenes);
+            var scene = new SceneReplaceNode(button, this.storeHolder, this.scenes);
             scene
                 .Subscribe(_ => { }, Debug.LogException)
                 .AddTo(this);

@@ -5,7 +5,7 @@ namespace Nodux.PluginStopwatch
     [Serializable]
     public struct StopwatchValue
     {
-        public bool IsPlaying;
-        public float ElapsedTime;
+        public bool isPlaying;
+        public float elapsedTime;
     }
 }

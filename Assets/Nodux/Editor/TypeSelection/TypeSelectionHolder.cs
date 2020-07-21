@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Nodux.Core;
 
-namespace Nodux.PluginEditor
+namespace Nodux.PluginEditor.TypeSelection
 {
     public static class TypeSelectionHolder
     {

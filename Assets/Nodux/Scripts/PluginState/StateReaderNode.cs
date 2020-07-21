@@ -3,6 +3,7 @@ using UnityEngine;
 using Nodux.Core;
 using Nodux.PluginNode;
 using UniRx;
+using UnityEngine.Serialization;
 
 namespace Nodux.PluginState
 {
@@ -10,21 +11,21 @@ namespace Nodux.PluginState
     [TypeSelectionEnable("Node")]
     public class StateReaderNode : Node
     {
-        [SerializeField] private StoreHolder StoreHolder;
-        [SerializeField] private string StateKey;
+        [SerializeField] private StoreHolder storeHolder;
+        [SerializeField] private string stateKey;
 
         public StateReaderNode(StoreHolder storeHolder, string stateKey) : base(null)
         {
-            this.StoreHolder = storeHolder;
-            this.StateKey = stateKey;
+            this.storeHolder = storeHolder;
+            this.stateKey = stateKey;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            var store = this.StoreHolder.GetStore();
-            var read = store.Read(this.StateKey);
+            var store = this.storeHolder.GetStore();
+            var read = store.Read(this.stateKey);
 
-            if (store.HasKey(this.StateKey)) read = read.StartWith(store.Get(this.StateKey));
+            if (store.HasKey(this.stateKey)) read = read.StartWith(store.Get(this.stateKey));
 
             return read.Subscribe(observer);
         }

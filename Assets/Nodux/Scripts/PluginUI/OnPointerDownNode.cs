@@ -3,6 +3,7 @@ using Nodux.Core;
 using Nodux.PluginNode;
 using UniRx;
 using UniRx.Triggers;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Nodux.PluginUI
@@ -11,16 +12,16 @@ namespace Nodux.PluginUI
     [TypeSelectionEnable("Node")]
     public class OnPointerDownNode : Node
     {
-        public UIBehaviour Behaviour;
+        [SerializeField] private UIBehaviour behaviour;
 
         public OnPointerDownNode(UIBehaviour behaviour) : base(null)
         {
-            this.Behaviour = behaviour;
+            this.behaviour = behaviour;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.Behaviour.OnPointerDownAsObservable()
+            return this.behaviour.OnPointerDownAsObservable()
                 .Select(it => new Any(it))
                 .Subscribe(observer);
         }

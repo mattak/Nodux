@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Nodux.PluginEditor
+namespace Nodux.PluginEditor.TypeSelection
 {
     [CustomPropertyDrawer(typeof(TypeSelectionFilter))]
     public class TypeSelectionDrawer : PropertyDrawer

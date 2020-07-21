@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Nodux.PluginEditor.NoduxGraph
@@ -45,11 +46,21 @@ namespace Nodux.PluginEditor.NoduxGraph
             var graphSceneName = _serializedGraph?.GraphSceneName;
             if (graphSceneName == null) return;
 
-            for (var i = 0; i < EditorSceneManager.loadedSceneCount; i++)
+            var found = false;
+            for (var i = 0; i < EditorSceneManager.sceneCount; i++)
             {
                 var scene = EditorSceneManager.GetSceneAt(i);
-                if (graphSceneName == scene.name) return;
+
+                if (graphSceneName == scene.name)
+                {
+                    if (scene.isLoaded) return;
+                    found = true;
+                    break;
+                }
             }
+
+            // XXX: it may be prefab edit. avoid clear
+            if (!found) return;
 
             NoduxGraphOperation.ClearGraph(this);
             _internalGameObject = null;

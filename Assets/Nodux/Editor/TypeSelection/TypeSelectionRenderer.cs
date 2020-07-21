@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Nodux.Core;
 
-namespace Nodux.PluginEditor
+namespace Nodux.PluginEditor.TypeSelection
 {
     // public class TypeSelectionRenderer
     // {

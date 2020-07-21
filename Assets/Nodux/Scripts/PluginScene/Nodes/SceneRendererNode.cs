@@ -4,6 +4,7 @@ using Nodux.PluginScene;
 using Nodux.PluginNode;
 using Nodux.PluginState;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Nodux.PluginScene.Nodes
 {
@@ -11,17 +12,17 @@ namespace Nodux.PluginScene.Nodes
     [TypeSelectionEnable("Node")]
     public class SceneRendererNode : Node
     {
-        [SerializeField] private StoreHolder StoreHolder = default;
+        [SerializeField] private StoreHolder storeHolder = default;
 
         public SceneRendererNode(StoreHolder holder) : base(null)
         {
-            StoreHolder = holder;
+            storeHolder = holder;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            var stateNode = new StateReaderNode(this.StoreHolder, SceneConst.StateKey);
-            var sceneNode = new SceneWriteNode(stateNode, this.StoreHolder);
+            var stateNode = new StateReaderNode(this.storeHolder, SceneConst.StateKey);
+            var sceneNode = new SceneWriteNode(stateNode, this.storeHolder);
             return sceneNode.Subscribe(observer);
         }
     }

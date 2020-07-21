@@ -1,8 +1,8 @@
 using System;
-using UniRx;
-using UnityEngine;
 using Nodux.Core;
 using Nodux.PluginNode;
+using UniRx;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Nodux.PluginUI
@@ -11,16 +11,16 @@ namespace Nodux.PluginUI
     [TypeSelectionEnable("Node")]
     public class OnClickButtonNode : Node
     {
-        [SerializeField] private Button Button;
+        [SerializeField] private Button button;
 
         public OnClickButtonNode(Button button) : base(null)
         {
-            this.Button = button;
+            this.button = button;
         }
 
         public override IDisposable Subscribe(IObserver<Any> observer)
         {
-            return this.Button.OnClickAsObservable().Select(it => new Any(it)).Subscribe(observer);
+            return this.button.OnClickAsObservable().Select(it => new Any(it)).Subscribe(observer);
         }
     }
 }
