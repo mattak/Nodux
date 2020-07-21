@@ -800,10 +800,10 @@ MonoBehaviour:
     00000003:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StateKey: Time
-        Reducer:
+        stateKey: Time
+        reducer:
           id: 4
-        StoreHolder: {fileID: 759295588}
+        storeHolder: {fileID: 759295588}
     00000004:
       type: {class: StopwatchIsPlayingReducer, ns: Nodux.PluginStopwatch, asm: Nodux}
 --- !u!1 &1245811248
@@ -879,10 +879,10 @@ MonoBehaviour:
     00000002:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StateKey: Time
-        Reducer:
+        stateKey: Time
+        reducer:
           id: 3
-        StoreHolder: {fileID: 759295588}
+        storeHolder: {fileID: 759295588}
     00000003:
       type: {class: StopwatchAggregateReducer, ns: Nodux.PluginStopwatch, asm: Nodux}
 --- !u!1 &1507698039
@@ -1050,8 +1050,8 @@ MonoBehaviour:
     00000001:
       type: {class: StopwatchTimeStateReaderNode, ns: Nodux.PluginStopwatch, asm: Nodux}
       data:
-        StateKey: Time
-        StoreHolder: {fileID: 759295588}
+        stateKey: Time
+        storeHolder: {fileID: 759295588}
     00000002:
       type: {class: FloatSubtractNode, ns: Nodux.PluginOperator, asm: Nodux}
       data:
@@ -1137,8 +1137,8 @@ MonoBehaviour:
     00000001:
       type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StoreHolder: {fileID: 759295588}
-        StateKey: Score
+        storeHolder: {fileID: 759295588}
+        stateKey: Score
     00000002:
       type: {class: TextRenderNode, ns: Nodux.PluginNode, asm: Nodux}
       data:
@@ -1239,8 +1239,8 @@ MonoBehaviour:
     00000001:
       type: {class: StopwatchTimeStateReaderNode, ns: Nodux.PluginStopwatch, asm: Nodux}
       data:
-        StateKey: Time
-        StoreHolder: {fileID: 759295588}
+        stateKey: Time
+        storeHolder: {fileID: 759295588}
     00000002:
       type: {class: PageReplaceNode, ns: Nodux.PluginPage.Nodes, asm: Nodux}
       data:
@@ -1340,7 +1340,7 @@ MonoBehaviour:
     00000001:
       type: {class: IntervalTimerNode, ns: Nodux.PluginSpawner, asm: Nodux}
       data:
-        IntervalSeconds: 1
+        intervalSeconds: 1
     00000002:
       type: {class: PrefabInstantiateNode, ns: Nodux.PluginSpawner, asm: Nodux}
       data:
@@ -1350,7 +1350,7 @@ MonoBehaviour:
     00000003:
       type: {class: RandomRectPositionNode, ns: Nodux.PluginSpawner, asm: Nodux}
       data:
-        RandomArea: {fileID: 416655569}
+        randomArea: {fileID: 416655569}
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0

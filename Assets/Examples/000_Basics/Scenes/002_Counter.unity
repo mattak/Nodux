@@ -204,14 +204,14 @@ MonoBehaviour:
     00000002:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StateKey: Clicks
-        Reducer:
+        stateKey: Count
+        reducer:
           id: 4
-        StoreHolder: {fileID: 458755935}
+        storeHolder: {fileID: 458755935}
     00000003:
       type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
       data:
-        Button: {fileID: 1591365636}
+        button: {fileID: 1591365636}
     00000004:
       type: {class: IncrementReducer, ns: Nodux.PluginCounter, asm: Nodux}
 --- !u!1 &458755934
@@ -621,8 +621,8 @@ MonoBehaviour:
     00000001:
       type: {class: StateReaderNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StoreHolder: {fileID: 458755935}
-        StateKey: Clicks
+        storeHolder: {fileID: 458755935}
+        stateKey: Count
     00000002:
       type: {class: TextRenderNode, ns: Nodux.PluginNode, asm: Nodux}
       data:

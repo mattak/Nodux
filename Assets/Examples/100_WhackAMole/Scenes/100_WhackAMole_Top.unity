@@ -584,10 +584,10 @@ MonoBehaviour:
     00000003:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StateKey: Score
-        Reducer:
+        stateKey: Score
+        reducer:
           id: 4
-        StoreHolder: {fileID: 446254325}
+        storeHolder: {fileID: 446254325}
     00000004:
       type: {class: AssignmentReducer, ns: Nodux.PluginState, asm: Nodux}
 --- !u!1 &586772990
@@ -888,12 +888,12 @@ MonoBehaviour:
     00000002:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StateKey: Time
-        Reducer:
+        stateKey: Time
+        reducer:
           id: 3
-        StoreHolder: {fileID: 446254325}
+        storeHolder: {fileID: 446254325}
     00000003:
-      type: {class: AssignmentReducer, ns: Nodux.PluginState, asm: Nodux}
+      type: {class: StopwatchResetReducer, ns: Nodux.PluginStopwatch, asm: Nodux}
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0

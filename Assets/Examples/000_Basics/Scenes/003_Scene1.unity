@@ -588,9 +588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5aa7d274c4444b833f46c03639406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scenes:
+  scenes:
   - 003_Scene2
-  StoreHolder: {fileID: 458755935}
+  storeHolder: {fileID: 458755935}
 --- !u!1 &1689879890
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11deab5994f440259c9a4dfa74a18d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StoreHolder: {fileID: 458755935}
+  storeHolder: {fileID: 458755935}
 --- !u!1 &1730860250
 GameObject:
   m_ObjectHideFlags: 0

@@ -1186,14 +1186,14 @@ MonoBehaviour:
     00000002:
       type: {class: OnClickButtonNode, ns: Nodux.PluginUI, asm: Nodux}
       data:
-        Button: {fileID: 1286939612}
+        button: {fileID: 1286939612}
     00000003:
       type: {class: StateActionWriterNode, ns: Nodux.PluginState, asm: Nodux}
       data:
-        StateKey: Page
-        Reducer:
+        stateKey: Page
+        reducer:
           id: 4
-        StoreHolder: {fileID: 1084557343}
+        storeHolder: {fileID: 1084557343}
     00000004:
       type: {class: PagePushReducer, ns: Nodux.PluginPage.Reducers, asm: Nodux}
 --- !u!114 &1286939612
